@@ -16,7 +16,10 @@ class Alumno extends Model
     protected $fillable = [
         'nombre',
         'apellidos',
-        'foto'
+        'foto',
+        'ciclo',
+        'curso',
+        'tutor'
     ];
     public function ciclos(){
         return $this->belongsTo(Ciclo::class, "ciclo", "id");
