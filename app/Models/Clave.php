@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Ciclo;
 use App\Models\Curso;
-use App\Models\Profesor;
+use App\Models\User;
 
 class Clave extends Model
 {
@@ -26,6 +26,6 @@ class Clave extends Model
         return $this->belongsTo(Curso::class, "curso", "id");
     }
     public function tutor(){
-        return $this->belongsTo(Profesor::class, "tutor", "id");
+        return $this->belongsTo(User::class, "tutor", "id");
     }
 }
