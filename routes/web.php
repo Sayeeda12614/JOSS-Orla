@@ -1,6 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CursosController;
+use App\Http\Controllers\ClavesController;
+use App\Http\Controllers\CiclosController;
+use App\Http\Controllers\IntegrantesController;
+use App\Http\Controllers\AccesoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,3 +25,18 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+//Rutas para los cursos
+Route::resource("cursos",CursosController::class);
+//Rutas para las claves
+Route::resource("claves",ClavesController::class);
+//Rutas para los Ciclos
+Route::resource("admin/ciclos",CiclosController::class);
+//Rutas para los Integrantes
+Route::resource("integrantes",IntegrantesController::class);
+//Rutas para los el control de claves
+Route::resource("control",AccesoController::class);
