@@ -32,7 +32,8 @@ class DatabaseSeeder extends Seeder
         $admin->name="Admin";
         $admin->tipo="administrador";
         $admin->password=Hash::make("admin123456");
-        $admin->tipo="admin@gmail.com";
+        $admin->email="admin@gmail.com";
+        $admin->save();
     }
     private function ciclos(){
         $file = fopen('public/assets/csv/Ciclos.csv', "r");
