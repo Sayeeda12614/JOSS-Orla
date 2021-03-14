@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Integrante;
 use App\Models\Clave;
+use App\Models\Curso;
+use App\Models\Ciclo;
 use Illuminate\Http\Request;
 
 class IntegrantesController extends Controller
@@ -14,8 +16,16 @@ class IntegrantesController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        //
+    {    
+        if (isset($_GET['tutor'])) 
+        {
+            $tutor = $_GET['tutor'];   
+        }
+       
+        $integrantes = Integrante::with("cursos","ciclos")->where("tutor",$tutor)->get();
+      
+        return view('orla.integrantes.index')->with(['tutor'=>$tutor,'integrantes'=>$integrantes]);
+       
     }
 
     /**
@@ -56,9 +66,10 @@ class IntegrantesController extends Controller
      * @param  \App\Models\Integrante  $integrante
      * @return \Illuminate\Http\Response
      */
-    public function edit(Integrante $integrante)
+    public function edit($integrante_id)
     {
-        //
+        $integrante = Integrante::with("cursos",'ciclos')->where("id",$integrante_id)->get()->first();
+        return view('orla.integrantes.edit',compact("integrante"))->with(["integrante"=>$integrante, "ciclos"=>Ciclo::all(), 'cursos'=>Curso::all()]);
     }
 
     /**
@@ -68,9 +79,24 @@ class IntegrantesController extends Controller
      * @param  \App\Models\Integrante  $integrante
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Integrante $integrante)
+    public function update(Request $request, $integrante_id)
     {
-        //
+        $request->validate([]);
+        $integrante = Integrante::all()->find($integrante_id);
+        if($integrante!=null){
+            $data = $request->all();
+            if($request->hasFile('foto')){
+                $archivo = $request->file('foto');
+                $nombreF = $archivo->getClientOriginalName();
+                $archivo->move('img',$nombreF);
+                $data['foto'] = $nombreF;
+            }else{
+                unset($integrante['foto']);
+            }
+            $integrante->update($data);
+        }
+        return redirect()->route('home');
+            
     }
 
     /**
