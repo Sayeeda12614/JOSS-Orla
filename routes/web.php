@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-//aquí iran todas las rutas
+
 Route::get('/', function () {
     return view('plantilla-master');
 });
