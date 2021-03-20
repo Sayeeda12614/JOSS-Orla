@@ -46,7 +46,20 @@ class IntegrantesController extends Controller
      */
     public function store(Request $request)
     {
-     
+        $data=$request->all();
+        
+        if($request->hasFile('foto')){
+            $archivo = $request->file('foto');
+            $nombre = $archivo->getClientOriginalName();
+            $archivo->move("img/",$nombre);
+            $data["foto"]=$nombre;
+        }else{
+            $data["foto"]="";
+        }
+
+        Integrante::create($data);
+         return view('welcome');
+            
     }
 
     /**
@@ -84,16 +97,18 @@ class IntegrantesController extends Controller
         $request->validate([]);
         $integrante = Integrante::all()->find($integrante_id);
         if($integrante!=null){
-            $data = $request->all();
+
+            $data=$request->all();
+        
             if($request->hasFile('foto')){
                 $archivo = $request->file('foto');
-                $nombreF = $archivo->getClientOriginalName();
-                $archivo->move('img',$nombreF);
-                $data['foto'] = $nombreF;
+                $nombre = $archivo->getClientOriginalName();
+                $archivo->move("img/",$nombre);
+                $data["foto"]=$nombre;
             }else{
-                unset($integrante['foto']);
+                $data['foto']=$integrante["foto"];
             }
-            $integrante->update($data);
+            $integrante->update($request->all());
         }
         return redirect()->route('home');
             
@@ -105,8 +120,10 @@ class IntegrantesController extends Controller
      * @param  \App\Models\Integrante  $integrante
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Integrante $integrante)
+    public function destroy($integrante_id)
     {
-        //
+        Integrante::all()->find($integrante_id)->delete();
+        return redirect()->route('home');
+           
     }
 }

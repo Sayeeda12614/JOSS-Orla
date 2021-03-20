@@ -9,26 +9,26 @@
                         <div class="col-12">
                             <div class="form-group">
                                 <label for="">Nombre</label>
-                                <input type="text" name="nombre" value="{{$integrante->nombre}}" class="form-control">
+                                <input type="text" name="nombre" value="{{$integrante->nombre}}" class="form-control" required>
                             </div>
                         </div>
                         <div class="col-12">
                             <div class="form-group">
                                 <label for="">Apelidos</label>
-                                <input type="text" name="apellidos" value="{{$integrante->apellidos}}" class="form-control">
+                                <input type="text" name="apellidos" value="{{$integrante->apellidos}}" class="form-control" required>
                             </div>
                         </div>
                         <div class="col-12">
                             <div class="form-group">
                                 <img src="{{asset('img/'.$integrante->foto)}}" alt="" height="150"><br>
-                                <input type="file" value="{{$integrante->foto}}" selected name="foto"><br>
+                                <input type="file" value="{{$integrante->foto}}" accept="image/png, .jpeg, .jpg" name="foto"><br>
                                 {{$integrante->foto}}
                             </div>
                         </div>
                         <div class="col-12">
                             <div class="form-group">
                                 <label for="">Tipo</label>
-                                <select name="tipo" id="">
+                                <select name="tipo" id="" required>
                                      @if($integrante->tipo=="")
                                         <option disabled value="">Selecciona tipo</option>
                                         <option value="alumno">Alumno</option>
@@ -73,12 +73,8 @@
                         </div>
                     </div>
                     <div class="col-12">
-                        <div class="form-group">
-                            <button type="submit" class="btn btn-success">Guardar cambios</button>
-                        </div>
-                    </div>
-               
-            
+                        <button type="submit" class="btn btn-success">Guardar cambios</button>
+                    </div> 
         </form>
     </div>
 @endsection

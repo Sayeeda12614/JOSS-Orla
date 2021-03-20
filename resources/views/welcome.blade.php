@@ -49,10 +49,11 @@
                         <div class="form-group">
                             <label for="">Introducir mis Datos</label><br>
                             <input type="text" name="codigo" class="form-control" placeholder="Clave"><br>
-                            <input type="submit" value="ENVIAR">
+                            <input type="submit" class="btn btn-warning" value="ENVIAR">
                         </div>
                     </form>
                 </div>
+                
             </div>
         </div>
     </body>

@@ -7,6 +7,7 @@ use App\Http\Controllers\CiclosController;
 use App\Http\Controllers\IntegrantesController;
 use App\Http\Controllers\AccesoController;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -36,12 +37,18 @@ Route::resource("cursos",CursosController::class);
 //Rutas para los Ciclos
 Route::resource("admin/ciclos",CiclosController::class);
 
+//Ruta exclusivamente para el alta de nuevos integrantes
+Route::resource("integrantes",IntegrantesController::class,["except"=>["update","show","delete"]]);
+
 //Ruta controlada, solo podrán acceder a ella los tutores
 Route::group(['middleware'=>['auth.basic','auth.tutor']],function(){
    //Rutas para los Integrantes, y dejamos libre la ruta para crear
-    Route::resource("integrantes",IntegrantesController::class,["except"=>["create"]]);
+    Route::resource("integrantes",IntegrantesController::class,["except"=>["create","store"]]);
     //Rutas para las claves
     Route::resource("claves",ClavesController::class);
 }); 
+
+
+
 //Rutas para los el control de claves
 Route::resource("control",AccesoController::class);

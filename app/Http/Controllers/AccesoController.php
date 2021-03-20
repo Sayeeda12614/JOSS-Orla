@@ -37,7 +37,7 @@ class AccesoController extends Controller
     {
         $claveEnviada = $request->input('codigo');
         $claveOriginal = Clave::all()->where('clave',$claveEnviada);
-        $datos = Clave::all()->where('clave',$claveEnviada);
+        $clave = Clave::all()->where('clave',$claveEnviada);
       
         
         foreach($claveOriginal as $c ){
@@ -45,7 +45,7 @@ class AccesoController extends Controller
         }
 
         if($claveEnviada==$claveOriginal){
-            return view('orla.integrantes.create',compact('datos',$datos));
+            return view('orla.integrantes.create',compact('clave',$clave));
         }if($claveEnviada!=$claveOriginal){
             return view('welcome');
         } 
