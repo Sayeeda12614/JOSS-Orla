@@ -16,7 +16,13 @@ class ClavesController extends Controller
      */
     public function index()
     {
-        $claves = Clave::all();
+        
+        if (isset($_GET['tutor'])) 
+        {
+            $tutor = $_GET['tutor'];   
+        }
+
+        $claves = Clave::with("cursos","ciclos")->where("tutor",$tutor)->get();
         return view('orla.tutores.claves.index',compact('claves',$claves));
     }
 
@@ -42,7 +48,8 @@ class ClavesController extends Controller
     {
         $data = $request->all();
         Clave::create($data);
-        return redirect()->route('claves.index');
+        return redirect()->route('home')
+            ->with('success',$data['clave'].' Creada exitoxamente');
     }
 
     /**
@@ -62,9 +69,11 @@ class ClavesController extends Controller
      * @param  \App\Models\Clave  $clave
      * @return \Illuminate\Http\Response
      */
-    public function edit(Clave $clave)
+    public function edit($clave_id)
     {
-        //
+        $clave = Clave::with("cursos","ciclos")->where("id",$clave_id)->get()->first();
+        return view('orla.tutores.claves.edit',compact("clave",$clave))->with(["clave"=>$clave,"cursos"=>Curso::all(),"ciclos"=>Ciclo::all()]);
+        
     }
 
     /**
@@ -74,9 +83,15 @@ class ClavesController extends Controller
      * @param  \App\Models\Clave  $clave
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Clave $clave)
+    public function update(Request $request, $clave_id)
     {
-        //
+        $clave = Clave::all()->find($clave_id);
+        if($clave != null){
+            $data = $request->all();
+            $clave->update($data);
+        }
+        return redirect()->route('home')
+            ->with('success',$data['clave'].' Modificado exitoxamente');
     }
 
     /**
@@ -85,8 +100,11 @@ class ClavesController extends Controller
      * @param  \App\Models\Clave  $clave
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Clave $clave)
+    public function destroy($clave_id)
     {
-        //
+        $clave = Clave::all()->find($clave_id);
+        Clave::all()->find($clave_id)->delete();
+        return redirect()->route('home')
+            ->with('success','La clave: '.$clave['clave'].', ha sido eliminado exitosamente');
     }
 }

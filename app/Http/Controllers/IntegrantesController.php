@@ -79,10 +79,9 @@ class IntegrantesController extends Controller
      * @param  \App\Models\Integrante  $integrante
      * @return \Illuminate\Http\Response
      */
-    public function edit($integrante_id)
+    public function edit()
     {
-        $integrante = Integrante::with("cursos",'ciclos')->where("id",$integrante_id)->get()->first();
-        return view('orla.integrantes.edit',compact("integrante"))->with(["integrante"=>$integrante, "ciclos"=>Ciclo::all(), 'cursos'=>Curso::all()]);
+        
     }
 
     /**
@@ -94,24 +93,7 @@ class IntegrantesController extends Controller
      */
     public function update(Request $request, $integrante_id)
     {
-        $request->validate([]);
-        $integrante = Integrante::all()->find($integrante_id);
-        if($integrante!=null){
-
-            $data=$request->all();
-        
-            if($request->hasFile('foto')){
-                $archivo = $request->file('foto');
-                $nombre = $archivo->getClientOriginalName();
-                $archivo->move("img/",$nombre);
-                $data["foto"]=$nombre;
-            }else{
-                $data['foto']=$integrante["foto"];
-            }
-            $integrante->update($request->all());
-        }
-        return redirect()->route('home');
-            
+       
     }
 
     /**
@@ -122,8 +104,10 @@ class IntegrantesController extends Controller
      */
     public function destroy($integrante_id)
     {
+        $integrante = Integrante::all()->find($integrante_id);
         Integrante::all()->find($integrante_id)->delete();
-        return redirect()->route('home');
+        return redirect()->route('home')
+            ->with('success',$integrante['nombre'].' '.$integrante['apellidos'].' ha sido eliminado exitosamente');
            
     }
 }

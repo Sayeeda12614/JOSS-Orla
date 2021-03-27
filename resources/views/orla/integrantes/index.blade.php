@@ -38,7 +38,6 @@
                                     <form action="{{route('integrantes.destroy',$integrante->id)}}" method="post">
                                         @csrf
                                         @METHOD('DELETE')
-                                        <a href="{{route('integrantes.edit',$integrante->id)}}" class="btn btn-warning"><span class="icon-edit"></span></a>
                                         <button type="submit" class="btn btn-danger"><span class="icon-trash"></span></button>
                                     </form>
                                 </td>
