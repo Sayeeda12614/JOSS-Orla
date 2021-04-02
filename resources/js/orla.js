@@ -4,7 +4,7 @@ window.onload=(function(){
     Vue.component('orla-component', require('./components/orla.vue').default);
 
     const orla = new Vue({
-        el: '#orla',
+        el: 'main',
         methods: {
             
         }

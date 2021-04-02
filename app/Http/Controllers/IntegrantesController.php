@@ -16,11 +16,11 @@ class IntegrantesController extends Controller
     public function index()
     {
         //Creamos la funcion donde mostrara los integrantes
-        $integrantes = Integtante::All();
-        return $integrante;
+        // $integrantes = Integtante::All();
+        // return $integrante;
 
         try{
-            $array=Integtante::with("cursos", "ciclos", "users")->get();
+            $array=Integrante::with("cursos", "ciclos", "users")->get();
             $result=[];
             foreach ($array as $item) {
                 $curso = array(
