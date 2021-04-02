@@ -35,13 +35,14 @@
                     @endauth
                 </div>
             @endif
-
-            <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
-                <orla-component></orla-component>
-            </div>
         </div>
 
         <div class="container">
+
+            <div id="app">
+                <orla-component></orla-component>
+            </div>
+
             <div class="row">
                 <div class="col-12">
                     <form action="{{route('control.store')}}" method="post">
@@ -56,5 +57,7 @@
                 
             </div>
         </div>
+        
+        <script src="{{asset("js/orla.js")}}" defer></script>
     </body>
 </html>

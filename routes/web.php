@@ -19,8 +19,12 @@ use App\Http\Controllers\AccesoController;
 |
 */
 
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
 Route::get('/', function () {
-    return view('welcome');
+    return view('orla');
 });
 
 Auth::routes();
