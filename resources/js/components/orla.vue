@@ -7,6 +7,7 @@
         <h5>{{ integrante.apellidos }}</h5>
         <p>{{ integrante.curso.anio }}</p>
         <p>{{ integrante.ciclo.nombre }}</p>
+        <p>{{ integrante.tutor.name }}</p>
       </div>
     </div>
   </div>

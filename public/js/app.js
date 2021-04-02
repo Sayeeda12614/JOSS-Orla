@@ -1894,6 +1894,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 Vue.config.productionTip = false;
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
@@ -37597,7 +37598,9 @@ var render = function() {
             _vm._v(" "),
             _c("p", [_vm._v(_vm._s(integrante.curso.anio))]),
             _vm._v(" "),
-            _c("p", [_vm._v(_vm._s(integrante.ciclo.nombre))])
+            _c("p", [_vm._v(_vm._s(integrante.ciclo.nombre))]),
+            _vm._v(" "),
+            _c("p", [_vm._v(_vm._s(integrante.tutor.name))])
           ])
         ])
       })

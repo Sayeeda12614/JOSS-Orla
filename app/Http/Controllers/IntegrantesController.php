@@ -24,13 +24,16 @@ class IntegrantesController extends Controller
             $result=[];
             foreach ($array as $item) {
                 $user = array(
+                    "id" => $item->users->id,
                     "name" => $item->users->name,
                     "apellidos" => $item->users->apellidos
                 );
                 $ciclo = array(
+                    "id" => $item->ciclos->id,
                     "nombre" => $item->ciclos->nombre
                 );
                 $curso = array(
+                    "id" => $item->cursos->id,
                     "anio" => $item->cursos->anio
                 );
                 $integrante = array(
