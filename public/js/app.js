@@ -1886,9 +1886,33 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 Vue.config.productionTip = false;
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  data: function data() {}
+  data: function data() {
+    return {
+      arrayIntegrantes: []
+    };
+  },
+  methods: {
+    cargarIntegrantes: function cargarIntegrantes() {
+      var url = "api/integrantes";
+      window.axios.get(url).then(function (response) {
+        this.arrayIntegrantes = response.data;
+        console.log(arrayIntegrantes);
+      })["catch"](function (error) {
+        console.log("Habido un error: " + error);
+      });
+    }
+  },
+  mounted: function mounted() {
+    this.cargarIntegrantes();
+  }
 });
 
 /***/ }),
@@ -37557,7 +37581,22 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [_vm._v("\n    Esta es la horla\n")])
+  return _c(
+    "div",
+    [
+      _vm._v("\n  La orla\n  "),
+      _vm._l(_vm.arrayIntegrantes, function(integrante) {
+        return _c("div", { key: integrante.id }, [
+          _c("div", [
+            _c("h4", [_vm._v(_vm._s(integrante.nombre))]),
+            _vm._v(" "),
+            _c("h5", [_vm._v(_vm._s(integrante.apellidos))])
+          ])
+        ])
+      })
+    ],
+    2
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
