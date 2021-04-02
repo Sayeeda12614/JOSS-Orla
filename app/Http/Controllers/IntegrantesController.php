@@ -13,7 +13,7 @@ class IntegrantesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function none()
     {
         //Creamos la funcion donde mostrara los integrantes
         // $integrantes = Integtante::All();
@@ -52,8 +52,29 @@ class IntegrantesController extends Controller
             return response()->json($result);
         }
         catch(\Exception $e){
-            return response("No hay datos para mostrar o habido un error del servidor",500);
+            return response("Controlador: Habido un error del servidor",500);
         }
+    }
+
+    public function index(){
+        $result=[];
+        $Integrantes=Integrante::all();
+        if($Integrantes!=null || count($Integrantes)>0){
+            foreach($Integrantes as $Integrante){
+                $result[]=
+                    [
+                        "id"=>$Integrante->id,
+                        "nombre"=>$Integrante->nombre,
+                        "apellidos"=>$Integrante->apellidos
+                    ];
+            }
+        }
+        if($result!=[]){
+            $result = response()->json($result);
+        }else{
+            $result = response("No se han podido devolver datos o no existen",404);
+        }
+        return $result;
     }
 
     /**
