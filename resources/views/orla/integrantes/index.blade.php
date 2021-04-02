@@ -1,6 +1,6 @@
-@extends('layouts.app')
+@extends('layouts.page')
 @section('content')
-    <h2>MIEMBROS DE MI GRUPO</h2>
+    <h1 style="margin:0 auto; text-align:center; color:white;">MIEMBROS DE MI GRUPO</h1>
     <!-- Mensaje de exito -->
     @if($message = Session::get('success'))
     <div class="alert alert-success mensaje w-100">
@@ -9,25 +9,25 @@
     @endif 
 
   <div class="container">
-        <div class="row">
+        <div class="row mt-5">
             <div class="col-12">
                 <table class="table">
                     <thead>
-                        <tr>
-                            <th>Foto</th>
-                            <th>Nombre</th>
-                            <th>Apellidos</th>
-                            <th>Tipo</th>
-                            <th>Ciclo</th>
-                            <th>Año</th>
-                            <th>Acciones</th>
+                        <tr style="background:wheat;">
+                            <th>FOTO</th>
+                            <th>NOMBRE</th>
+                            <th>APELLIDOS</th>
+                            <th>TIPO</th>
+                            <th>CICLO FORMATIVO</th>
+                            <th>AÑO</th>
+                            <th>ACIÓN</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach($integrantes as $integrante) 
-                            <tr>
+                            <tr style="background:rgba(0, 0, 0, 0.28);">
                                 <td>
-                                    <img src="{{asset('img/'.$integrante->foto)}}" alt="" height="100">
+                                    <img style="border-radius:50%;" src="{{asset('img/'.$integrante->foto)}}" alt="" height="70">
                                 </td>
                                 <td>{{$integrante->nombre}}</td>
                                 <td>{{$integrante->apellidos}}</td>
@@ -48,5 +48,8 @@
             </div>
         </div>
   </div>
- 
+ <style>
+    td{color:white; font-size:1.2rem;text-align:center;}
+    th{text-align:center;}
+ </style>
 @endsection

@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.page')
 @section('content')
     <h2>EDITANDO {{$integrante->nombre}} {{$integrante->apellidos}}</h2>
     <div class="container">

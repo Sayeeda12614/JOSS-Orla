@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.page')
 @section('content')
   <div class="container">
   <h1>CREAR CLAVE</h1>

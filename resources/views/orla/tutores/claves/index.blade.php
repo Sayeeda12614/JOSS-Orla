@@ -1,20 +1,21 @@
-@extends('layouts.app')
+@extends('layouts.page')
 @section('content')
+<h1 style="margin:0 auto; text-align:center; color:white;">MIS CLAVES</h1>
     <div class="container">
-        <div class="row">
+        <div class="row mt-5">
             <div class="col-12">
                 <table class="table mt-5">
                     <thead>
-                        <tr>
-                            <th>Clave</th>
-                            <th>Ciclo Formativo</th>
-                            <th>Curso</th>
-                            <th>Acciones</th>
+                        <tr style="background:wheat;">
+                            <th>CLAVE</th>
+                            <th>CICLO FORMATIVO</th>
+                            <th>AÑO</th>
+                            <th>ACCIONES</th>
                         </tr>
                     </thead>
                     <tbody>
                     @foreach($claves as $clave)
-                        <tr class="list-group-item-action">
+                        <tr style="background:rgba(0, 0, 0, 0.28);">
                             <td>{{$clave->clave}}</td>
                             <td>{{$clave->ciclos->nombre}}</td>
                             <td>{{$clave->cursos->anio}}</td>
@@ -34,5 +35,8 @@
             </div>
         </div>
     </div>
-  
+  <style>
+   td{color:white; font-size:1.2rem;text-align:center;}
+    th{text-align:center;}
+  </style>
 @endsection

@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.page')
 @section('content')
     <form action="{{route('cursos.store')}}" method="post">
         @csrf

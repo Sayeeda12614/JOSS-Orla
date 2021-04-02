@@ -14,7 +14,7 @@ class AccesoController extends Controller
      */
     public function index()
     {
-        //
+        return view('orla.index');
     }
 
     /**
@@ -47,7 +47,8 @@ class AccesoController extends Controller
         if($claveEnviada==$claveOriginal){
             return view('orla.integrantes.create',compact('clave',$clave));
         }if($claveEnviada!=$claveOriginal){
-            return view('welcome');
+            return redirect()->route('control.index')
+                ->with('error','Lo sentimos, No se reconoce la clave');
         } 
     }
 

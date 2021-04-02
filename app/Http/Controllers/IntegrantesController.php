@@ -58,7 +58,8 @@ class IntegrantesController extends Controller
         }
 
         Integrante::create($data);
-         return view('welcome');
+         return redirect()->route('control.index')
+         ->with('success','ÉXITO!!! Datos insertados correctamente');
             
     }
 
