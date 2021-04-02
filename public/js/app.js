@@ -1892,6 +1892,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 Vue.config.productionTip = false;
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
@@ -1901,9 +1903,10 @@ Vue.config.productionTip = false;
   },
   methods: {
     cargarIntegrantes: function cargarIntegrantes() {
+      var me = this;
       var url = "api/integrantes";
       window.axios.get(url).then(function (response) {
-        this.arrayIntegrantes = response.data;
+        me.arrayIntegrantes = response.data;
         console.log(arrayIntegrantes);
       })["catch"](function (error) {
         console.log("Habido un error: " + error);
@@ -37590,7 +37593,11 @@ var render = function() {
           _c("div", [
             _c("h4", [_vm._v(_vm._s(integrante.nombre))]),
             _vm._v(" "),
-            _c("h5", [_vm._v(_vm._s(integrante.apellidos))])
+            _c("h5", [_vm._v(_vm._s(integrante.apellidos))]),
+            _vm._v(" "),
+            _c("p", [_vm._v(_vm._s(integrante.curso.anio))]),
+            _vm._v(" "),
+            _c("p", [_vm._v(_vm._s(integrante.ciclo.nombre))])
           ])
         ])
       })

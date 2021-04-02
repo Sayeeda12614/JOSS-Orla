@@ -5,6 +5,8 @@
       <div>
         <h4>{{ integrante.nombre }}</h4>
         <h5>{{ integrante.apellidos }}</h5>
+        <p>{{ integrante.curso.anio }}</p>
+        <p>{{ integrante.ciclo.nombre }}</p>
       </div>
     </div>
   </div>
@@ -20,11 +22,12 @@ export default {
   },
   methods: {
     cargarIntegrantes() {
+      let me = this;
       let url = "api/integrantes";
       window.axios
         .get(url)
         .then(function (response) {
-          this.arrayIntegrantes = response.data;
+          me.arrayIntegrantes = response.data;
           console.log(arrayIntegrantes);
         })
         .catch(function (error) {

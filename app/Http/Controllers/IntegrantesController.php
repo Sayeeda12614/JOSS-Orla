@@ -13,29 +13,25 @@ class IntegrantesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function none()
+    public function index()
     {
         //Creamos la funcion donde mostrara los integrantes
         // $integrantes = Integtante::All();
         // return $integrante;
 
         try{
-            $array=Integrante::with("cursos", "ciclos", "users")->get();
+            $array=Integrante::with("users", "ciclos", "cursos")->get();
             $result=[];
             foreach ($array as $item) {
-                $curso = array(
-                    "id" => $item->cursos->id,
-                    "anio" => $item->cursos->anio
+                $user = array(
+                    "name" => $item->users->name,
+                    "apellidos" => $item->users->apellidos
                 );
                 $ciclo = array(
-                    "id" => $item->ciclos->id,
                     "nombre" => $item->ciclos->nombre
                 );
-                $user = array(
-                    "id" => $item->users->id,
-                    "name" => $item->users->name,
-                    "apellidos" => $item->users->apellidos,
-                    "tipo" => $item->users->tipo
+                $curso = array(
+                    "anio" => $item->cursos->anio
                 );
                 $integrante = array(
                     "id"=>$item->id,
@@ -46,6 +42,7 @@ class IntegrantesController extends Controller
                     "tutor" => $user,
                     "ciclo" => $ciclo,
                     "curso" => $curso
+                    
                 );
                 $result[] = $integrante;
             }
@@ -56,7 +53,7 @@ class IntegrantesController extends Controller
         }
     }
 
-    public function index(){
+    public function none(){
         $result=[];
         $Integrantes=Integrante::all();
         if($Integrantes!=null || count($Integrantes)>0){
@@ -65,7 +62,9 @@ class IntegrantesController extends Controller
                     [
                         "id"=>$Integrante->id,
                         "nombre"=>$Integrante->nombre,
-                        "apellidos"=>$Integrante->apellidos
+                        "apellidos"=>$Integrante->apellidos,
+                        "ciclo"=>$Integrante->ciclo,
+                        "curso"=>$Integrante->curso
                     ];
             }
         }
