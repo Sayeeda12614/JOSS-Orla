@@ -1980,6 +1980,16 @@ Vue.config.productionTip = false;
       } else {
         console.log("No hay nada seleccionada" + this.CicloSeleccionado + " y " + this.CursoSeleccionado);
       }
+    },
+    ciclo: function ciclo() {
+      var combo = document.getElementById("ciclos");
+      var selected = combo.options[combo.selectedIndex].text;
+      this.CicloRecogido = selected;
+    },
+    curso: function curso() {
+      var combo = document.getElementById("cursos");
+      var selected = combo.options[combo.selectedIndex].text;
+      this.CursoRecogido = selected;
     }
   },
   watch: {
@@ -37694,20 +37704,24 @@ var render = function() {
               expression: "CicloSeleccionado"
             }
           ],
+          attrs: { id: "ciclos" },
           on: {
-            change: function($event) {
-              var $$selectedVal = Array.prototype.filter
-                .call($event.target.options, function(o) {
-                  return o.selected
-                })
-                .map(function(o) {
-                  var val = "_value" in o ? o._value : o.value
-                  return val
-                })
-              _vm.CicloSeleccionado = $event.target.multiple
-                ? $$selectedVal
-                : $$selectedVal[0]
-            }
+            change: [
+              function($event) {
+                var $$selectedVal = Array.prototype.filter
+                  .call($event.target.options, function(o) {
+                    return o.selected
+                  })
+                  .map(function(o) {
+                    var val = "_value" in o ? o._value : o.value
+                    return val
+                  })
+                _vm.CicloSeleccionado = $event.target.multiple
+                  ? $$selectedVal
+                  : $$selectedVal[0]
+              },
+              _vm.ciclo
+            ]
           }
         },
         _vm._l(_vm.arrayCiclos, function(ciclo) {
@@ -37733,20 +37747,24 @@ var render = function() {
               expression: "CursoSeleccionado"
             }
           ],
+          attrs: { id: "cursos" },
           on: {
-            change: function($event) {
-              var $$selectedVal = Array.prototype.filter
-                .call($event.target.options, function(o) {
-                  return o.selected
-                })
-                .map(function(o) {
-                  var val = "_value" in o ? o._value : o.value
-                  return val
-                })
-              _vm.CursoSeleccionado = $event.target.multiple
-                ? $$selectedVal
-                : $$selectedVal[0]
-            }
+            change: [
+              function($event) {
+                var $$selectedVal = Array.prototype.filter
+                  .call($event.target.options, function(o) {
+                    return o.selected
+                  })
+                  .map(function(o) {
+                    var val = "_value" in o ? o._value : o.value
+                    return val
+                  })
+                _vm.CursoSeleccionado = $event.target.multiple
+                  ? $$selectedVal
+                  : $$selectedVal[0]
+              },
+              _vm.curso
+            ]
           }
         },
         _vm._l(_vm.arrayCursos, function(curso) {

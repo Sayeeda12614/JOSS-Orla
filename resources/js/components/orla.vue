@@ -2,13 +2,13 @@
   <div>
 
     <div>
-      <select v-model="CicloSeleccionado">
+      <select v-model="CicloSeleccionado" @change="ciclo" id="ciclos">
           <option v-for="ciclo in arrayCiclos" v-bind:value="ciclo.id" :key="ciclo.id">{{ ciclo.nombre }}</option>
       </select>
     </div>
 
     <div>
-      <select v-model="CursoSeleccionado">
+      <select v-model="CursoSeleccionado" @change="curso" id="cursos">
           <option v-for="curso in arrayCursos" v-bind:value="curso.id" :key="curso.id">{{ curso.anio }}</option>
       </select>
     </div>
@@ -108,6 +108,16 @@ export default {
         console.log("No hay nada seleccionada"+ this.CicloSeleccionado+ " y "+this.CursoSeleccionado);
 
       }
+    },
+    ciclo() {
+      var combo = document.getElementById("ciclos");
+      var selected = combo.options[combo.selectedIndex].text;
+      this.CicloRecogido = selected;
+    },
+    curso() {
+      var combo = document.getElementById("cursos");
+      var selected = combo.options[combo.selectedIndex].text;
+      this.CursoRecogido = selected;
     }
   },
   watch: {
