@@ -55,7 +55,7 @@
                                         <form action="{{ route('integrantes.index') }}" method="GET">
                                             @csrf
                                             <input type="hidden" name="tutor" value="{{Auth::user()->id}}">
-                                            <button type="submit" class="btn btn-info">Mi grupo</button>
+                                            <button type="submit" class="btn btn-default nav-link">Mi grupo</button>
                                         </form>  
                                     </a>  
                                 </li>
@@ -65,14 +65,14 @@
                                         <form action="{{ route('claves.index') }}" method="GET">
                                             @csrf
                                             <input type="hidden" name="tutor" value="{{Auth::user()->id}}">
-                                            <button type="submit" class="btn btn-warning">Mis Claves</button>
+                                            <button type="submit" class="btn btn-default nav-link">Mis Claves</button>
                                         </form>  
                                     </a>
                                 </li>
                             @endif
                             <!-- si el usuario logueado es tutor -->
                             @if(Auth::user()->tipo=='administrador')
-                                <li class="nav-item dropdown"><a href="">Administración</a></li>
+                                <li class="nav-item dropdown"><a href="" class="btn btn-default nav-link">Administración</a></li>
                             @endif
                         
                     @endguest

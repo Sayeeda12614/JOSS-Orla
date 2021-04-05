@@ -2,10 +2,10 @@
 @section('content')
 
     <div class="container">
-        <h2>DATOS PARA LA ORLA</h2>
+        <h1 style="margin:0 auto; text-align:center; color:white;">DATOS PARA LA ORLA</h1>
         <form action="{{ route('integrantes.store') }}" method="post" enctype="multipart/form-data">
             @csrf
-            <div class="row">
+            <div class="row mt-5 p-5" style="display:flex; flex-direction:column; justify-content:center; align-items:center; margin:0 auto; width:50%; background:white; border-radius:5px;">
                 <div class="col-12">
                     <div class="form-group">
                         <input type="text" placeholder="Nombre" name="nombre" class="form-control">
@@ -39,8 +39,8 @@
                     <!--  -->
                 </div>
                 <div class="col-12">
-                    <button type="submit" class="btn btn-success m-5">Enviar</button>
-                    <a href="#" class="btn btn-info m-5">Volver</a>
+                    <button type="submit" class="btn btn-success m-1">Enviar</button>
+                    <a href="#" class="btn btn-info m-1">Volver</a>
                 </div>
             </div>
         </form>
