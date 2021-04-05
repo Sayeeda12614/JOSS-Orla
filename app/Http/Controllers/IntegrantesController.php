@@ -15,68 +15,7 @@ class IntegrantesController extends Controller
      */
     public function index()
     {
-        //Creamos la funcion donde mostrara los integrantes
-        // $integrantes = Integtante::All();
-        // return $integrante;
-
-        try{
-            $array=Integrante::with("users", "ciclos", "cursos")->get();
-            $result=[];
-            foreach ($array as $item) {
-                $user = array(
-                    "id" => $item->users->id,
-                    "name" => $item->users->name,
-                    "apellidos" => $item->users->apellidos
-                );
-                $ciclo = array(
-                    "id" => $item->ciclos->id,
-                    "nombre" => $item->ciclos->nombre
-                );
-                $curso = array(
-                    "id" => $item->cursos->id,
-                    "anio" => $item->cursos->anio
-                );
-                $integrante = array(
-                    "id"=>$item->id,
-                    "nombre" => $item->nombre,
-                    "apellidos" => $item->apellidos,
-                    "foto" => $item->foto,
-                    "tipo" => $item->tipo,
-                    "tutor" => $user,
-                    "ciclo" => $ciclo,
-                    "curso" => $curso
-                    
-                );
-                $result[] = $integrante;
-            }
-            return response()->json($result);
-        }
-        catch(\Exception $e){
-            return response("Controlador: Habido un error del servidor",500);
-        }
-    }
-
-    public function none(){
-        $result=[];
-        $Integrantes=Integrante::all();
-        if($Integrantes!=null || count($Integrantes)>0){
-            foreach($Integrantes as $Integrante){
-                $result[]=
-                    [
-                        "id"=>$Integrante->id,
-                        "nombre"=>$Integrante->nombre,
-                        "apellidos"=>$Integrante->apellidos,
-                        "ciclo"=>$Integrante->ciclo,
-                        "curso"=>$Integrante->curso
-                    ];
-            }
-        }
-        if($result!=[]){
-            $result = response()->json($result);
-        }else{
-            $result = response("No se han podido devolver datos o no existen",404);
-        }
-        return $result;
+        
     }
 
     /**
