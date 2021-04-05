@@ -3,13 +3,13 @@
 
     <div>
       <select v-model="CicloSeleccionado">
-          <option v-for="ciclo in arrayCiclos" v-bind:value="ciclo.id" :key="ciclo.id" @click="setCiclo(ciclo.nombre)">{{ ciclo.nombre }}</option>
+          <option v-for="ciclo in arrayCiclos" v-bind:value="ciclo.id" :key="ciclo.id">{{ ciclo.nombre }}</option>
       </select>
     </div>
 
     <div>
       <select v-model="CursoSeleccionado">
-          <option v-for="curso in arrayCursos" v-bind:value="curso.id" :key="curso.id" @click="setCurso(curso.anio)">{{ curso.anio }}</option>
+          <option v-for="curso in arrayCursos" v-bind:value="curso.id" :key="curso.id">{{ curso.anio }}</option>
       </select>
     </div>
 
@@ -27,7 +27,6 @@
                   </div>
                 </div>
                 
-
                 <h2>Alumnos</h2>
                 <div class="bg-dark" v-for="integrante in mostrarOrla" :key="integrante.id">
                   <div v-if="integrante.tipo === 'alumno'">
@@ -109,13 +108,6 @@ export default {
         console.log("No hay nada seleccionada"+ this.CicloSeleccionado+ " y "+this.CursoSeleccionado);
 
       }
-    },
-    setCiclo(Ciclo) {
-      console.log(Ciclo);
-      this.CicloRecogido = Ciclo;
-    },
-    setCurso(Curso) {
-      this.CursoRecogido = Curso;
     }
   },
   watch: {
@@ -145,8 +137,6 @@ export default {
     this.cargarIntegrantes();
     this.cargarCiclos();
     this.cargarCursos();
-    this.setCiclo();
-    this.setCurso();
   }
 };
 </script>

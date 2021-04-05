@@ -1924,7 +1924,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 Vue.config.productionTip = false;
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
@@ -1981,13 +1980,6 @@ Vue.config.productionTip = false;
       } else {
         console.log("No hay nada seleccionada" + this.CicloSeleccionado + " y " + this.CursoSeleccionado);
       }
-    },
-    setCiclo: function setCiclo(Ciclo) {
-      console.log(Ciclo);
-      this.CicloRecogido = Ciclo;
-    },
-    setCurso: function setCurso(Curso) {
-      this.CursoRecogido = Curso;
     }
   },
   watch: {
@@ -2020,8 +2012,6 @@ Vue.config.productionTip = false;
     this.cargarIntegrantes();
     this.cargarCiclos();
     this.cargarCursos();
-    this.setCiclo();
-    this.setCurso();
   }
 });
 
@@ -37723,15 +37713,7 @@ var render = function() {
         _vm._l(_vm.arrayCiclos, function(ciclo) {
           return _c(
             "option",
-            {
-              key: ciclo.id,
-              domProps: { value: ciclo.id },
-              on: {
-                click: function($event) {
-                  return _vm.setCiclo(ciclo.nombre)
-                }
-              }
-            },
+            { key: ciclo.id, domProps: { value: ciclo.id } },
             [_vm._v(_vm._s(ciclo.nombre))]
           )
         }),
@@ -37770,15 +37752,7 @@ var render = function() {
         _vm._l(_vm.arrayCursos, function(curso) {
           return _c(
             "option",
-            {
-              key: curso.id,
-              domProps: { value: curso.id },
-              on: {
-                click: function($event) {
-                  return _vm.setCurso(curso.anio)
-                }
-              }
-            },
+            { key: curso.id, domProps: { value: curso.id } },
             [_vm._v(_vm._s(curso.anio))]
           )
         }),
