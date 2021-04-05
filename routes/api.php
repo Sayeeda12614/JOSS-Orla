@@ -2,6 +2,9 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use \App\Http\Controllers\IntegrantesController;
+use \App\Http\Controllers\CiclosApi;
+use \App\Http\Controllers\CursosApi;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,3 +20,7 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get("integrantes",[IntegrantesController::class,"index"]);
+Route::get("ciclos",[CiclosApi::class,"index"]);
+Route::get("cursos",[CursosApi::class,"index"]);

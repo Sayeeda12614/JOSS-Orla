@@ -1886,9 +1886,133 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 Vue.config.productionTip = false;
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  data: function data() {}
+  data: function data() {
+    return {
+      arrayIntegrantes: [],
+      mostrarOrla: [],
+      arrayCiclos: [],
+      arrayCursos: [],
+      CicloSeleccionado: "",
+      CicloRecogido: "Ningun Ciclo seleccionado",
+      CursoSeleccionado: "",
+      CursoRecogido: "Ningun Curso seleccionado"
+    };
+  },
+  methods: {
+    cargarIntegrantes: function cargarIntegrantes() {
+      var me = this;
+      var url = "api/integrantes";
+      window.axios.get(url).then(function (response) {
+        me.arrayIntegrantes = response.data;
+        me.mostrarOrla = response.data;
+      })["catch"](function (error) {
+        console.log("Habido un error: " + error);
+      });
+    },
+    cargarCiclos: function cargarCiclos() {
+      var me = this;
+      var url = "api/ciclos";
+      window.axios.get(url).then(function (response) {
+        me.arrayCiclos = response.data;
+        console.log(arrayCiclos);
+      })["catch"](function (error) {
+        console.log("Habido un error: " + error);
+      });
+    },
+    cargarCursos: function cargarCursos() {
+      var me = this;
+      var url = "api/cursos";
+      window.axios.get(url).then(function (response) {
+        me.arrayCursos = response.data;
+        console.log(arrayCursos);
+      })["catch"](function (error) {
+        console.log("Habido un error: " + error);
+      });
+    },
+    orla: function orla() {
+      var _this = this;
+
+      if (this.CicloSeleccionado != "" && this.CursoSeleccionado != "") {
+        console.log("El curso seleccionado" + this.CursoSeleccionado + " y Ciclo " + this.CicloSeleccionado);
+        this.mostrarOrla = this.arrayIntegrantes.filter(function (integrante) {
+          return integrante.ciclo.id === _this.CicloSeleccionado && integrante.ciclo.id === _this.CicloSeleccionado;
+        });
+      } else {
+        console.log("No hay nada seleccionada" + this.CicloSeleccionado + " y " + this.CursoSeleccionado);
+      }
+    }
+  },
+  watch: {
+    CursoSeleccionado: function CursoSeleccionado() {
+      var _this2 = this;
+
+      if (this.CursoSeleccionado != "") {
+        console.log("curso id: " + this.CursoSeleccionado);
+        this.mostrarOrla = this.arrayIntegrantes.filter(function (integrante) {
+          return integrante.curso.id === _this2.CursoSeleccionado;
+        });
+      } else {
+        console.log("No hay curso seleccionado");
+      }
+    },
+    CicloSeleccionado: function CicloSeleccionado() {
+      var _this3 = this;
+
+      if (this.CicloSeleccionado != "") {
+        console.log("ciclo id: " + this.CicloSeleccionado);
+        this.mostrarOrla = this.arrayIntegrantes.filter(function (integrante) {
+          return integrante.ciclo.id === _this3.CicloSeleccionado;
+        });
+      } else {
+        console.log("No hay ciclo seleccionado");
+      }
+    }
+  },
+  mounted: function mounted() {
+    this.cargarIntegrantes();
+    this.cargarCiclos();
+    this.cargarCursos();
+  }
 });
 
 /***/ }),
@@ -37557,7 +37681,140 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [_vm._v("\n    Esta es la horla\n")])
+  return _c("div", [
+    _c("div", [
+      _c(
+        "select",
+        {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.CicloSeleccionado,
+              expression: "CicloSeleccionado"
+            }
+          ],
+          on: {
+            change: function($event) {
+              var $$selectedVal = Array.prototype.filter
+                .call($event.target.options, function(o) {
+                  return o.selected
+                })
+                .map(function(o) {
+                  var val = "_value" in o ? o._value : o.value
+                  return val
+                })
+              _vm.CicloSeleccionado = $event.target.multiple
+                ? $$selectedVal
+                : $$selectedVal[0]
+            }
+          }
+        },
+        _vm._l(_vm.arrayCiclos, function(ciclo) {
+          return _c(
+            "option",
+            { key: ciclo.id, domProps: { value: ciclo.id } },
+            [_vm._v(_vm._s(ciclo.nombre))]
+          )
+        }),
+        0
+      )
+    ]),
+    _vm._v(" "),
+    _c("div", [
+      _c(
+        "select",
+        {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.CursoSeleccionado,
+              expression: "CursoSeleccionado"
+            }
+          ],
+          on: {
+            change: function($event) {
+              var $$selectedVal = Array.prototype.filter
+                .call($event.target.options, function(o) {
+                  return o.selected
+                })
+                .map(function(o) {
+                  var val = "_value" in o ? o._value : o.value
+                  return val
+                })
+              _vm.CursoSeleccionado = $event.target.multiple
+                ? $$selectedVal
+                : $$selectedVal[0]
+            }
+          }
+        },
+        _vm._l(_vm.arrayCursos, function(curso) {
+          return _c(
+            "option",
+            { key: curso.id, domProps: { value: curso.id } },
+            [_vm._v(_vm._s(curso.anio))]
+          )
+        }),
+        0
+      )
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "card", staticStyle: { width: "100%" } }, [
+      _c("div", { staticClass: "card-body" }, [
+        _c("h1", { staticClass: "card-title" }, [
+          _vm._v(_vm._s(_vm.CicloRecogido))
+        ]),
+        _vm._v(" "),
+        _c("h2", { staticClass: "card-subtitle mb-2 text-muted" }, [
+          _vm._v(_vm._s(_vm.CursoRecogido))
+        ]),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "card-text" },
+          [
+            _c("h2", [_vm._v("Profesores")]),
+            _vm._v(" "),
+            _vm._l(_vm.mostrarOrla, function(integrante) {
+              return _c(
+                "div",
+                { key: integrante.id, staticClass: "bg-warning" },
+                [
+                  integrante.tipo === "profesor"
+                    ? _c("div", [
+                        _c("h4", [_vm._v(_vm._s(integrante.nombre))]),
+                        _vm._v(" "),
+                        _c("h5", [_vm._v(_vm._s(integrante.apellidos))])
+                      ])
+                    : _vm._e()
+                ]
+              )
+            }),
+            _vm._v(" "),
+            _c("h2", [_vm._v("Alumnos")]),
+            _vm._v(" "),
+            _vm._l(_vm.mostrarOrla, function(integrante) {
+              return _c("div", { key: integrante.id, staticClass: "bg-dark" }, [
+                integrante.tipo === "alumno"
+                  ? _c("div", [
+                      _c("h4", [_vm._v(_vm._s(integrante.nombre))]),
+                      _vm._v(" "),
+                      _c("h5", [_vm._v(_vm._s(integrante.apellidos))])
+                    ])
+                  : _vm._e()
+              ])
+            })
+          ],
+          2
+        ),
+        _vm._v(" "),
+        _c("a", { staticClass: "card-link", attrs: { href: "#" } }, [
+          _vm._v("CIFP Txurdinaga")
+        ])
+      ])
+    ])
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
