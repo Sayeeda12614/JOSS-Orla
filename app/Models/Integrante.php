@@ -27,7 +27,7 @@ class Integrante extends Model
     public function cursos(){
         return $this->belongsTo(Curso::class, "curso","id");
     }
-    public function usuarios(){
+    public function users(){
         return $this->belongsTo(User::class, "tutor", "id");
     }
 }

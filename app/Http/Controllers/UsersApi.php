@@ -2,11 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Integrante;
-use App\Models\Clave;
 use Illuminate\Http\Request;
 
-class IntegrantesController extends Controller
+class UsersApi extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +13,7 @@ class IntegrantesController extends Controller
      */
     public function index()
     {
-        
+        //
     }
 
     /**
@@ -36,16 +34,16 @@ class IntegrantesController extends Controller
      */
     public function store(Request $request)
     {
-     
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Integrante  $integrante
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Integrante $integrante)
+    public function show($id)
     {
         //
     }
@@ -53,10 +51,10 @@ class IntegrantesController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Integrante  $integrante
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Integrante $integrante)
+    public function edit($id)
     {
         //
     }
@@ -65,10 +63,10 @@ class IntegrantesController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Integrante  $integrante
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Integrante $integrante)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -76,10 +74,10 @@ class IntegrantesController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Integrante  $integrante
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Integrante $integrante)
+    public function destroy($id)
     {
         //
     }
