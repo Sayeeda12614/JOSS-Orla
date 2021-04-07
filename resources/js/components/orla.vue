@@ -105,7 +105,24 @@ export default {
         integrante.ciclo.id===this.CicloSeleccionado && integrante.ciclo.id===this.CicloSeleccionado);
       }
       else{
-        console.log("No hay nada seleccionada"+ this.CicloSeleccionado+ " y "+this.CursoSeleccionado);
+        // si no hay ciclo ni curso seleccionado 
+          // si el array de ciclo esta lleno
+          if(arrayCiclos.length != 0){
+            console.log("El array de ciclos esta lleno");
+            for (let i = 0; i < array.length; i++) {
+              const indice = array[i];
+              // indice = recoge el primer indice del array
+              // cicloSeleccionado = indice
+              
+            }
+          }
+
+          // si el array de cursos esta lleno
+           if(arrayCursos.length != 0){
+            console.log("El array de cursos esta lleno");
+            // indice = recoge el primer indice del array
+            // CursoSeleccionado = indice
+           }
 
       }
     },
