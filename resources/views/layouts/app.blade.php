@@ -18,6 +18,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="..\css\iconos\style.css">
 </head>
 <body>
     <div id="app">
@@ -38,6 +39,7 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
+                        
                         <!-- Authentication Links -->
                         @guest
                             @if (Route::has('login'))
@@ -52,7 +54,34 @@
                                 </li>
                             @endif
                         @else
-                            <li class="nav-item dropdown">
+                                <!-- si el usuario logueado es tutor -->
+                                 @if(Auth::user()->tipo=='tutor')
+                                    <li class="nav-item dropdown">
+                                        
+                                        <a class="nav-link" href="{{ route('integrantes.index')}}">
+                                            <form action="{{ route('integrantes.index') }}" method="GET">
+                                                @csrf
+                                                <input type="hidden" name="tutor" value="{{Auth::user()->id}}">
+                                                <button type="submit" class="btn btn-info">Mi curso</button>
+                                            </form>  
+                                        </a>  
+                                    </li>
+                                    <li class="nav-item dropdown">
+
+                                        <a class="nav-link" href="{{ route('claves.index')}}">
+                                            <form action="{{ route('claves.index') }}" method="GET">
+                                                @csrf
+                                                <input type="hidden" name="tutor" value="{{Auth::user()->id}}">
+                                                <button type="submit" class="btn btn-warning">Mi Clave</button>
+                                            </form>  
+                                        </a>
+                                    </li>
+                                @endif
+                                <!-- si el usuario logueado es tutor -->
+                                @if(Auth::user()->tipo=='administrador')
+                                    <li class="nav-item dropdown"><a href="">Administración</a></li>
+                                @endif
+                                <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
                                 </a>

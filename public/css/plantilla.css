@@ -1,0 +1,20 @@
+body{
+    background-image: url("../imagenes/logos/fondo2.jpg");
+    background-repeat: no-repeat;
+}
+/* boton de inicio de sesion */
+button{
+    background-color: #d65409;
+}
+/* contenido de prueba */
+.card-group{
+    padding-top: 1%;
+    margin: 1%;
+}
+/* footer */
+article{
+    height: 80px;
+    text-align: center;
+    color: white;
+    padding-top:2%;
+}
