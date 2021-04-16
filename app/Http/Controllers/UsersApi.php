@@ -13,6 +13,7 @@ class UsersApi extends Controller
      */
     public function index()
     {
+        
         //
     }
 

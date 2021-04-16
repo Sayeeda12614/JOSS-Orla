@@ -1,6 +1,7 @@
 @extends('layouts.page')
 
 @section('content')
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -20,6 +21,8 @@
         </div>
     </div>
 </div>
+
+
 @if($message = Session::get('success'))
     <div class="alert alert-success mensaje w-50" style="margin:0 auto;">
         <p style="text-align:center; margin:0 auto;">{{$message}}</p>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Ciclo;
 use App\Models\Curso;
 use Illuminate\Http\Request;
 
@@ -17,7 +18,6 @@ class CursosController extends Controller
         $cursos = Curso::all();
         return view('orla.admin.cursos.index',compact('cursos',$cursos));
     }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -81,8 +81,9 @@ class CursosController extends Controller
      * @param  \App\Models\Curso  $curso
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Curso $curso)
+    public function destroy($id)
     {
         //
+        echo "Se eliminara este elemento con " . $id;
     }
 }
