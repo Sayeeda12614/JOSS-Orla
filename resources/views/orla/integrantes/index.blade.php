@@ -1,5 +1,8 @@
 @extends('layouts.page')
 @section('content')
+<style>
+.tabla{background-image:url("../imagenes/logos/graduacion.gif"); background-attachment: scroll; background-repeat:repeat; background-size:auto; height:auto; }
+</style>
     <h1 style="margin:0 auto; text-align:center; color:white;">MIEMBROS DE MI GRUPO</h1>
     <!-- Mensaje de exito -->
     @if($message = Session::get('success'))
@@ -11,7 +14,7 @@
   <div class="container">
         <div class="row mt-5">
             <div class="col-12">
-                <table class="table">
+                <table class="table tabla">
                     <thead>
                         <tr style="background:wheat;">
                             <th>FOTO</th>
@@ -25,7 +28,7 @@
                     </thead>
                     <tbody>
                         @foreach($integrantes as $integrante) 
-                            <tr style="background:rgba(0, 0, 0, 0.28);">
+                            <tr style="background:rgba(63, 64, 65, 0.5)">
                                 <td>
                                     <img style="border-radius:50%;" src="{{asset('img/'.$integrante->foto)}}" alt="" height="70">
                                 </td>

@@ -19,13 +19,11 @@ class IntegrantesController extends Controller
     {    
         if (isset($_GET['tutor'])) 
         {
-            $tutor = $_GET['tutor'];   
+            $tutor = $_GET['tutor'];
+            $integrantes = Integrante::with("cursos","ciclos")->where("tutor", $tutor)->get();
+            return view('orla.integrantes.index')->with(['tutor'=> $tutor,'integrantes'=>$integrantes]);
         }
-       
-        $integrantes = Integrante::with("cursos","ciclos")->where("tutor",$tutor)->get();
-      
-        return view('orla.integrantes.index')->with(['tutor'=>$tutor,'integrantes'=>$integrantes]);
-       
+          
     }
 
     /**

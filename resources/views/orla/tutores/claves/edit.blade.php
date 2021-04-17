@@ -48,10 +48,17 @@
                 </div>
                 <div class="col-12">
                     <div class="form-group" style="display:flex; justify-content:center;">
-                        <button type="submit" class="btn btn-success">Guardar cambios</button>
+                        <button type="submit" class="btn btn-success m-1">Guardar cambios</button>
                     </div>
                 </div>
             </div>
         </form>
+        <a href="{{ route('claves.index')}}">
+            <form action="{{ route('claves.index') }}" method="GET">
+                @csrf
+                <input type="hidden" name="tutor" value="{{Auth::user()->id}}">
+                <button type="submit" class="btn btn-primary m-1">Volver</button>
+            </form>  
+        </a>
     </div>
 @endsection
