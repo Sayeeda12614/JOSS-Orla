@@ -11,8 +11,12 @@
                 <div class="card text-white bg-dark">
                     <div class="card-body">
                       <h5 class="card-title">Curso: {{$curso['anio']}}</h5>
-                      <button class="bg-success">Editar</button>
-                      <button class="bg-danger"><a href="{{route('cursos.destroy', $curso->id)}}">Borrar</a>
+                      <form action="{{route('cursos.destroy', $curso->id)}}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="bg-danger">Borrar</button>
+                        <a class="btn btn-primary" href="{{route('cursos.edit', $curso->id)}}">Editar</a>
+                      </form>
                     </div>
                 </div>
             </div>

@@ -58,9 +58,12 @@ class CursosController extends Controller
      * @param  \App\Models\Curso  $curso
      * @return \Illuminate\Http\Response
      */
-    public function edit(Curso $curso)
+    public function edit($id)
     {
-        //
+        $curso = Curso::all()->find($id);
+        return view('orla.admin.cursos.edit', compact('curso', $curso));
+
+
     }
 
     /**
@@ -70,9 +73,20 @@ class CursosController extends Controller
      * @param  \App\Models\Curso  $curso
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Curso $curso)
+    public function update(Request $request, $id)
     {
-        //
+        $curso = Curso::all()->find($id);
+        if($curso != null){
+            $data = $request->all();
+            $curso->update($data);
+            return redirect()->route('cursos.index');
+        }
+        // else{
+        //     //poner mensaje de error 
+        //     return redirect()->route('cursos.index');
+        // }
+        
+        
     }
 
     /**
@@ -83,7 +97,8 @@ class CursosController extends Controller
      */
     public function destroy($id)
     {
-        //
-        echo "Se eliminara este elemento con " . $id;
+        $curso = Curso::all()->find($id);
+        Curso::all()->find($id)->delete();
+        return redirect()->route('cursos.index');
     }
 }
