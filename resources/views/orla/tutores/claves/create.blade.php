@@ -2,9 +2,16 @@
 @section('content')
   <div class="container">
   <h1 style="color:white; margin:0 auto; text-align:center;">CREAR CLAVE</h1>
+  <a href="{{ route('claves.index')}}">
+        <form action="{{ route('claves.index') }}" method="GET">
+            @csrf
+            <input type="hidden" name="tutor" value="{{Auth::user()->id}}">
+            <button type="submit" class="btn btn-primary m-1">Volver</button>
+        </form>  
+    </a>
   <form action="{{route('claves.store')}}" method="post">
     @csrf
-    <div class="row mt-5 p-5" style="display:flex; flex-direction:column; justify-content:center; align-items:center; margin:0 auto; width:50%; background:white; border-radius:5px">
+    <div class="row mt-5 bg-white w-50 p-2" style="display:flex; flex-direction:column; margin:0 auto; justify-content:center; align-items:center; border-radius:10px;">
         <div class="col-12">
             <div class="form-group">
                 <label for="">Clave</label>
@@ -40,8 +47,8 @@
             </div>
         </div>
     </div>
-
 </form>
+    
   </div> 
 
 @endsection

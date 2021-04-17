@@ -19,11 +19,12 @@ class ClavesController extends Controller
         
         if (isset($_GET['tutor'])) 
         {
-            $tutor = $_GET['tutor'];   
+            $tutor = $_GET['tutor']; 
+            $claves = Clave::with("cursos","ciclos")->where("tutor",$tutor)->get();
+            return view('orla.tutores.claves.index',compact('claves',$claves));
         }
-
-        $claves = Clave::with("cursos","ciclos")->where("tutor",$tutor)->get();
-        return view('orla.tutores.claves.index',compact('claves',$claves));
+        
+        
     }
 
     /**

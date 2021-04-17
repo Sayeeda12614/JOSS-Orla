@@ -77,7 +77,7 @@
                                         </a>
                                     </li>
                                 @endif
-                                <!-- si el usuario logueado es tutor -->
+                                <!-- si el usuario logueado es administrador -->
                                 @if(Auth::user()->tipo=='administrador')
                                     <li class="nav-item dropdown"><a href="">Administración</a></li>
                                 @endif
