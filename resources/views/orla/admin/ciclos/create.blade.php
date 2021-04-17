@@ -1,4 +1,5 @@
 @extends('layouts.page')
+{{-- contenido de crear un ciclo --}}
 @section('content')
     <form action="{{route('ciclos.store')}}" method="post">
         @csrf

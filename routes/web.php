@@ -6,7 +6,7 @@ use App\Http\Controllers\ClavesController;
 use App\Http\Controllers\CiclosController;
 use App\Http\Controllers\IntegrantesController;
 use App\Http\Controllers\AccesoController;
-
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,9 +27,9 @@ Route::get('/', function () {
     return view('orla');
 });
 
-Auth::routes();
+// Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Auth::routes();
 
@@ -39,7 +39,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::resource("cursos",CursosController::class);
 
 //Rutas para los Ciclos
-Route::resource("admin/ciclos",CiclosController::class);
+Route::resource("ciclos",CiclosController::class);
 
 //Ruta exclusivamente para el alta de nuevos integrantes
 Route::resource("integrantes",IntegrantesController::class,["except"=>["update","show","delete"]]);
@@ -51,8 +51,5 @@ Route::group(['middleware'=>['auth.basic','auth.tutor']],function(){
     //Rutas para las claves
     Route::resource("claves",ClavesController::class);
 }); 
-
-
-
 //Rutas para los el control de claves
 Route::resource("control",AccesoController::class);
