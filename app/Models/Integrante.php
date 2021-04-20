@@ -6,28 +6,29 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Ciclo;
 use App\Models\Curso;
-use App\Models\Profesor;
+use App\Models\User;
 
-class Alumno extends Model
+class Integrante extends Model
 {
     use HasFactory;
-
-    protected $table = "alumnos";
+    protected $table = "integrantes";
     protected $fillable = [
         'nombre',
         'apellidos',
         'foto',
+        'tipo',
+        'tutor',
         'ciclo',
-        'curso',
-        'tutor'
+        'curso'   
     ];
+    
     public function ciclos(){
         return $this->belongsTo(Ciclo::class, "ciclo", "id");
     }
     public function cursos(){
-        return $this->belongsTo(Curso::class, "curso", "id");
+        return $this->belongsTo(Curso::class, "curso","id");
     }
-    public function profesors(){
-        return $this->belongsTo(Profesor::class, "tutor", "id");
+    public function users(){
+        return $this->belongsTo(User::class, "tutor", "id");
     }
 }

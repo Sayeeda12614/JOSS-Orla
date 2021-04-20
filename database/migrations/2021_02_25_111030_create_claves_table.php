@@ -21,7 +21,7 @@ class CreateClavesTable extends Migration
             $table->unsignedBigInteger('tutor');
             $table->foreign('ciclo')->references('id')->on('ciclos')->onUpdate("cascade");
             $table->foreign('curso')->references('id')->on('cursos')->onUpdate("cascade");
-            $table->foreign('tutor')->references('id')->on('profesors')->onUpdate("cascade");
+            $table->foreign('tutor')->references('id')->on('users')->onUpdate("cascade")->onDelete("cascade");
             $table->timestamps();
         });
     }
