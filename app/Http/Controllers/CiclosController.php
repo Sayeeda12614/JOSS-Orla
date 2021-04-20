@@ -82,8 +82,10 @@ class CiclosController extends Controller
      * @param  \App\Models\Ciclo  $ciclo
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Ciclo $ciclo)
+    public function destroy($id)
     {
-        //
+        $ciclo = Ciclo::all()->find($id);
+        Ciclo::all()->find($id)->delete();
+        return redirect()->route('ciclos.index');
     }
 }

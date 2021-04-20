@@ -11,8 +11,12 @@
            <div class="card text-white bg-dark">
                <div class="card-body">
                  <h5 class="card-title">Ciclo: {{$ciclo['nombre']}}</h5>
-                 <button class="bg-success">Editar</button>
-                 <button class="bg-danger">Borrar</button>
+                 <form action="{{route('ciclos.destroy', $ciclo->id)}}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="bg-danger">Borrar</button>
+                    <a class="btn btn-primary" href="{{route('ciclos.edit', $ciclo->id)}}">Editar</a>
+                  </form>
                </div>
            </div>
        </div>
