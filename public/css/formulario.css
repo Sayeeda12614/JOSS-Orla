@@ -1,0 +1,108 @@
+/* inicio */
+.divInicio
+{
+    /* background-color: rgba(0, 0, 0, 0.788); */
+    background-color:rgba(255, 255, 255, 0.671);
+    margin: auto;
+    margin-top: 12em;
+    display: flex;
+    justify-content: space-around;
+    backdrop-filter: blur(3px);
+    border-radius: 10px;
+    box-shadow: 13px 15px 11px #000000ad;
+}
+.divInicioJugadores{
+    /* background-color: rgba(0, 0, 0, 0.788); */
+    background-color:rgba(255, 255, 255, 0.671);
+    margin: auto; 
+    margin-top: 5em; 
+    display: flex;
+    justify-content: space-around;
+    backdrop-filter: blur(3px);
+    border-radius: 10px;
+    box-shadow: 13px 15px 11px #000000ad;
+    margin-bottom: 50px;
+}
+
+.botonDivInicio, .botonDivInicioJugadores
+{
+    color: rgb(0, 0, 0);
+    display: inline-block;
+    padding: 1em;
+}
+
+.botonDivInicio button{
+    margin-top: 4em;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    padding-top: 0.3em;
+    padding-bottom: 0.3em;
+    background-color:transparent;
+    border: 1px solid rgba(143, 142, 218, 0.808);
+    color: rgb(0, 0, 0);
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.botonDivInicioJugadores button{
+    /* margin-top: 4em;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    padding-top: 0.3em;
+    padding-bottom: 0.3em; */
+    background-color:transparent;
+    border: 1px solid rgba(143, 142, 218, 0.808);
+    color: rgb(0, 0, 0);
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    border-radius: 5px;
+}
+
+.textoDivInicio *, .formularioDivInicioJugadores *
+{
+    color: rgb(0, 0, 0);
+    display: inline-block;
+    padding: 1em;
+}
+.formularioDivInicioJugadores select, .dificultad{
+    margin-top: 1em;
+}
+.formularioDivInicioJugadores{
+    display: flex;
+}
+.textoDivInicio p, .formularioDivInicioJugadores p
+{
+    letter-spacing: 0.07em;
+    padding-left: 2em;
+    text-align: center;
+}
+/* #tablero{
+    background-color: aqua;
+} */
+div.contenedor {
+    background-color: rgba(9, 189, 48, 0.5);
+    min-height: 100vh;
+    overflow: hidden;
+    width: 100%;
+}
+.casillaBody{
+    background-color: crimson;
+} 
+
+/* MODAL AVATAR */
+
+
+#contenedor-mensaje{
+    background-color:rgba(29, 29, 29, 0.842);
+    color: white;
+}
+
+/*Seleccionar Jugadores*/
+#caja1 {
+    display:none;
+}
+#caja2{
+    display: none;
+}
+
