@@ -5,7 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link class="logo" rel="icon" type="image/vnd.microsoft.icon" href="..\image/logo.png">
+    <!-- <link class="logo" rel="icon" type="image/vnd.microsoft.icon" href="..\image/logo.png"> -->
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>OrlaTxu</title>
