@@ -26,7 +26,7 @@
                     
                         @if (Route::has('register'))
                             <li class="nav-item">
-                                <a class="nav-link"  href="{{ route('register') }}">Registrarse</a>
+                                <a class="nav-link"  href="{{ route('registro.index') }}">Registrarse</a>
                             </li>
                         @endif
                     @else
@@ -79,6 +79,7 @@
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                     <a class="dropdown-item" href="{{ route('cursos.index')}}">Curso</a>
                                     <a class="dropdown-item" href="{{ route('ciclos.index')}}">Ciclos</a>
+                                    <a class="dropdown-item" href="{{ route('claves_registro.index')}}">Claves Registro</a>
                                     {{-- <a class="dropdown-item" href="{{ route('user')}}">Usuarios</a> --}}
                                     </div>
                                 </li>

@@ -7,6 +7,8 @@ use App\Http\Controllers\CiclosController;
 use App\Http\Controllers\IntegrantesController;
 use App\Http\Controllers\AccesoController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ClaveRegistroControler;
+use App\Http\Controllers\AccesoRegistroControler;
 
 /*
 |--------------------------------------------------------------------------
@@ -51,5 +53,10 @@ Route::group(['middleware'=>['auth.basic','auth.tutor']],function(){
     //Rutas para las claves
     Route::resource("claves",ClavesController::class);
 }); 
-//Rutas para los el control de claves
+//Rutas para el control de claves para ir a enviar datos
 Route::resource("control",AccesoController::class);
+
+//Rutas para el control de claves para ir a registrarse
+Route::resource("registro",AccesoRegistroControler::class);
+//Rutas para el control de claves para ir a registrarse
+Route::resource("claves_registro",ClaveRegistroControler::class);
