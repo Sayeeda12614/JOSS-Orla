@@ -79,7 +79,7 @@
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                     <a class="dropdown-item" href="{{ route('cursos.index')}}">Curso</a>
                                     <a class="dropdown-item" href="{{ route('ciclos.index')}}">Ciclos</a>
-                                    {{-- <a class="dropdown-item" href="{{ route('user')}}">Usuarios</a> --}}
+                                    <a class="dropdown-item" href="{{ route('usuarios.index')}}">Usuarios</a>
                                     </div>
                                 </li>
                                 {{-- <li class="nav-item dropdown"><a href="" class="btn btn-default nav-link">Administrar</a></li> --}}

@@ -12,11 +12,5 @@
 
     </div>
 
-
-    
-
-    
-    {{$curso}}
-
     {{-- {{$ciclos}} --}}
 @endsection
