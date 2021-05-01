@@ -24,25 +24,46 @@
           <h2 class="">{{ CursoRecogido }}</h2>
         </div>
 
-        <main class="">
-          <div class="" v-for="integrante in mostrarOrla" :key="integrante.id">
-            <div class="profesores" v-if="integrante.tipo === 'profesor'" style="background-color: red">
-              <img class="" style="height: 10rem" alt="foto" v-bind:src=" integrante.foto != null && integrante.foto !== ''? 'assets/Fotos_integrantes/' + integrante.foto: 'assets/Fotos_integrantes/placeholder.png'"/>
-              <div class="">
-                <h4 class="">{{ integrante.nombre }}</h4>
-                <h5 class="">{{ integrante.apellidos }}</h5>
+          <!-- <div class="container" v-for="integrante in mostrarOrla" :key="integrante.id">
+            <div class="alumnos row" v-if="integrante.tipo === 'alumno'">
+              <div class="col-lg-4 col-md-6 col-sm-12">
+                <div>
+                  <img class="" alt="foto" v-bind:src=" integrante.foto != null && integrante.foto !== ''? 'assets/Fotos_integrantes/' + integrante.foto: 'assets/Fotos_integrantes/placeholder.png'"/>
+                  <div class="">
+                    <h4 class="">{{ integrante.nombre }}</h4>
+                    <h5 class="">{{ integrante.apellidos }}</h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div> -->
+
+          <div class="container">
+
+            <div class="row">
+              <div class="col-lg-4 col-md-6 col-sm-12" v-for="integrante in mostrarOrla" :key="integrante.id">
+                  <div v-if="integrante.tipo === 'profesor'">
+                    <img class="" alt="foto" style="width:100%; border-radius:50%;" v-bind:src=" integrante.foto != null && integrante.foto !== ''? 'assets/Fotos_integrantes/' + integrante.foto: 'assets/Fotos_integrantes/placeholder.png'"/>
+                    <div class="">
+                      <h4 class="">{{ integrante.nombre }}</h4>
+                      <h5 class="">{{ integrante.apellidos }}</h5>
+                    </div>
+                  </div>
               </div>
             </div>
 
-            <div class="alumnos" v-if="integrante.tipo === 'alumno'">
-              <img class="" style="height: 10rem" alt="foto" v-bind:src=" integrante.foto != null && integrante.foto !== ''? 'assets/Fotos_integrantes/' + integrante.foto: 'assets/Fotos_integrantes/placeholder.png'"/>
-              <div class="">
-                <h4 class="">{{ integrante.nombre }}</h4>
-                <h5 class="">{{ integrante.apellidos }}</h5>
+            <div class="row">
+              <div class="col-lg-2 col-md-4 col-sm-12" v-for="integrante in mostrarOrla" :key="integrante.id">
+                  <div v-if="integrante.tipo === 'alumno'">
+                    <img class="" alt="foto" style="width:100%; border-radius:50%;" v-bind:src=" integrante.foto != null && integrante.foto !== ''? 'assets/Fotos_integrantes/' + integrante.foto: 'assets/Fotos_integrantes/placeholder.png'"/>
+                    <div class="">
+                      <h4 class="">{{ integrante.nombre }}</h4>
+                      <h5 class="">{{ integrante.apellidos }}</h5>
+                    </div>
+                  </div>
               </div>
             </div>
           </div>
-        </main>
 
         <a href="#" class="">CIFP Txurdinaga</a>
 
@@ -82,7 +103,6 @@ export default {
       let url = "api/ciclos";
       window.axios.get(url).then(function (response) {
         me.arrayCiclos = response.data;
-        console.log(arrayCiclos);
       });
     },
     cargarCursos() {
@@ -90,7 +110,6 @@ export default {
       let url = "api/cursos";
       window.axios.get(url).then(function (response) {
         me.arrayCursos = response.data;
-        console.log(arrayCursos);
       });
     },
     orla() {
@@ -158,8 +177,8 @@ export default {
 </script>
 
 <style>
-.orla {
+/* .orla {
   display: flex;
   flex-direction: column;
-}
+} */
 </style>

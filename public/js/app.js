@@ -1935,6 +1935,27 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 Vue.config.productionTip = false;
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
@@ -1963,7 +1984,6 @@ Vue.config.productionTip = false;
       var url = "api/ciclos";
       window.axios.get(url).then(function (response) {
         me.arrayCiclos = response.data;
-        console.log(arrayCiclos);
       });
     },
     cargarCursos: function cargarCursos() {
@@ -1971,7 +1991,6 @@ Vue.config.productionTip = false;
       var url = "api/cursos";
       window.axios.get(url).then(function (response) {
         me.arrayCursos = response.data;
-        console.log(arrayCursos);
       });
     },
     orla: function orla() {
@@ -6573,7 +6592,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.orla {\r\n  display: flex;\r\n  flex-direction: column;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\r\n/* .orla {\r\n  display: flex;\r\n  flex-direction: column;\r\n} */\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -38220,63 +38239,91 @@ var render = function() {
             _c("h2", {}, [_vm._v(_vm._s(_vm.CursoRecogido))])
           ]),
           _vm._v(" "),
-          _c(
-            "main",
-            {},
-            _vm._l(_vm.mostrarOrla, function(integrante) {
-              return _c("div", { key: integrante.id }, [
-                integrante.tipo === "profesor"
-                  ? _c(
-                      "div",
-                      {
-                        staticClass: "profesores",
-                        staticStyle: { "background-color": "red" }
-                      },
-                      [
-                        _c("img", {
-                          staticStyle: { height: "10rem" },
-                          attrs: {
-                            alt: "foto",
-                            src:
-                              integrante.foto != null && integrante.foto !== ""
-                                ? "assets/Fotos_integrantes/" + integrante.foto
-                                : "assets/Fotos_integrantes/placeholder.png"
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c("div", {}, [
-                          _c("h4", {}, [_vm._v(_vm._s(integrante.nombre))]),
+          _c("div", { staticClass: "container" }, [
+            _c(
+              "div",
+              { staticClass: "row" },
+              _vm._l(_vm.mostrarOrla, function(integrante) {
+                return _c(
+                  "div",
+                  {
+                    key: integrante.id,
+                    staticClass: "col-lg-4 col-md-6 col-sm-12"
+                  },
+                  [
+                    integrante.tipo === "profesor"
+                      ? _c("div", [
+                          _c("img", {
+                            staticStyle: {
+                              width: "100%",
+                              "border-radius": "50%"
+                            },
+                            attrs: {
+                              alt: "foto",
+                              src:
+                                integrante.foto != null &&
+                                integrante.foto !== ""
+                                  ? "assets/Fotos_integrantes/" +
+                                    integrante.foto
+                                  : "assets/Fotos_integrantes/placeholder.png"
+                            }
+                          }),
                           _vm._v(" "),
-                          _c("h5", {}, [_vm._v(_vm._s(integrante.apellidos))])
+                          _c("div", {}, [
+                            _c("h4", {}, [_vm._v(_vm._s(integrante.nombre))]),
+                            _vm._v(" "),
+                            _c("h5", {}, [_vm._v(_vm._s(integrante.apellidos))])
+                          ])
                         ])
-                      ]
-                    )
-                  : _vm._e(),
-                _vm._v(" "),
-                integrante.tipo === "alumno"
-                  ? _c("div", { staticClass: "alumnos" }, [
-                      _c("img", {
-                        staticStyle: { height: "10rem" },
-                        attrs: {
-                          alt: "foto",
-                          src:
-                            integrante.foto != null && integrante.foto !== ""
-                              ? "assets/Fotos_integrantes/" + integrante.foto
-                              : "assets/Fotos_integrantes/placeholder.png"
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("div", {}, [
-                        _c("h4", {}, [_vm._v(_vm._s(integrante.nombre))]),
-                        _vm._v(" "),
-                        _c("h5", {}, [_vm._v(_vm._s(integrante.apellidos))])
-                      ])
-                    ])
-                  : _vm._e()
-              ])
-            }),
-            0
-          ),
+                      : _vm._e()
+                  ]
+                )
+              }),
+              0
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "row" },
+              _vm._l(_vm.mostrarOrla, function(integrante) {
+                return _c(
+                  "div",
+                  {
+                    key: integrante.id,
+                    staticClass: "col-lg-2 col-md-4 col-sm-12"
+                  },
+                  [
+                    integrante.tipo === "alumno"
+                      ? _c("div", [
+                          _c("img", {
+                            staticStyle: {
+                              width: "100%",
+                              "border-radius": "50%"
+                            },
+                            attrs: {
+                              alt: "foto",
+                              src:
+                                integrante.foto != null &&
+                                integrante.foto !== ""
+                                  ? "assets/Fotos_integrantes/" +
+                                    integrante.foto
+                                  : "assets/Fotos_integrantes/placeholder.png"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("div", {}, [
+                            _c("h4", {}, [_vm._v(_vm._s(integrante.nombre))]),
+                            _vm._v(" "),
+                            _c("h5", {}, [_vm._v(_vm._s(integrante.apellidos))])
+                          ])
+                        ])
+                      : _vm._e()
+                  ]
+                )
+              }),
+              0
+            )
+          ]),
           _vm._v(" "),
           _c("a", { attrs: { href: "#" } }, [_vm._v("CIFP Txurdinaga")])
         ]
