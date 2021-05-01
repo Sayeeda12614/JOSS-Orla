@@ -9,7 +9,7 @@ use App\Http\Controllers\AccesoController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ClaveRegistroControler;
 use App\Http\Controllers\AccesoRegistroControler;
-
+use App\Http\Controllers\UserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -42,6 +42,9 @@ Route::resource("cursos",CursosController::class);
 
 //Rutas para los Ciclos
 Route::resource("ciclos",CiclosController::class);
+
+//Rutas para los Usuarios 
+Route::resource('usuarios',UserController::class);
 
 //Ruta exclusivamente para el alta de nuevos integrantes
 Route::resource("integrantes",IntegrantesController::class,["except"=>["update","show","delete"]]);

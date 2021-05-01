@@ -79,7 +79,7 @@ class CursosController extends Controller
         if($curso != null){
             $data = $request->all();
             $curso->update($data);
-            return redirect()->route('cursos.index');
+            return redirect()->route('ciclos.index');
         }
         // else{
         //     //poner mensaje de error 

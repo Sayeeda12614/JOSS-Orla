@@ -59,9 +59,10 @@ class CiclosController extends Controller
      * @param  \App\Models\Ciclo  $ciclo
      * @return \Illuminate\Http\Response
      */
-    public function edit(Ciclo $ciclo)
+    public function edit($id)
     {
-        //
+        $ciclo = Ciclo::all()->find($id);
+        return view('orla.admin.ciclos.edit', compact('ciclo', $ciclo));
     }
 
     /**
@@ -71,9 +72,15 @@ class CiclosController extends Controller
      * @param  \App\Models\Ciclo  $ciclo
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Ciclo $ciclo)
+    public function update(Request $request, $id)
     {
-        //
+        $ciclo = Ciclo::all()->find($id);
+        if($ciclo != null){
+            $data = $request->all();
+            $ciclo->update($data);
+            return redirect()->route('ciclos.index');
+        }
+
     }
 
     /**
