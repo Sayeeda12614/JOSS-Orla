@@ -49,7 +49,7 @@ class IntegrantesController extends Controller
         if($request->hasFile('foto')){
             $archivo = $request->file('foto');
             $nombre = $archivo->getClientOriginalName();
-            $archivo->move("img/",$nombre);
+            $archivo->move("assets/Fotos_integrantes/",$nombre);
             $data["foto"]=$nombre;
         }else{
             $data["foto"]="";

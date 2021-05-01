@@ -9,7 +9,7 @@
                 <form action="" method="post">
                     @csrf
                     <div class="form-group">
-                        <label for="">Introduzca la clave</label><br>
+                        <label for="">Introduzca la clave del administrador</label><br>
                         <input type="text" name="codigo" class="form-control" placeholder="Clave"><br>
                         <input type="submit" class="btn btn-success" value="ENTRAR">
                     </div>
@@ -25,7 +25,7 @@
         <div class="row mt-5 w-50" style="display:flex; justify-content:center; align-items:center; margin:0 auto; ">
             <div class="col-12">
                 <div class="form-group">
-                    <a href="" class="btn btn-warning">VOLVER</a>
+                    <a href="{{route('inicio')}}" class="btn btn-warning">VOLVER</a>
                 </div>
             </div>   
         </div>

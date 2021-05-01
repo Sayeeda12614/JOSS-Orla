@@ -40,7 +40,7 @@
                 </div>
                 <div class="col-12">
                     <button type="submit" class="btn btn-success m-1">Enviar</button>
-                    <a href="#" class="btn btn-info m-1">Volver</a>
+                    <a href="{{route('inicio')}}" class="btn btn-info m-1">Volver</a>
                 </div>
             </div>
         </form>
