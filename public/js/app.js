@@ -1956,10 +1956,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
 Vue.config.productionTip = false;
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
@@ -6596,7 +6592,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\r\n/* .orla {\r\n  display: flex;\r\n  flex-direction: column;\r\n} */\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\r\n/* .orla {\r\n  display: flex;\r\n  flex-direction: column;\r\n} */\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -38257,27 +38253,26 @@ var render = function() {
                   [
                     integrante.tipo === "profesor"
                       ? _c("div", [
-                          _c("div", [
-                            _c("img", {
-                              staticStyle: { width: "100%" },
-                              attrs: {
-                                alt: "foto",
-                                src:
-                                  integrante.foto != null &&
-                                  integrante.foto !== ""
-                                    ? "assets/Fotos_integrantes/" +
-                                      integrante.foto
-                                    : "assets/Fotos_integrantes/placeholder.png"
-                              }
-                            }),
+                          _c("img", {
+                            staticStyle: {
+                              width: "100%",
+                              "border-radius": "50%"
+                            },
+                            attrs: {
+                              alt: "foto",
+                              src:
+                                integrante.foto != null &&
+                                integrante.foto !== ""
+                                  ? "assets/Fotos_integrantes/" +
+                                    integrante.foto
+                                  : "assets/Fotos_integrantes/placeholder.png"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("div", {}, [
+                            _c("h4", {}, [_vm._v(_vm._s(integrante.nombre))]),
                             _vm._v(" "),
-                            _c("div", {}, [
-                              _c("h4", {}, [_vm._v(_vm._s(integrante.nombre))]),
-                              _vm._v(" "),
-                              _c("h5", {}, [
-                                _vm._v(_vm._s(integrante.apellidos))
-                              ])
-                            ])
+                            _c("h5", {}, [_vm._v(_vm._s(integrante.apellidos))])
                           ])
                         ])
                       : _vm._e()
@@ -38295,32 +38290,31 @@ var render = function() {
                   "div",
                   {
                     key: integrante.id,
-                    staticClass: "col-lg-4 col-md-6 col-sm-12"
+                    staticClass: "col-lg-2 col-md-4 col-sm-12"
                   },
                   [
                     integrante.tipo === "alumno"
                       ? _c("div", [
-                          _c("div", [
-                            _c("img", {
-                              staticStyle: { width: "100%" },
-                              attrs: {
-                                alt: "foto",
-                                src:
-                                  integrante.foto != null &&
-                                  integrante.foto !== ""
-                                    ? "assets/Fotos_integrantes/" +
-                                      integrante.foto
-                                    : "assets/Fotos_integrantes/placeholder.png"
-                              }
-                            }),
+                          _c("img", {
+                            staticStyle: {
+                              width: "100%",
+                              "border-radius": "50%"
+                            },
+                            attrs: {
+                              alt: "foto",
+                              src:
+                                integrante.foto != null &&
+                                integrante.foto !== ""
+                                  ? "assets/Fotos_integrantes/" +
+                                    integrante.foto
+                                  : "assets/Fotos_integrantes/placeholder.png"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("div", {}, [
+                            _c("h4", {}, [_vm._v(_vm._s(integrante.nombre))]),
                             _vm._v(" "),
-                            _c("div", {}, [
-                              _c("h4", {}, [_vm._v(_vm._s(integrante.nombre))]),
-                              _vm._v(" "),
-                              _c("h5", {}, [
-                                _vm._v(_vm._s(integrante.apellidos))
-                              ])
-                            ])
+                            _c("h5", {}, [_vm._v(_vm._s(integrante.apellidos))])
                           ])
                         ])
                       : _vm._e()

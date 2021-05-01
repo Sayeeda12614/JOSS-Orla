@@ -42,29 +42,25 @@
 
             <div class="row">
               <div class="col-lg-4 col-md-6 col-sm-12" v-for="integrante in mostrarOrla" :key="integrante.id">
-                <div v-if="integrante.tipo === 'profesor'">
-                  <div>
-                    <img class="" alt="foto" style="width:100%;" v-bind:src=" integrante.foto != null && integrante.foto !== ''? 'assets/Fotos_integrantes/' + integrante.foto: 'assets/Fotos_integrantes/placeholder.png'"/>
+                  <div v-if="integrante.tipo === 'profesor'">
+                    <img class="" alt="foto" style="width:100%; border-radius:50%;" v-bind:src=" integrante.foto != null && integrante.foto !== ''? 'assets/Fotos_integrantes/' + integrante.foto: 'assets/Fotos_integrantes/placeholder.png'"/>
                     <div class="">
                       <h4 class="">{{ integrante.nombre }}</h4>
                       <h5 class="">{{ integrante.apellidos }}</h5>
                     </div>
                   </div>
-                </div>
               </div>
             </div>
 
             <div class="row">
-              <div class="col-lg-4 col-md-6 col-sm-12" v-for="integrante in mostrarOrla" :key="integrante.id">
-                <div v-if="integrante.tipo === 'alumno'">
-                  <div>
-                    <img class="" alt="foto" style="width:100%;" v-bind:src=" integrante.foto != null && integrante.foto !== ''? 'assets/Fotos_integrantes/' + integrante.foto: 'assets/Fotos_integrantes/placeholder.png'"/>
+              <div class="col-lg-2 col-md-4 col-sm-12" v-for="integrante in mostrarOrla" :key="integrante.id">
+                  <div v-if="integrante.tipo === 'alumno'">
+                    <img class="" alt="foto" style="width:100%; border-radius:50%;" v-bind:src=" integrante.foto != null && integrante.foto !== ''? 'assets/Fotos_integrantes/' + integrante.foto: 'assets/Fotos_integrantes/placeholder.png'"/>
                     <div class="">
                       <h4 class="">{{ integrante.nombre }}</h4>
                       <h5 class="">{{ integrante.apellidos }}</h5>
                     </div>
                   </div>
-                </div>
               </div>
             </div>
           </div>
