@@ -6592,7 +6592,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\r\n/* .orla {\r\n  display: flex;\r\n  flex-direction: column;\r\n} */\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\r\n/* .orla {\r\n  display: flex;\r\n  flex-direction: column;\r\n} */\n@media print{@page {size: landscape}}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -38142,87 +38142,99 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container-fluid" }, [
     _c("div", { staticClass: "m-2" }, [
-      _c("div", [
-        _c(
-          "select",
-          {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.CicloSeleccionado,
-                expression: "CicloSeleccionado"
+      _c("div", { staticClass: "d-flex justify-content-between" }, [
+        _c("section", [
+          _c(
+            "select",
+            {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.CicloSeleccionado,
+                  expression: "CicloSeleccionado"
+                }
+              ],
+              attrs: { id: "ciclos" },
+              on: {
+                change: [
+                  function($event) {
+                    var $$selectedVal = Array.prototype.filter
+                      .call($event.target.options, function(o) {
+                        return o.selected
+                      })
+                      .map(function(o) {
+                        var val = "_value" in o ? o._value : o.value
+                        return val
+                      })
+                    _vm.CicloSeleccionado = $event.target.multiple
+                      ? $$selectedVal
+                      : $$selectedVal[0]
+                  },
+                  _vm.ciclo
+                ]
               }
-            ],
-            attrs: { id: "ciclos" },
-            on: {
-              change: [
-                function($event) {
-                  var $$selectedVal = Array.prototype.filter
-                    .call($event.target.options, function(o) {
-                      return o.selected
-                    })
-                    .map(function(o) {
-                      var val = "_value" in o ? o._value : o.value
-                      return val
-                    })
-                  _vm.CicloSeleccionado = $event.target.multiple
-                    ? $$selectedVal
-                    : $$selectedVal[0]
-                },
-                _vm.ciclo
-              ]
-            }
-          },
-          _vm._l(_vm.arrayCiclos, function(ciclo) {
-            return _c(
-              "option",
-              { key: ciclo.id, domProps: { value: ciclo.id } },
-              [_vm._v("\n          " + _vm._s(ciclo.nombre) + "\n        ")]
-            )
-          }),
-          0
-        ),
+            },
+            _vm._l(_vm.arrayCiclos, function(ciclo) {
+              return _c(
+                "option",
+                { key: ciclo.id, domProps: { value: ciclo.id } },
+                [
+                  _vm._v(
+                    "\n            " + _vm._s(ciclo.nombre) + "\n          "
+                  )
+                ]
+              )
+            }),
+            0
+          ),
+          _vm._v(" "),
+          _c(
+            "select",
+            {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.CursoSeleccionado,
+                  expression: "CursoSeleccionado"
+                }
+              ],
+              attrs: { id: "cursos" },
+              on: {
+                change: [
+                  function($event) {
+                    var $$selectedVal = Array.prototype.filter
+                      .call($event.target.options, function(o) {
+                        return o.selected
+                      })
+                      .map(function(o) {
+                        var val = "_value" in o ? o._value : o.value
+                        return val
+                      })
+                    _vm.CursoSeleccionado = $event.target.multiple
+                      ? $$selectedVal
+                      : $$selectedVal[0]
+                  },
+                  _vm.curso
+                ]
+              }
+            },
+            _vm._l(_vm.arrayCursos, function(curso) {
+              return _c(
+                "option",
+                { key: curso.id, domProps: { value: curso.id } },
+                [_vm._v("\n            " + _vm._s(curso.anio) + "\n          ")]
+              )
+            }),
+            0
+          )
+        ]),
         _vm._v(" "),
         _c(
-          "select",
-          {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.CursoSeleccionado,
-                expression: "CursoSeleccionado"
-              }
-            ],
-            attrs: { id: "cursos" },
-            on: {
-              change: [
-                function($event) {
-                  var $$selectedVal = Array.prototype.filter
-                    .call($event.target.options, function(o) {
-                      return o.selected
-                    })
-                    .map(function(o) {
-                      var val = "_value" in o ? o._value : o.value
-                      return val
-                    })
-                  _vm.CursoSeleccionado = $event.target.multiple
-                    ? $$selectedVal
-                    : $$selectedVal[0]
-                },
-                _vm.curso
-              ]
-            }
-          },
-          _vm._l(_vm.arrayCursos, function(curso) {
-            return _c(
-              "option",
-              { key: curso.id, domProps: { value: curso.id } },
-              [_vm._v("\n          " + _vm._s(curso.anio) + "\n        ")]
-            )
-          }),
-          0
+          "button",
+          { staticClass: "btn-primary", attrs: { onclick: "window.print()" } },
+          [_vm._v("Imprimir")]
         )
       ]),
       _vm._v(" "),
@@ -38248,11 +38260,11 @@ var render = function() {
                   "div",
                   {
                     key: integrante.id,
-                    staticClass: "col-lg-4 col-md-6 col-sm-12"
+                    staticClass: "col-lg-2 col-md-4 col-sm-4"
                   },
                   [
                     integrante.tipo === "profesor"
-                      ? _c("div", [
+                      ? _c("div", { staticClass: "text-center" }, [
                           _c("img", {
                             staticStyle: {
                               width: "100%",
@@ -38290,11 +38302,11 @@ var render = function() {
                   "div",
                   {
                     key: integrante.id,
-                    staticClass: "col-lg-2 col-md-4 col-sm-12"
+                    staticClass: "col-lg-2 col-md-4 col-sm-4"
                   },
                   [
                     integrante.tipo === "alumno"
-                      ? _c("div", [
+                      ? _c("div", { staticClass: "text-center" }, [
                           _c("img", {
                             staticStyle: {
                               width: "100%",
