@@ -8,22 +8,22 @@
             <div class="row mt-5 p-5" style="display:flex; flex-direction:column; justify-content:center; align-items:center; margin:0 auto; width:50%; background:white; border-radius:5px;">
                 <div class="col-12">
                     <div class="form-group">
-                        <input type="text" placeholder="Nombre" name="nombre" class="form-control">
+                        <input type="text" placeholder="Nombre" name="nombre" class="form-control" required>
                     </div>
                 </div>
                 <div class="col-12">
                     <div class="form-group">
-                        <input type="text" placeholder="Apellidos" name="apellidos" class="form-control">
+                        <input type="text" placeholder="Apellidos" name="apellidos" class="form-control" required>
                     </div>
                 </div>
                 <div class="col-12">
                     <div class="form-group">
-                        <input type="file" placeholder="Foto" name="foto" class="form-control">
+                        <input type="file" placeholder="Foto" name="foto" class="form-control" required>
                     </div>
                 </div>
                 <div class="col-12">
                     <div class="form-group">
-                        <select name="tipo" id="" class="form-control">
+                        <select name="tipo" id="" class="form-control" required>
                             <option value="" selected disabled>Seleccione tipo</option>
                             <option value="alumno">Alumno</option>
                             <option value="profesor">Profesor</option>

@@ -10,11 +10,11 @@
                     @csrf
                     <div class="form-group">
                         <label for="">Introduzca la clave del administrador</label><br>
-                        <input type="text" name="codigo" class="form-control" placeholder="Clave"><br>
+                        <input type="password" name="codigo" class="form-control" placeholder="Clave"><br>
                         <input type="submit" class="btn btn-success" value="ENTRAR">
                     </div>
                 </form>
-                <p style="text-align:center; color:red; font-size:1.5rem;">Sólo para profesores/as tutures/as del centro</p>
+                <p style="text-align:center; color:red; font-size:1.5rem;">Sólo para profesores/as tutores/as del centro</p>
             </div> 
             @if($message = Session::get('error'))
                 <div class="alert alert-danger" style="margin:0 auto;">

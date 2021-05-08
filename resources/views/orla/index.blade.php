@@ -10,11 +10,11 @@
                     @csrf
                     <div class="form-group">
                         <label for="">Introduzca la clave de tu tutor/a</label><br>
-                        <input type="text" name="codigo" class="form-control" placeholder="Clave"><br>
+                        <input type="password" name="codigo" class="form-control" placeholder="Clave"><br>
                         <input type="submit" class="btn btn-success" value="ENTRAR">
                     </div>
                 </form>
-                <p style="text-align:center; color:red; font-size:1.5rem;">Sólo para profesores/as y alumn@s del centro</p>
+                <p style="text-align:center; color:red; font-size:1.5rem;">Sólo para profesores/as y alumnos/as del centro</p>
             </div> 
             @if($message = Session::get('success'))
                 <div class="alert alert-success mensaje w-50" style="margin:0 auto;">

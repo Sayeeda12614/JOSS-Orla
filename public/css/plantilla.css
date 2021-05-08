@@ -18,3 +18,45 @@ article{
     color: white;
     padding-top:2%;
 }
+
+.fila{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    
+}
+.fila h2{
+    color: white;
+    font-size: 2.5rem;
+}
+.columna{
+    background: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 5%;
+    
+}
+.columna div{
+   
+    margin-bottom: 2%;
+    
+}
+.columna .imagen{
+    display: flex;
+    justify-content: center;
+    margin: 2%;
+}
+.columna .boton{
+    display: flex;
+    justify-content: center;
+}
+.columna p{
+    text-align: center;
+    margin: 0;
+    background: rgba(0, 0, 0, 0.247);
+    color: black;
+    font-size: 1.3rem;
+}
