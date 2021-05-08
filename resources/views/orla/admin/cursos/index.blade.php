@@ -1,38 +1,42 @@
 @extends('layouts.page')
 @section('content')
-    {{-- crear un nuevo curso --}}
-    <div class="content-sm bg-white" style="width:80px; margin:10px;">
-        <button class="bg-dark text-white"><a href="{{route('cursos.create')}}">Crear nuevo curso</a></button>
-    </div>
-    <div class="row row-cols-1 row-cols-md-4" style="padding: 18px; margin: 18px;">
-        @foreach ($cursos as $curso)          
-            <div class="col mb-4">
-                
-                <div class="card text-white bg-dark">
-                    <div class="card-body">
-                      <h5 class="card-title">Curso: {{$curso['anio']}}</h5>
-                      <form action="{{route('cursos.destroy', $curso->id)}}" method="POST">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" class="bg-danger">Borrar</button>
-                        <a class="btn btn-primary" href="{{route('cursos.edit', $curso->id)}}">Editar</a>
-                      </form>
-                    </div>
-                </div>
-            </div>
-        @endforeach
+
+<div class="container contentCiclo">
+    <div class="row m-4">
+        <div class="col">
+            {{-- crear un nuevo curso --}}
+            <a class="btn btn-success" href="{{route('cursos.create')}}">Nuevo curso</a>
+        </div>
     </div>
 
+    <div class="row">
+        <div class="col">
+            <table class="table table-bordered table-hover table-light">
+                <thead class="thead-dark">
+                <tr>
+                    <th>Curso</th>
+                    <th>Acción</th>
+                </tr>
+                </thead>
+                <tbody>
+                    @foreach ($cursos as $curso)  
+                        <tr class="table-info">
+                            <td>Año: {{$curso['anio']}}</td>
+                            <td>
+                                <form action="{{route('cursos.destroy', $curso->id)}}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <a class="btn btn-primary" href="{{route('cursos.edit', $curso->id)}}">Editar</a>
+                                    <input class="btn bg-danger" type="submit" value="Borrar">
+                                </form>
+                            </td>
+                        </tr>
+                    @endforeach  
+                </tbody>  
+            </table>
+        </div>
+    </div>
+</div>
 
-    
-
-    
-    <ul>
-    @foreach ($cursos as $c)
-        <li>{{$c['anio']}}</li>
-    @endforeach
-    </ul>
-    {{$cursos}}
-
-    {{-- {{$ciclos}} --}}
+    {{-- {{$cursos}} --}}
 @endsection
