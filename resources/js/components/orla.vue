@@ -3,22 +3,24 @@
 
     <div class="m-2">
 
-      <div>
-        <select v-model="CicloSeleccionado" @change="ciclo" id="ciclos">
-          <option v-for="ciclo in arrayCiclos" v-bind:value="ciclo.id" :key="ciclo.id">
-            {{ ciclo.nombre }}
-          </option>
-        </select>
+      <div class="d-flex justify-content-between">
+        <section>
+          <select v-model="CicloSeleccionado" @change="ciclo" id="ciclos">
+            <option v-for="ciclo in arrayCiclos" v-bind:value="ciclo.id" :key="ciclo.id">
+              {{ ciclo.nombre }}
+            </option>
+          </select>
 
-        <select v-model="CursoSeleccionado" @change="curso" id="cursos">
-          <option v-for="curso in arrayCursos" v-bind:value="curso.id" :key="curso.id">
-            {{ curso.anio }}
-          </option>
-        </select>
+          <select v-model="CursoSeleccionado" @change="curso" id="cursos">
+            <option v-for="curso in arrayCursos" v-bind:value="curso.id" :key="curso.id">
+              {{ curso.anio }}
+            </option>
+          </select>
+        </section>
+        <button class="btn-primary" onclick="window.print()">Imprimir</button>
       </div>
 
       <div class="orla mt-2" style="background-color:grey;">
-
         <div class="">
           <h1 class="">{{ CicloRecogido }}</h1>
           <h2 class="">{{ CursoRecogido }}</h2>
@@ -41,8 +43,8 @@
           <div class="container">
 
             <div class="row">
-              <div class="col-lg-4 col-md-6 col-sm-12" v-for="integrante in mostrarOrla" :key="integrante.id">
-                  <div v-if="integrante.tipo === 'profesor'">
+              <div class="col-lg-2 col-md-4 col-sm-4" v-for="integrante in mostrarOrla" :key="integrante.id">
+                  <div v-if="integrante.tipo === 'profesor'" class="text-center">
                     <img class="" alt="foto" style="width:100%; border-radius:50%;" v-bind:src=" integrante.foto != null && integrante.foto !== ''? 'assets/Fotos_integrantes/' + integrante.foto: 'assets/Fotos_integrantes/placeholder.png'"/>
                     <div class="">
                       <h4 class="">{{ integrante.nombre }}</h4>
@@ -53,8 +55,8 @@
             </div>
 
             <div class="row">
-              <div class="col-lg-2 col-md-4 col-sm-12" v-for="integrante in mostrarOrla" :key="integrante.id">
-                  <div v-if="integrante.tipo === 'alumno'">
+              <div class="col-lg-2 col-md-4 col-sm-4" v-for="integrante in mostrarOrla" :key="integrante.id">
+                  <div v-if="integrante.tipo === 'alumno'" class="text-center">
                     <img class="" alt="foto" style="width:100%; border-radius:50%;" v-bind:src=" integrante.foto != null && integrante.foto !== ''? 'assets/Fotos_integrantes/' + integrante.foto: 'assets/Fotos_integrantes/placeholder.png'"/>
                     <div class="">
                       <h4 class="">{{ integrante.nombre }}</h4>
@@ -68,9 +70,7 @@
         <a href="#" class="">CIFP Txurdinaga</a>
 
       </div>
-
     </div>
-
   </div>
 </template>
 
@@ -181,4 +181,5 @@ export default {
   display: flex;
   flex-direction: column;
 } */
+@media print{@page {size: landscape}}
 </style>
