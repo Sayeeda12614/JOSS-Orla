@@ -19,6 +19,8 @@ article{
     padding-top:2%;
 }
 
+
+/* Estilos de los div fila y colmuna,  */
 .fila{
     display: flex;
     flex-direction: column;
@@ -49,6 +51,9 @@ article{
     justify-content: center;
     margin: 2%;
 }
+.columna .imagen img{
+    height: 25rem;
+}
 .columna .boton{
     display: flex;
     justify-content: center;
@@ -59,4 +64,12 @@ article{
     background: rgba(0, 0, 0, 0.247);
     color: black;
     font-size: 1.3rem;
+}
+
+/* Estilos generales para las tablas */
+tr{
+    background:rgba(0, 0, 0, 0.28);  
+}
+td{
+    color: white;
 }

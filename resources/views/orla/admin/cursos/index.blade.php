@@ -1,7 +1,7 @@
 @extends('layouts.page')
 @section('content')
 
-<div class="container contentCiclo">
+<div class="container">
     <div class="row m-4">
         <div class="col">
             {{-- crear un nuevo curso --}}
@@ -11,7 +11,7 @@
 
     <div class="row">
         <div class="col">
-            <table class="table table-bordered table-hover table-light">
+            <table class="table mt-5 table-bordered">
                 <thead class="thead-dark">
                 <tr>
                     <th>Curso</th>
@@ -20,14 +20,14 @@
                 </thead>
                 <tbody>
                     @foreach ($cursos as $curso)  
-                        <tr class="table-info">
+                        <tr>
                             <td>Año: {{$curso['anio']}}</td>
                             <td>
                                 <form action="{{route('cursos.destroy', $curso->id)}}" method="POST">
                                     @csrf
                                     @method('DELETE')
                                     <a class="btn btn-primary" href="{{route('cursos.edit', $curso->id)}}">Editar</a>
-                                    <input class="btn bg-danger" type="submit" value="Borrar">
+                                    <input class="btn btn-danger" type="submit" value="Borrar">
                                 </form>
                             </td>
                         </tr>

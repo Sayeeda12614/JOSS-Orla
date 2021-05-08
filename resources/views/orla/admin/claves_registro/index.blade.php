@@ -9,9 +9,9 @@
     <div class="container">
         <div class="row mt-5">
             <div class="col-12">
-                <table class="table mt-5">
-                    <thead>
-                        <tr style="background:wheat;">
+                <table class="table mt-5 table-bordered">
+                    <thead class="thead-dark">
+                        <tr>
                             <th>ID</th>
                             <th>CLAVE</th>
                             <th>AÑO</th>
@@ -20,7 +20,7 @@
                     </thead>
                     <tbody>
                     @foreach($claves_registro as $clave)
-                        <tr style="background:rgba(0, 0, 0, 0.28);">
+                        <tr>
                             <td>{{$clave->id}}</td>
                             <td>{{$clave->clave}}</td>
                             <td>{{$clave->cursos->anio}}</td>
