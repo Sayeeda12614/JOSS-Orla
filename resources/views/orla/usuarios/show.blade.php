@@ -1,10 +1,10 @@
 @extends('layouts.page')
 @section('content')
 
-<div class="container">
+<div class="container mt-5">
     <div class="row fila">
         <h2>PERFIL DE {{$usuario->name}} {{$usuario->apellidos}}</h2>
-        <div class="col-6 columna">
+        <div class="col-12 columna">
             <div class="form-group imagen">
                 @if($usuario->foto==null || $usuario->foto=='')
                     <img src="/assets/Fotos_integrantes/placeholder.png" alt="Foto usuario">

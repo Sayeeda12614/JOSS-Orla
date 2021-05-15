@@ -1,13 +1,13 @@
 @extends('layouts.page')
 @section('content')
     
-    <div class="container">
+    <div class="container mt-5">
         <form action="{{route('usuarios.update',$usuario->id)}}" method="post" enctype="multipart/form-data">
             @csrf
             @method('PUT')
             <div class="row fila">
                 <h2>Editar {{$usuario->name}}</h2>
-                <div class="col-6 columna">
+                <div class="col-12 columna">
                     <div class="form-group">
                         <label for="">Nombre</label>
                         <input type="text" name="name" class="form-control" value="{{$usuario->name}}" placeholder="Nombre">
@@ -20,7 +20,7 @@
 
                     <div class="form-group">
                         <label for="">Foto perfil</label>
-                        <input type="file" name="foto" class="form-control" required>
+                        <input type="file" name="foto" class="form-control" value="{{$usuario->foto}}" required>
                     </div>
 
                     <div class="form-group">

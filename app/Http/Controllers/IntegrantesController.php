@@ -48,7 +48,8 @@ class IntegrantesController extends Controller
         
         if($request->hasFile('foto')){
             $archivo = $request->file('foto');
-            $nombre = $archivo->getClientOriginalName();
+            $integrante = $data["nombre"];
+            $nombre = $integrante.'_'.$archivo->getClientOriginalName();
             $archivo->move("assets/Fotos_integrantes/",$nombre);
             $data["foto"]=$nombre;
         }else{
@@ -57,7 +58,7 @@ class IntegrantesController extends Controller
 
         Integrante::create($data);
          return redirect()->route('control.index')
-         ->with('success','ÉXITO!!! Datos insertados correctamente');
+         ->with('success','ÉXITO :) Datos insertados correctamente');
             
     }
 

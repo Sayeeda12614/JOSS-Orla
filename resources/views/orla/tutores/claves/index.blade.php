@@ -4,9 +4,9 @@
     <div class="container">
         <div class="row mt-5">
             <div class="col-12">
-                <table class="table mt-5">
-                    <thead>
-                        <tr style="background:wheat;">
+                <table class="table mt-5 table-bordered">
+                    <thead class="thead-dark">
+                        <tr>
                             <th>CLAVE</th>
                             <th>CICLO FORMATIVO</th>
                             <th>AÑO</th>
