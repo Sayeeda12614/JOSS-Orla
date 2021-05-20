@@ -1,9 +1,10 @@
 @extends('layouts.page')
 @section('content')
+
     <h1 style="margin:0 auto; text-align:center; color:white;">MIEMBROS DE MI GRUPO</h1>
     <!-- Mensaje de exito -->
     @if($message = Session::get('success'))
-    <div class="alert alert-success mensaje w-100">
+    <div class="alert alert-success msj_exito">
         <p>{{$message}}</p>
     </div>
     @endif 
@@ -11,9 +12,9 @@
   <div class="container">
         <div class="row mt-5">
             <div class="col-12">
-                <table class="table">
-                    <thead>
-                        <tr style="background:wheat;">
+                <table class="table mt-5 table-bordered">
+                    <thead class="thead-dark">
+                        <tr>
                             <th>FOTO</th>
                             <th>NOMBRE</th>
                             <th>APELLIDOS</th>
@@ -25,9 +26,9 @@
                     </thead>
                     <tbody>
                         @foreach($integrantes as $integrante) 
-                            <tr style="background:rgba(0, 0, 0, 0.28);">
+                            <tr>
                                 <td>
-                                    <img style="border-radius:50%;" src="{{asset('img/'.$integrante->foto)}}" alt="" height="70">
+                                    <img style="border-radius:50%;" src="./assets/Fotos_integrantes/{{$integrante->foto}}" alt="" height="60">
                                 </td>
                                 <td>{{$integrante->nombre}}</td>
                                 <td>{{$integrante->apellidos}}</td>
@@ -48,8 +49,4 @@
             </div>
         </div>
   </div>
- <style>
-    td{color:white; font-size:1.2rem;text-align:center;}
-    th{text-align:center;}
- </style>
 @endsection

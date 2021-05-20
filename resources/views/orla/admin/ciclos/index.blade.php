@@ -1,7 +1,7 @@
 @extends('layouts.page')
 @section('content')
 
-    <div class="container contentCiclo">
+    <div class="container">
         {{-- Si se visualiza index después de hacer una modificiación 
         muestra un mensaje --}}
         @if (session('mensaje'))
@@ -20,23 +20,27 @@
         {{-- Tabla que muestra los ciclos --}}
         <div class="row">
             <div class="col">
-                <table class="table table-bordered table-hover table-light">
+                <table class="table mt-5 table-bordered">
                     <thead class="thead-dark">
                     <tr>
+                        <th>Id</th>
                         <th>Nombre Ciclo</th>
-                        <th>Acción</th>
+                        <th>Última modificación</th>
+                        <th>Acciones</th>
                     </tr>
                     </thead>
                     <tbody>
                         @foreach ($ciclos as $ciclo)  
-                            <tr class="table-info">
+                            <tr>
+                                <td>{{$ciclo->id}}</td>
                                 <td>{{$ciclo['nombre']}}</td>
+                                <td>{{$ciclo->updated_at}}</td>
                                 <td>
                                     <form action="{{route('ciclos.destroy', $ciclo->id)}}" method="POST">
                                         @csrf
                                         @method('DELETE')
-                                        <a class="btn btn-primary" href="{{route('ciclos.edit', $ciclo->id)}}">Editar</a>
-                                        <input class="btn bg-danger" type="submit" value="Borrar">
+                                        <a class="btn btn-primary" href="{{route('ciclos.edit', $ciclo->id)}}"><span class="icon-edit"></span></a>
+                                        <button type="submit" class="btn btn-danger"><span class="icon-trash"></span></button>
                                     </form>
                                 </td>
                             </tr>

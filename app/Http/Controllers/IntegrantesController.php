@@ -19,13 +19,11 @@ class IntegrantesController extends Controller
     {    
         if (isset($_GET['tutor'])) 
         {
-            $tutor = $_GET['tutor'];   
+            $tutor = $_GET['tutor'];
+            $integrantes = Integrante::with("cursos","ciclos")->where("tutor", $tutor)->get();
+            return view('orla.integrantes.index')->with(['tutor'=> $tutor,'integrantes'=>$integrantes]);
         }
-       
-        $integrantes = Integrante::with("cursos","ciclos")->where("tutor",$tutor)->get();
-      
-        return view('orla.integrantes.index')->with(['tutor'=>$tutor,'integrantes'=>$integrantes]);
-       
+          
     }
 
     /**
@@ -50,8 +48,9 @@ class IntegrantesController extends Controller
         
         if($request->hasFile('foto')){
             $archivo = $request->file('foto');
-            $nombre = $archivo->getClientOriginalName();
-            $archivo->move("img/",$nombre);
+            $integrante = $data["nombre"];
+            $nombre = $integrante.'_'.$archivo->getClientOriginalName();
+            $archivo->move("assets/Fotos_integrantes/",$nombre);
             $data["foto"]=$nombre;
         }else{
             $data["foto"]="";
@@ -59,7 +58,7 @@ class IntegrantesController extends Controller
 
         Integrante::create($data);
          return redirect()->route('control.index')
-         ->with('success','ÉXITO!!! Datos insertados correctamente');
+         ->with('success','ÉXITO :) Datos insertados correctamente');
             
     }
 

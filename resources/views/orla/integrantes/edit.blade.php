@@ -73,7 +73,8 @@
                         </div>
                     </div>
                     <div class="col-12">
-                        <button type="submit" class="btn btn-success">Guardar cambios</button>
+                        <button type="submit" class="btn btn-warning m-1">Volver</button>
+                        <button type="submit" class="btn btn-success m-1">Guardar cambios</button>
                     </div> 
         </form>
     </div>

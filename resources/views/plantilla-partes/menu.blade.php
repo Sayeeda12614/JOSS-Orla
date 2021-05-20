@@ -1,10 +1,10 @@
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="row w-100">
-        <div class="col-6">
-            <a class="navbar-brand" href="#"><img src="./imagenes/logos/logo_small.png" alt="No disponibles" style="width:200px; height: 50px;"></a>
+        <div class="col-8">
+            <a class="navbar-brand" href="{{route('inicio')}}"><img src="./imagenes/logos/logo_small.png" alt="No disponibles" style="width:200px; height: 50px;"></a>
         </div>
-        <div class="col-6">
+        <div class="col-4">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -26,27 +26,10 @@
                     
                         @if (Route::has('register'))
                             <li class="nav-item">
-                                <a class="nav-link"  href="{{ route('register') }}">Registrarse</a>
+                                <a class="nav-link"  href="{{ route('registro.index') }}">Registrarse</a>
                             </li>
                         @endif
                     @else
-                        <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                            Bienvenid@: {{ Auth::user()->name }}
-                            </a>
-
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ route('logout') }}"
-                                    onclick="event.preventDefault();
-                                                document.getElementById('logout-form').submit();">
-                                    Cerrar sesión
-                                </a>
-
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                    @csrf
-                                </form>
-                            </div>
-                        </li>
                             <!-- si el usuario logueado es tutor -->
                             @if(Auth::user()->tipo=='tutor')
                                 <li class="nav-item dropdown">
@@ -70,6 +53,7 @@
                                     </a>
                                 </li>
                             @endif
+
                             <!-- si el usuario logueado es tutor -->
                             @if(Auth::user()->tipo=='administrador')
                                 <li class="nav-item dropdown">
@@ -79,12 +63,35 @@
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                     <a class="dropdown-item" href="{{ route('cursos.index')}}">Curso</a>
                                     <a class="dropdown-item" href="{{ route('ciclos.index')}}">Ciclos</a>
-                                    <a class="dropdown-item" href="{{ route('usuarios.index')}}">Usuarios</a>
+                                    <a class="dropdown-item" href="{{ route('claves_registro.index')}}">Claves Registro</a>
+                                    {{-- <a class="dropdown-item" href="{{ route('user')}}">Usuarios</a> --}}
                                     </div>
                                 </li>
                                 {{-- <li class="nav-item dropdown"><a href="" class="btn btn-default nav-link">Administrar</a></li> --}}
                             @endif
-                        
+                            <li class="nav-item dropdown">
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            @if(Auth::user()->foto)
+                                <img src="/assets/Fotos_usuarios/{{Auth::user()->foto}}" alt="Foto usuario" style="border-radius:50%; height:4rem;">
+                            @endif
+                            @if(Auth::user()->foto==null || Auth::user()->foto=='')
+                                {{ Auth::user()->name }}
+                            @endif
+                            
+                            </a>
+
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{{ route('usuarios.show', Auth::user()->id) }}"> Mi Perfil</a>
+                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                    onclick="event.preventDefault();
+                                                document.getElementById('logout-form').submit();">
+                                    Cerrar sesión
+                                </a>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
+                            </div>
+                        </li>
                     @endguest
                    
                     </ul>

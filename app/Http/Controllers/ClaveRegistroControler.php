@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Clave;
+use App\Models\ClaveRegistro;
 use App\Models\Curso;
-use App\Models\Ciclo;
 use Illuminate\Http\Request;
 
-class ClavesController extends Controller
+class ClaveRegistroControler extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,15 +15,8 @@ class ClavesController extends Controller
      */
     public function index()
     {
-        
-        if (isset($_GET['tutor'])) 
-        {
-            $tutor = $_GET['tutor']; 
-            $claves = Clave::with("cursos","ciclos")->where("tutor",$tutor)->get();
-            return view('orla.tutores.claves.index',compact('claves',$claves));
-        }
-        
-        
+        $claves_registro = ClaveRegistro::all();
+        return view('orla.admin.claves_registro.index',compact('claves_registro',$claves_registro));
     }
 
     /**
@@ -35,8 +27,8 @@ class ClavesController extends Controller
     public function create()
     {
         $cursos = Curso::all();
-        $ciclos = Ciclo::all();
-        return view('orla.tutores.claves.create')->with(['cursos'=>$cursos,'ciclos'=>$ciclos]);
+        
+        return view('orla.admin.claves_registro.create',compact('cursos',$cursos));
     }
 
     /**
@@ -48,18 +40,18 @@ class ClavesController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-        Clave::create($data);
-        return redirect()->route('home')
-            ->with('success',$data['clave'].' Creada exitoxamente');
+        ClaveRegistro::create($data);
+        return redirect()->route('claves_registro.index')
+        ->with('success',$data['clave'].' Creada exitoxamente');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Clave  $clave
+     * @param  \App\Models\ClaveRegistro  $claveRegistro
      * @return \Illuminate\Http\Response
      */
-    public function show(Clave $clave)
+    public function show(ClaveRegistro $claveRegistro)
     {
         //
     }
@@ -67,45 +59,44 @@ class ClavesController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Clave  $clave
+     * @param  \App\Models\ClaveRegistro  $claveRegistro
      * @return \Illuminate\Http\Response
      */
     public function edit($clave_id)
     {
-        $clave = Clave::with("cursos","ciclos")->where("id",$clave_id)->get()->first();
-        return view('orla.tutores.claves.edit',compact("clave",$clave))->with(["clave"=>$clave,"cursos"=>Curso::all(),"ciclos"=>Ciclo::all()]);
-        
+        $clave = ClaveRegistro::with("cursos")->where("id",$clave_id)->get()->first();
+        return view('orla.admin.claves_registro.edit',compact("clave",$clave))->with(["clave"=>$clave,"cursos"=>Curso::all()]);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Clave  $clave
+     * @param  \App\Models\ClaveRegistro  $claveRegistro
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $clave_id)
     {
-        $clave = Clave::all()->find($clave_id);
+        $clave = ClaveRegistro::all()->find($clave_id);
         if($clave != null){
             $data = $request->all();
             $clave->update($data);
         }
-        return redirect()->route('home')
+        return redirect()->route('claves_registro.index')
             ->with('success',$data['clave'].' Modificado exitoxamente');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Clave  $clave
+     * @param  \App\Models\ClaveRegistro  $claveRegistro
      * @return \Illuminate\Http\Response
      */
     public function destroy($clave_id)
     {
-        $clave = Clave::all()->find($clave_id);
-        Clave::all()->find($clave_id)->delete();
-        return redirect()->route('home')
+        $clave = ClaveRegistro::all()->find($clave_id);
+        ClaveRegistro::all()->find($clave_id)->delete();
+        return redirect()->route('claves_registro.index')
             ->with('success','La clave: '.$clave['clave'].', ha sido eliminado exitosamente');
     }
 }
