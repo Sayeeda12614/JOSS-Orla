@@ -3,7 +3,7 @@
     margin: 2%;
 }
 /* Estilo para página de editar, ciclo */
-#contentEditar{
+.contentEditar{
     margin-left: 30%;
     margin-top: 10%;
     /* background-color: aqua; */
