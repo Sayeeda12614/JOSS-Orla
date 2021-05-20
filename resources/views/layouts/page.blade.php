@@ -15,7 +15,7 @@
     @yield("head-extras")
 
 </head>
-<body style="height: 100%">
+<body>
     <header>
 
     </header>
