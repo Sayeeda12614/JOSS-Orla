@@ -6,7 +6,7 @@
       <div class="d-flex justify-content-between cabecera rounded">
         <section class="m-2">
           <select v-model="CicloSeleccionado" @change="ciclo" id="ciclos" class="rounded">
-            <option v-for="ciclo in arrayCiclos" v-bind:value="ciclo.id" :key="ciclo.id" selected>
+            <option v-for="ciclo in arrayCiclos" v-bind:value="ciclo.id" :key="ciclo.id">
               {{ ciclo.nombre }}
             </option>
           </select>
@@ -25,48 +25,35 @@
           <h2 class="">{{ CicloRecogido }}</h2>
           <h3 class="">{{ CursoRecogido }}</h3>
         </div>
-
-          <!-- <div class="container" v-for="integrante in mostrarOrla" :key="integrante.id">
-            <div class="alumnos row" v-if="integrante.tipo === 'alumno'">
-              <div class="col-lg-4 col-md-6 col-sm-12">
-                <div>
-                  <img class="" alt="foto" v-bind:src=" integrante.foto != null && integrante.foto !== ''? 'assets/Fotos_integrantes/' + integrante.foto: 'assets/Fotos_integrantes/placeholder.png'"/>
-                  <div class="">
-                    <h4 class="">{{ integrante.nombre }}</h4>
-                    <h5 class="">{{ integrante.apellidos }}</h5>
+          <div class="container">
+            <div class="row">
+              <div class="col-12">
+                <div class="row">
+                  <div class="" v-for="integrante in mostrarOrla" :key="integrante.id">
+                      <div v-if="integrante.tipo === 'profesor'" class="text-center p-2">
+                        <img class="" alt="foto" style="height:5rem; border-radius:50%;" v-bind:src=" integrante.foto != null && integrante.foto !== ''? 'assets/Fotos_integrantes/' + integrante.foto: 'assets/Fotos_integrantes/placeholder.png'"/>
+                        <div class="">
+                          <p class="">{{ integrante.nombre }} {{ integrante.apellidos }}</p>
+                        </div>
+                      </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="row">
+                  <div class="" v-for="integrante in mostrarOrla" :key="integrante.id">
+                      <div v-if="integrante.tipo === 'alumno'" class="text-center p-2">
+                        <img class="" alt="foto" style="height:5rem; border-radius:50%;" v-bind:src=" integrante.foto != null && integrante.foto !== ''? 'assets/Fotos_integrantes/' + integrante.foto: 'assets/Fotos_integrantes/placeholder.png'"/>
+                        <div class="">
+                          <p class="">{{ integrante.nombre }} {{ integrante.apellidos }}</p>
+                        </div>
+                      </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div> -->
-
-          <div class="container">
-
-            <div class="row">
-              <div class="col-xs-1-10" v-for="integrante in mostrarOrla" :key="integrante.id">
-                  <div v-if="integrante.tipo === 'profesor'" class="text-center">
-                    <img class="" alt="foto" style="width:100%; border-radius:50%;" v-bind:src=" integrante.foto != null && integrante.foto !== ''? 'assets/Fotos_integrantes/' + integrante.foto: 'assets/Fotos_integrantes/placeholder.png'"/>
-                    <div class="">
-                      <p class="">{{ integrante.nombre }} {{ integrante.apellidos }}</p>
-                    </div>
-                  </div>
-              </div>
-            </div>
-
-            <div class="row">
-              <div class="col-xs-1-10 p-2" v-for="integrante in mostrarOrla" :key="integrante.id">
-                  <div v-if="integrante.tipo === 'alumno'" class="text-center">
-                    <img class="" alt="foto" style="width:100%; border-radius:50%;" v-bind:src=" integrante.foto != null && integrante.foto !== ''? 'assets/Fotos_integrantes/' + integrante.foto: 'assets/Fotos_integrantes/placeholder.png'"/>
-                    <div class="">
-                      <p class="">{{ integrante.nombre }} {{ integrante.apellidos }}</p>
-                    </div>
-                  </div>
-              </div>
-            </div>
           </div>
-
-        <a href="#" class="">CIFP Txurdinaga</a>
-
+        <a href="#" class="" style="position:absolute; bottom:0;">CIFP Txurdinaga</a>
       </div>
     </div>
   </div>
@@ -81,9 +68,9 @@ export default {
       mostrarOrla: [],
       arrayCiclos: [],
       arrayCursos: [],
-      CicloSeleccionado: "",
+      CicloSeleccionado: 1,
       CicloRecogido: "Ningun Ciclo seleccionado",
-      CursoSeleccionado: "",
+      CursoSeleccionado: 1,
       CursoRecogido: "Ningun Curso seleccionado",
     };
   },
@@ -112,24 +99,18 @@ export default {
     },
     orla() {
       if (this.CicloSeleccionado != "" && this.CursoSeleccionado != "") {
-        console.log(
-          "El curso seleccionado" +
-            this.CursoSeleccionado +
-            " y Ciclo " +
-            this.CicloSeleccionado
-        );
         this.mostrarOrla = this.arrayIntegrantes.filter(
           (integrante) =>
             integrante.ciclo.id === this.CicloSeleccionado &&
             integrante.ciclo.id === this.CicloSeleccionado
         );
       } else {
-        console.log(
-          "No hay nada seleccionada" +
-            this.CicloSeleccionado +
-            " y " +
-            this.CursoSeleccionado
-        );
+        console.log("No hay nada seleccionada, ciclo:"+this.CicloSeleccionado+" y curso:" +this.CursoSeleccionado);
+        for (let i = 0; i < this.arrayCursos.length; i++) {
+          var element = this.arrayCursos[i];
+          this.CursoSeleccionado = element;
+          console.log("actual curso "+this.CursoSeleccionado);
+        }
       }
     },
     ciclo() {
@@ -180,7 +161,7 @@ export default {
 }
 
 select {
-  background-color: rgb(36, 143, 250);
+  background-color: white;
 }
 .select-selected {
   background-color: DodgerBlue;
@@ -194,7 +175,6 @@ select {
   width: 10%;
   float: left;
 }
-
 @media print{
   @page {
     size: landscape
@@ -205,6 +185,9 @@ select {
    }
    .LaOrla * { 
       visibility: visible;
+   }
+   .LaOrla { 
+      background-color: white;
    }
 }
 </style>
