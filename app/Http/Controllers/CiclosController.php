@@ -19,17 +19,6 @@ class CiclosController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        
-        return view('orla.admin.ciclos.create');
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -42,16 +31,6 @@ class CiclosController extends Controller
         return redirect()->route('ciclos.index');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Ciclo  $ciclo
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Ciclo $ciclo)
-    {
-        //
-    }
 
     /**
      * Show the form for editing the specified resource.
@@ -59,9 +38,10 @@ class CiclosController extends Controller
      * @param  \App\Models\Ciclo  $ciclo
      * @return \Illuminate\Http\Response
      */
-    public function edit(Ciclo $ciclo)
+    public function edit($id)
     {
-        //
+        $ciclo = Ciclo::all()->find($id);
+        return view('orla.admin.ciclos.edit', compact('ciclo', $ciclo));
     }
 
     /**
@@ -71,9 +51,20 @@ class CiclosController extends Controller
      * @param  \App\Models\Ciclo  $ciclo
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Ciclo $ciclo)
-    {
-        //
+    public function update(Request $request, $id)
+    { 
+        // Valida el campo nombre  
+        $request->validate([
+            'nombre' => 'required'
+        ]);
+
+        $ciclo = Ciclo::all()->find($id);
+        if($ciclo != null){
+            $data = $request->all();
+            $ciclo->update($data);
+            return redirect()->route('ciclos.index')->with('mensaje', 'Actualizado correctamente');
+        }
+
     }
 
     /**
@@ -82,8 +73,10 @@ class CiclosController extends Controller
      * @param  \App\Models\Ciclo  $ciclo
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Ciclo $ciclo)
+    public function destroy($id)
     {
-        //
+        $ciclo = Ciclo::all()->find($id);
+        Ciclo::all()->find($id)->delete();
+        return redirect()->route('ciclos.index');
     }
 }

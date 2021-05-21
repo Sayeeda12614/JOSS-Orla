@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Ciclo;
 use App\Models\Curso;
 use Illuminate\Http\Request;
 
@@ -17,7 +18,6 @@ class CursosController extends Controller
         $cursos = Curso::all();
         return view('orla.admin.cursos.index',compact('cursos',$cursos));
     }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -58,9 +58,12 @@ class CursosController extends Controller
      * @param  \App\Models\Curso  $curso
      * @return \Illuminate\Http\Response
      */
-    public function edit(Curso $curso)
+    public function edit($id)
     {
-        //
+        $curso = Curso::all()->find($id);
+        return view('orla.admin.cursos.edit', compact('curso', $curso));
+
+
     }
 
     /**
@@ -70,9 +73,20 @@ class CursosController extends Controller
      * @param  \App\Models\Curso  $curso
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Curso $curso)
+    public function update(Request $request, $id)
     {
-        //
+        $curso = Curso::all()->find($id);
+        if($curso != null){
+            $data = $request->all();
+            $curso->update($data);
+            return redirect()->route('ciclos.index');
+        }
+        // else{
+        //     //poner mensaje de error 
+        //     return redirect()->route('cursos.index');
+        // }
+        
+        
     }
 
     /**
@@ -81,8 +95,10 @@ class CursosController extends Controller
      * @param  \App\Models\Curso  $curso
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Curso $curso)
+    public function destroy($id)
     {
-        //
+        $curso = Curso::all()->find($id);
+        Curso::all()->find($id)->delete();
+        return redirect()->route('cursos.index');
     }
 }

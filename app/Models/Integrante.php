@@ -21,6 +21,7 @@ class Integrante extends Model
         'ciclo',
         'curso'   
     ];
+    
     public function ciclos(){
         return $this->belongsTo(Ciclo::class, "ciclo", "id");
     }
