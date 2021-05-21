@@ -1981,23 +1981,24 @@ Vue.config.productionTip = false;
     orla: function orla() {
       var _this = this;
 
-      if (this.CicloSeleccionado != "" && this.CursoSeleccionado != "") {
-        this.mostrarOrla = this.arrayIntegrantes.filter(function (integrante) {
-          return integrante.ciclo.id === _this.CicloSeleccionado && integrante.curso.id === _this.CursoSeleccionado;
-        });
-      } else {
+      if (this.CicloSeleccionado == "" && this.CursoSeleccionado == "") {
+        //   this.mostrarOrla = this.arrayIntegrantes.filter(
+        //     (integrante) =>
+        //       integrante.ciclo.id === this.CicloSeleccionado &&
+        //       integrante.curso.id === this.CursoSeleccionado
+        //   );
+        // }else {
         console.log("No hay nada seleccionada, ciclo:" + this.CicloSeleccionado + " y curso:" + this.CursoSeleccionado); // for (let i = 0; i < this.arrayCursos.length; i++) {
         //   var element = this.arrayCursos[i];
         //   this.CursoSeleccionado = element;
         //   console.log("actual curso "+this.CursoSeleccionado);
         // }
-        // this.CursoSeleccionado = 1;
-        // this.CicloSeleccionado = 1;
-        // this.mostrarOrla = this.arrayIntegrantes.filter(
-        //   (integrante) =>
-        //     integrante.ciclo.id === this.CicloSeleccionado &&
-        //     integrante.curso.id === this.CursoSeleccionado
-        // );
+
+        this.CursoSeleccionado = 1;
+        this.CicloSeleccionado = 1;
+        this.mostrarOrla = this.arrayIntegrantes.filter(function (integrante) {
+          return integrante.ciclo.id === _this.CicloSeleccionado && integrante.curso.id === _this.CursoSeleccionado;
+        });
       }
     },
     ciclo: function ciclo() {
@@ -2012,33 +2013,28 @@ Vue.config.productionTip = false;
     }
   },
   watch: {
-    CursoSeleccionado: function CursoSeleccionado() {
-      var _this2 = this;
-
-      // if (this.CursoSeleccionado != "") {
-      //   console.log("curso id: " + this.CursoSeleccionado);
-      //   this.mostrarOrla = this.arrayIntegrantes.filter(
-      //     (integrante) => integrante.curso.id === this.CursoSeleccionado
-      //   );
-      // }
-      if (this.CicloSeleccionado != "" && this.CursoSeleccionado != "") {
-        this.mostrarOrla = this.arrayIntegrantes.filter(function (integrante) {
-          return integrante.ciclo.id === _this2.CicloSeleccionado && integrante.curso.id === _this2.CursoSeleccionado;
-        });
-      } else {
-        console.log("No hay curso seleccionado");
-      }
-    },
     CicloSeleccionado: function CicloSeleccionado() {
-      var _this3 = this;
+      var _this2 = this;
 
       if (this.CicloSeleccionado != "") {
         console.log("ciclo id: " + this.CicloSeleccionado);
         this.mostrarOrla = this.arrayIntegrantes.filter(function (integrante) {
-          return integrante.ciclo.id === _this3.CicloSeleccionado;
+          return integrante.ciclo.id === _this2.CicloSeleccionado && integrante.curso.id === _this2.CursoSeleccionado;
         });
       } else {
         console.log("No hay ciclo seleccionado");
+      }
+    },
+    CursoSeleccionado: function CursoSeleccionado() {
+      var _this3 = this;
+
+      if (this.CicloSeleccionado != "") {
+        console.log("curso id: " + this.CursoSeleccionado);
+        this.mostrarOrla = this.arrayIntegrantes.filter(function (integrante) {
+          return integrante.ciclo.id === _this3.CicloSeleccionado && integrante.curso.id === _this3.CursoSeleccionado;
+        });
+      } else {
+        console.log("No hay curso seleccionado");
       }
     }
   },
