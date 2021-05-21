@@ -6,12 +6,14 @@
       <div class="d-flex justify-content-between cabecera rounded">
         <section class="m-2">
           <select v-model="CicloSeleccionado" @change="ciclo" id="ciclos" class="rounded">
+            <option value="" disabled>Selecciona un ciclo</option>
             <option v-for="ciclo in arrayCiclos" v-bind:value="ciclo.id" :key="ciclo.id">
               {{ ciclo.nombre }}
             </option>
           </select>
 
           <select v-model="CursoSeleccionado" @change="curso" id="cursos" class="rounded">
+            <option value="" disabled>Selecciona un curso</option>
             <option v-for="curso in arrayCursos" v-bind:value="curso.id" :key="curso.id">
               {{ curso.anio }}
             </option>
@@ -25,7 +27,7 @@
           <h2 class="">{{ CicloRecogido }}</h2>
           <h3 class="">{{ CursoRecogido }}</h3>
         </div>
-          <div class="container">
+          <div class="container" id="integrantes">
             <div class="row">
               <div class="col-12">
                 <div class="row">
@@ -98,37 +100,22 @@ export default {
       });
     },
     orla() {
-      if (this.CicloSeleccionado == "" && this.CursoSeleccionado == "") {
-      //   this.mostrarOrla = this.arrayIntegrantes.filter(
-      //     (integrante) =>
-      //       integrante.ciclo.id === this.CicloSeleccionado &&
-      //       integrante.curso.id === this.CursoSeleccionado
-      //   );
-      // }else {
-        console.log("No hay nada seleccionada, ciclo:"+this.CicloSeleccionado+" y curso:" +this.CursoSeleccionado);
-        // for (let i = 0; i < this.arrayCursos.length; i++) {
-        //   var element = this.arrayCursos[i];
-        //   this.CursoSeleccionado = element;
-        //   console.log("actual curso "+this.CursoSeleccionado);
-        // }
-        this.CursoSeleccionado = 1;
-        this.CicloSeleccionado = 1;
-        this.mostrarOrla = this.arrayIntegrantes.filter(
-          (integrante) =>
-            integrante.ciclo.id === this.CicloSeleccionado &&
-            integrante.curso.id === this.CursoSeleccionado
-        );
+      if (this.CicloSeleccionado == "" && this.CursoSeleccionado == ""){
+        document.getElementById("integrantes").style.display = "none";
+        console.log("nada");
       }
     },
     ciclo() {
       var combo = document.getElementById("ciclos");
       var selected = combo.options[combo.selectedIndex].text;
       this.CicloRecogido = selected;
+      document.getElementById("integrantes").style.display = "block";
     },
     curso() {
       var combo = document.getElementById("cursos");
       var selected = combo.options[combo.selectedIndex].text;
       this.CursoRecogido = selected;
+      document.getElementById("integrantes").style.display = "block";
     },
   },
   watch: {
