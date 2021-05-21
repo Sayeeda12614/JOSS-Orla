@@ -68,9 +68,9 @@ export default {
       mostrarOrla: [],
       arrayCiclos: [],
       arrayCursos: [],
-      CicloSeleccionado: 1,
+      CicloSeleccionado: "",
       CicloRecogido: "Ningun Ciclo seleccionado",
-      CursoSeleccionado: 1,
+      CursoSeleccionado: "",
       CursoRecogido: "Ningun Curso seleccionado",
     };
   },
@@ -102,15 +102,22 @@ export default {
         this.mostrarOrla = this.arrayIntegrantes.filter(
           (integrante) =>
             integrante.ciclo.id === this.CicloSeleccionado &&
-            integrante.ciclo.id === this.CicloSeleccionado
+            integrante.curso.id === this.CursoSeleccionado
         );
-      } else {
+      }else {
         console.log("No hay nada seleccionada, ciclo:"+this.CicloSeleccionado+" y curso:" +this.CursoSeleccionado);
-        for (let i = 0; i < this.arrayCursos.length; i++) {
-          var element = this.arrayCursos[i];
-          this.CursoSeleccionado = element;
-          console.log("actual curso "+this.CursoSeleccionado);
-        }
+        // for (let i = 0; i < this.arrayCursos.length; i++) {
+        //   var element = this.arrayCursos[i];
+        //   this.CursoSeleccionado = element;
+        //   console.log("actual curso "+this.CursoSeleccionado);
+        // }
+        // this.CursoSeleccionado = 1;
+        // this.CicloSeleccionado = 1;
+        // this.mostrarOrla = this.arrayIntegrantes.filter(
+        //   (integrante) =>
+        //     integrante.ciclo.id === this.CicloSeleccionado &&
+        //     integrante.curso.id === this.CursoSeleccionado
+        // );
       }
     },
     ciclo() {
@@ -126,10 +133,17 @@ export default {
   },
   watch: {
     CursoSeleccionado: function () {
-      if (this.CursoSeleccionado != "") {
-        console.log("curso id: " + this.CursoSeleccionado);
+      // if (this.CursoSeleccionado != "") {
+      //   console.log("curso id: " + this.CursoSeleccionado);
+      //   this.mostrarOrla = this.arrayIntegrantes.filter(
+      //     (integrante) => integrante.curso.id === this.CursoSeleccionado
+      //   );
+      // }
+      if (this.CicloSeleccionado != "" && this.CursoSeleccionado != "") {
         this.mostrarOrla = this.arrayIntegrantes.filter(
-          (integrante) => integrante.curso.id === this.CursoSeleccionado
+          (integrante) =>
+            integrante.ciclo.id === this.CicloSeleccionado &&
+            integrante.curso.id === this.CursoSeleccionado
         );
       } else {
         console.log("No hay curso seleccionado");
