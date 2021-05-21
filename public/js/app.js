@@ -1941,19 +1941,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 Vue.config.productionTip = false;
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
@@ -1962,9 +1949,9 @@ Vue.config.productionTip = false;
       mostrarOrla: [],
       arrayCiclos: [],
       arrayCursos: [],
-      CicloSeleccionado: "",
+      CicloSeleccionado: 1,
       CicloRecogido: "Ningun Ciclo seleccionado",
-      CursoSeleccionado: "",
+      CursoSeleccionado: 1,
       CursoRecogido: "Ningun Curso seleccionado"
     };
   },
@@ -1995,12 +1982,17 @@ Vue.config.productionTip = false;
       var _this = this;
 
       if (this.CicloSeleccionado != "" && this.CursoSeleccionado != "") {
-        console.log("El curso seleccionado" + this.CursoSeleccionado + " y Ciclo " + this.CicloSeleccionado);
         this.mostrarOrla = this.arrayIntegrantes.filter(function (integrante) {
           return integrante.ciclo.id === _this.CicloSeleccionado && integrante.ciclo.id === _this.CicloSeleccionado;
         });
       } else {
-        console.log("No hay nada seleccionada" + this.CicloSeleccionado + " y " + this.CursoSeleccionado);
+        console.log("No hay nada seleccionada, ciclo:" + this.CicloSeleccionado + " y curso:" + this.CursoSeleccionado);
+
+        for (var i = 0; i < this.arrayCursos.length; i++) {
+          var element = this.arrayCursos[i];
+          this.CursoSeleccionado = element;
+          console.log("actual curso " + this.CursoSeleccionado);
+        }
       }
     },
     ciclo: function ciclo() {
@@ -6590,7 +6582,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.cabecera {\r\n  background-color: rgba(15, 15, 15, 0.596);\n}\nselect {\r\n  background-color: rgb(36, 143, 250);\n}\n.select-selected {\r\n  background-color: DodgerBlue;\n}\n.col-xs-1-10 {\r\n  /* position: relative; */\r\n  min-height: 1px;\n}\n.col-xs-1-10 {\r\n  width: 10%;\r\n  float: left;\n}\n@media print{\n@page {\r\n    size: landscape\n}\nbody * {\r\n      visibility: hidden;\r\n      margin:0; padding:0;\n}\n.LaOrla * { \r\n      visibility: visible;\n}\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.cabecera {\r\n  background-color: rgba(15, 15, 15, 0.596);\n}\nselect {\r\n  background-color: white;\n}\n.select-selected {\r\n  background-color: DodgerBlue;\n}\n.col-xs-1-10 {\r\n  /* position: relative; */\r\n  min-height: 1px;\n}\n.col-xs-1-10 {\r\n  width: 10%;\r\n  float: left;\n}\n@media print{\n@page {\r\n    size: landscape\n}\nbody * {\r\n      visibility: hidden;\r\n      margin:0; padding:0;\n}\n.LaOrla * { \r\n      visibility: visible;\n}\n.LaOrla { \r\n      background-color: white;\n}\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -38180,11 +38172,7 @@ var render = function() {
               _vm._l(_vm.arrayCiclos, function(ciclo) {
                 return _c(
                   "option",
-                  {
-                    key: ciclo.id,
-                    attrs: { selected: "" },
-                    domProps: { value: ciclo.id }
-                  },
+                  { key: ciclo.id, domProps: { value: ciclo.id } },
                   [
                     _vm._v(
                       "\n            " + _vm._s(ciclo.nombre) + "\n          "
@@ -38260,94 +38248,99 @@ var render = function() {
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "container" }, [
-            _c(
-              "div",
-              { staticClass: "row" },
-              _vm._l(_vm.mostrarOrla, function(integrante) {
-                return _c(
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-12" }, [
+                _c(
                   "div",
-                  { key: integrante.id, staticClass: "col-xs-1-10" },
-                  [
-                    integrante.tipo === "profesor"
-                      ? _c("div", { staticClass: "text-center" }, [
-                          _c("img", {
-                            staticStyle: {
-                              width: "100%",
-                              "border-radius": "50%"
-                            },
-                            attrs: {
-                              alt: "foto",
-                              src:
-                                integrante.foto != null &&
-                                integrante.foto !== ""
-                                  ? "assets/Fotos_integrantes/" +
-                                    integrante.foto
-                                  : "assets/Fotos_integrantes/placeholder.png"
-                            }
-                          }),
-                          _vm._v(" "),
-                          _c("div", {}, [
-                            _c("p", {}, [
-                              _vm._v(
-                                _vm._s(integrante.nombre) +
-                                  " " +
-                                  _vm._s(integrante.apellidos)
-                              )
+                  { staticClass: "row" },
+                  _vm._l(_vm.mostrarOrla, function(integrante) {
+                    return _c("div", { key: integrante.id }, [
+                      integrante.tipo === "profesor"
+                        ? _c("div", { staticClass: "text-center p-2" }, [
+                            _c("img", {
+                              staticStyle: {
+                                height: "5rem",
+                                "border-radius": "50%"
+                              },
+                              attrs: {
+                                alt: "foto",
+                                src:
+                                  integrante.foto != null &&
+                                  integrante.foto !== ""
+                                    ? "assets/Fotos_integrantes/" +
+                                      integrante.foto
+                                    : "assets/Fotos_integrantes/placeholder.png"
+                              }
+                            }),
+                            _vm._v(" "),
+                            _c("div", {}, [
+                              _c("p", {}, [
+                                _vm._v(
+                                  _vm._s(integrante.nombre) +
+                                    " " +
+                                    _vm._s(integrante.apellidos)
+                                )
+                              ])
                             ])
                           ])
-                        ])
-                      : _vm._e()
-                  ]
+                        : _vm._e()
+                    ])
+                  }),
+                  0
                 )
-              }),
-              0
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "row" },
-              _vm._l(_vm.mostrarOrla, function(integrante) {
-                return _c(
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-12" }, [
+                _c(
                   "div",
-                  { key: integrante.id, staticClass: "col-xs-1-10 p-2" },
-                  [
-                    integrante.tipo === "alumno"
-                      ? _c("div", { staticClass: "text-center" }, [
-                          _c("img", {
-                            staticStyle: {
-                              width: "100%",
-                              "border-radius": "50%"
-                            },
-                            attrs: {
-                              alt: "foto",
-                              src:
-                                integrante.foto != null &&
-                                integrante.foto !== ""
-                                  ? "assets/Fotos_integrantes/" +
-                                    integrante.foto
-                                  : "assets/Fotos_integrantes/placeholder.png"
-                            }
-                          }),
-                          _vm._v(" "),
-                          _c("div", {}, [
-                            _c("p", {}, [
-                              _vm._v(
-                                _vm._s(integrante.nombre) +
-                                  " " +
-                                  _vm._s(integrante.apellidos)
-                              )
+                  { staticClass: "row" },
+                  _vm._l(_vm.mostrarOrla, function(integrante) {
+                    return _c("div", { key: integrante.id }, [
+                      integrante.tipo === "alumno"
+                        ? _c("div", { staticClass: "text-center p-2" }, [
+                            _c("img", {
+                              staticStyle: {
+                                height: "5rem",
+                                "border-radius": "50%"
+                              },
+                              attrs: {
+                                alt: "foto",
+                                src:
+                                  integrante.foto != null &&
+                                  integrante.foto !== ""
+                                    ? "assets/Fotos_integrantes/" +
+                                      integrante.foto
+                                    : "assets/Fotos_integrantes/placeholder.png"
+                              }
+                            }),
+                            _vm._v(" "),
+                            _c("div", {}, [
+                              _c("p", {}, [
+                                _vm._v(
+                                  _vm._s(integrante.nombre) +
+                                    " " +
+                                    _vm._s(integrante.apellidos)
+                                )
+                              ])
                             ])
                           ])
-                        ])
-                      : _vm._e()
-                  ]
+                        : _vm._e()
+                    ])
+                  }),
+                  0
                 )
-              }),
-              0
-            )
+              ])
+            ])
           ]),
           _vm._v(" "),
-          _c("a", { attrs: { href: "#" } }, [_vm._v("CIFP Txurdinaga")])
+          _c(
+            "a",
+            {
+              staticStyle: { position: "absolute", bottom: "0" },
+              attrs: { href: "#" }
+            },
+            [_vm._v("CIFP Txurdinaga")]
+          )
         ]
       )
     ])
