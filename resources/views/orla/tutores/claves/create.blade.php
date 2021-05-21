@@ -39,7 +39,7 @@
                     </div>
                     <div class="col-12">
                         <div class="form-group" style="display:flex; justify-content:center;">
-                            <button type="submit" class="btn btn-success">CREAR</button>
+                            <button type="submit" class="btn btn-success rounded-circle"><i class="fa fa-plus-circle btn_iconos" aria-hidden="true"></i></button>
                         </div>
                     </div>
                 </div>
@@ -50,7 +50,7 @@
                 <form action="{{ route('claves.index') }}" method="GET">
                     @csrf
                     <input type="hidden" name="tutor" value="{{Auth::user()->id}}">
-                    <button type="submit" class="btn btn-primary m-1">Volver</button>
+                    <button type="submit" class="btn btn-warning m-1 rounded-circle"><i class="fa fa-chevron-left btn_iconos" aria-hidden="true"></i></button>
                 </form>  
             </a>
         </div>

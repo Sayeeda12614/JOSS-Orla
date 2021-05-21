@@ -50,7 +50,7 @@ class ClavesController extends Controller
         $data = $request->all();
         Clave::create($data);
         return redirect()->route('home')
-            ->with('success',$data['clave'].' Creada exitoxamente');
+            ->with('success',$data['clave'].' Creada exitoxamente :)');
     }
 
     /**
@@ -92,7 +92,7 @@ class ClavesController extends Controller
             $clave->update($data);
         }
         return redirect()->route('home')
-            ->with('success',$data['clave'].' Modificado exitoxamente');
+            ->with('success',$data['clave'].' Modificado exitoxamente :)');
     }
 
     /**

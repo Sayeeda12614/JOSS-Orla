@@ -2,30 +2,18 @@
 
 @section('content')
 
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
-
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    {{ __('You are logged in!') }}
-                </div>
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-12">
+            @if($message = Session::get('success'))
+            <div class="alert alert-success msj_exito">
+                <p>{{$message}}</p>
             </div>
+            @endif
         </div>
     </div>
 </div>
 
 
-@if($message = Session::get('success'))
-    <div class="alert alert-success mensaje w-50" style="margin:0 auto;">
-        <p style="text-align:center; margin:0 auto;">{{$message}}</p>
-    </div>
-@endif 
+ 
 @endsection

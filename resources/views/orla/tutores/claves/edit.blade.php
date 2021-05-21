@@ -1,8 +1,8 @@
 @extends('layouts.page')
 @section('content')
-<h1 style="margin:0 auto; text-align:center; color:white;">EDITAR LA CLAVE: {{$clave->clave}}</h1>
-    <div class="container">
+    <div class="container mt-5">
         <div class="row fila">
+            <h2>EDITAR LA CLAVE: {{$clave->clave}}</h2>
             <div class="col-12 columna">
                 <form action="{{route('claves.update',$clave->id)}}" method="post">
                 @csrf
@@ -50,7 +50,7 @@
                         </div>
                         <div class="col-12">
                             <div class="form-group" style="display:flex; justify-content:center;">
-                                <button type="submit" class="btn btn-success m-1">Guardar</button>
+                                <button type="submit" class="btn btn-success m-1 rounded-circle"><i class="fa fa-floppy-o btn_iconos" aria-hidden="true"></i></button>
                             </div>
                         </div>
                     </div>
@@ -61,7 +61,7 @@
                     <form action="{{ route('claves.index') }}" method="GET">
                         @csrf
                         <input type="hidden" name="tutor" value="{{Auth::user()->id}}">
-                        <button type="submit" class="btn btn-primary m-1">Volver</button>
+                        <button type="submit" class="btn btn-warning m-1 rounded-circle"><i class="fa fa-chevron-left btn_iconos" aria-hidden="true"></i></button>
                     </form>  
                 </a>
             </div>

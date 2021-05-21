@@ -1,7 +1,7 @@
 @extends('layouts.page')
 @section('content')
-    <div class="container">
-    <marquee behavior="" direction=""><h1 style="text-align:center; margin:0 auto; margin-top:5%; color:white;" >CONTROL DE ACCESO PARA REGISTRARSE</h1></marquee>
+    <div class="container mt-5">
+    <marquee behavior="" direction=""><h1>CONTROL DE ACCESO PARA REGISTRARSE</h1></marquee>
     
         <div class="row fila">
             
@@ -15,12 +15,12 @@
                     <div class="row">
                         <div class="col-6">
                             <div class="form-group" style="display:flex; justify-content:center;">
-                                <a href="{{route('inicio')}}" class="btn btn-primary"><span class="icon-arrow-with-circle-left"></span></a>
+                                <a href="{{route('inicio')}}" class="btn btn-warning"><span class="icon-arrow-with-circle-left btn_iconos"></span></a>
                             </div>
                         </div>
                         <div class="col-6">
                             <div class="form-group" style="display:flex; justify-content:center;">
-                                <button type="submit" class="btn btn-success"><span class="icon-arrow-with-circle-right"></span></button>
+                                <button type="submit" class="btn btn-success"><span class="icon-arrow-with-circle-right btn_iconos"></span></button>
                             </div>
                         </div>
                     </div>

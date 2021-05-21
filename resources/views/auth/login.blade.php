@@ -1,11 +1,11 @@
 @extends('layouts.page')
 
 @section('content')
-<div class="container">
+<div class="container mt-5">
+    <h1>LOGEARSE</h1>
     <div class="row mt-5 justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Logearse</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
@@ -53,8 +53,8 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Entrar
+                                <button type="submit" class="btn btn-success">
+                                <i class="fa fa-sign-in btn_iconos" aria-hidden="true"></i>
                                 </button>
 
                                 @if (Route::has('password.request'))
