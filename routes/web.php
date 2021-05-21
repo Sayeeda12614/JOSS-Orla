@@ -10,6 +10,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ClaveRegistroControler;
 use App\Http\Controllers\AccesoRegistroControler;
 use App\Http\Controllers\UserController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -29,14 +30,14 @@ Route::get('/', function () {
     return view('orla');
 })->name('inicio');
 
-// Auth::routes();
-
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-//Auth::routes();
+Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+
+
+//Rutas para los Usuarios 
+Route::resource('usuarios',UserController::class,["except"=>["destroy","create","store"]]);
 
 //Ruta exclusivamente para el alta de nuevos integrantes
 Route::resource("integrantes",IntegrantesController::class,["except"=>["update","show","delete"]]);
