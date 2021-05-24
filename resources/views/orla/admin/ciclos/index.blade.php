@@ -10,6 +10,11 @@
         </div>
         @endif
 
+        @if($message = Session::get('error'))
+        <div class="alert alert-danger msj_error">
+            <p>{{$message}}</p>
+        </div>
+        @endif 
         {{-- crear un nuevo curso --}}
         <div class="row m-4">
             <div class="col">
@@ -63,10 +68,16 @@
           </button>
         </div>
         <form action="{{route('ciclos.store')}}" method="post">
+            {{-- @error('nombre')
+                <div class="alert alert-danger">
+                    El nombre es obligatorio
+                </div>
+                @enderror --}}
+
         <div class="modal-body">
                 @csrf
                 <label for="">Nombre</label>
-                <input type="text" name="nombre"><br>
+                <input type="text" name="nombre" required><br>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
@@ -76,4 +87,5 @@
       </div>
     </div>
   </div>
+ 
 @endsection

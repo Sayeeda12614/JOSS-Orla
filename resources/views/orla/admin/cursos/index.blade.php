@@ -4,8 +4,8 @@
 <div class="container">
     <div class="row m-4">
         <div class="col">
-            {{-- crear un nuevo curso --}}
-            <a class="btn btn-success" href="{{route('cursos.create')}}">Nuevo curso</a>
+            <a class="btn btn-success" data-toggle="modal" data-target="#nuevoCurso">Nuevo Curso</a>
+            {{-- <a class="btn btn-success" href="{{route('ciclos.create')}}">Nuevo ciclo</a> --}}
         </div>
     </div>
 
@@ -14,7 +14,7 @@
             <table class="table mt-5 table-bordered">
                 <thead class="thead-dark">
                 <tr>
-                    <th>Id</th>
+                    <th>No.</th>
                     <th>Año</th>
                     <th>Última modificación</th>
                     <th>Acciones</th>
@@ -41,6 +41,29 @@
         </div>
     </div>
 </div>
-
+{{--  Modal crear ciclo --}}
+<div class="modal fade" id="nuevoCurso" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal-dialog" role="document">
+    <div class="modal-content">
+    <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Crear curso</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <form action="{{route('cursos.store')}}" method="post">
+    <div class="modal-body">
+            @csrf
+            <label for="">Año</label>
+            <input type="text" name="anio" required><br>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+        <input class="btn btn-success" type="submit" value="AGREGAR">
+    </div>
+</form>
+    </div>
+</div>
+</div>
     {{-- {{$cursos}} --}}
 @endsection

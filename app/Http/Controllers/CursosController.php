@@ -36,9 +36,14 @@ class CursosController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'anio' => 'required'
+        ]);
+
         $data = $request->all();
         Curso::create($data);
-        return redirect()->route('cursos.index');
+        return redirect()->route('ciclos.index')->with('mensaje','Creado correctamente');
+       
     }
 
     /**

@@ -2,7 +2,7 @@
 @section('content')
     {{-- crear un nuevo curso --}}
     
-    <div class="content bg-dark text-white" id="contentEditar">
+    <div class="content bg-dark text-white contentEditar">
         <form class="formEdit" action="{{route('ciclos.update', $ciclo->id)}}" method="POST">
             @csrf
             @method('PUT')

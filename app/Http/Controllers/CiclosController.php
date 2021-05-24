@@ -26,9 +26,23 @@ class CiclosController extends Controller
      */
     public function store(Request $request)
     {
+       /*  $request->validate([
+            'nombre' => 'required'
+        ]); */
+        
+        // $data = $request->all();
+        // if($data['nombre']==""){
+        //     return redirect()->route('ciclos.index')
+        //         ->with('error','Campo requerido');
+
+        // }else{
+        //     Ciclo::create($data);
+        // return redirect()->route('ciclos.index');
+        // }
         $data = $request->all();
         Ciclo::create($data);
-        return redirect()->route('ciclos.index');
+        return redirect()->route('ciclos.index')->with('mensaje','Creado correctamente');
+
     }
 
 
