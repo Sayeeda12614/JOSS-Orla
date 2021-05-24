@@ -14,7 +14,7 @@
             <table class="table mt-5 table-bordered">
                 <thead class="thead-dark">
                 <tr>
-                    <th>Id</th>
+                    <th>No.</th>
                     <th>Año</th>
                     <th>Última modificación</th>
                     <th>Acciones</th>
@@ -55,7 +55,7 @@
     <div class="modal-body">
             @csrf
             <label for="">Año</label>
-            <input type="text" name="anio"><br>
+            <input type="text" name="anio" required><br>
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
