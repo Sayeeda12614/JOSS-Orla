@@ -6,6 +6,12 @@ body{
 button{
     background-color: #d65409;
 }
+h1{
+    margin:0 auto; 
+    text-align:center; 
+    color: white;
+    font-size: 3rem;
+}
 /* contenido de prueba */
 .card-group{
     padding-top: 1%;
@@ -22,6 +28,7 @@ article{
 
 /* Estilos de los div fila y colmuna,  */
 .fila{
+   
     width: 50%;
     margin: 0 auto;
     display: flex;
@@ -32,12 +39,12 @@ article{
     background: white;
     padding: 2%;
     border-radius: 1rem;
-   
-    
 }
 .fila h2{
-    color: red;
+    color: rgb(41, 41, 46);
     font-size: 2.5rem;
+    margin: 0 auto;
+    text-align: center;
 }
 .columna{
     display: flex;
@@ -82,6 +89,7 @@ td{
 th{
     text-align: center;
 }
+label{font-size: 1.5rem;}
 
 /* Estilos generales para mensajes de error y esxito */
 .msj_error, .msj_exito{
@@ -92,5 +100,10 @@ th{
     text-align:center;
      margin:0 auto;
      font-size: 1rem;
+}
+.btn_iconos{
+    font-size:2rem;
+    border-radius: 50%;
+    padding: 0.5rem;
 }
 

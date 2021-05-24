@@ -37,7 +37,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 
 //Rutas para los Usuarios 
-Route::resource('usuarios',UserController::class,["except"=>["destroy","create","store"]]);
+Route::resource('usuarios',UserController::class,["except"=>["index","destroy","create","store"]]);
 
 //Ruta exclusivamente para el alta de nuevos integrantes
 Route::resource("integrantes",IntegrantesController::class,["except"=>["update","show","delete"]]);
