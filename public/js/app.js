@@ -1943,17 +1943,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 Vue.config.productionTip = false;
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
@@ -1992,51 +1981,47 @@ Vue.config.productionTip = false;
       });
     },
     orla: function orla() {
-      var _this = this;
-
-      if (this.CicloSeleccionado != "" && this.CursoSeleccionado != "") {
-        console.log("El curso seleccionado" + this.CursoSeleccionado + " y Ciclo " + this.CicloSeleccionado);
-        this.mostrarOrla = this.arrayIntegrantes.filter(function (integrante) {
-          return integrante.ciclo.id === _this.CicloSeleccionado && integrante.ciclo.id === _this.CicloSeleccionado;
-        });
-      } else {
-        console.log("No hay nada seleccionada" + this.CicloSeleccionado + " y " + this.CursoSeleccionado);
+      if (this.CicloSeleccionado == "" && this.CursoSeleccionado == "") {
+        document.getElementById("integrantes").style.display = "none";
+        console.log("nada");
       }
     },
     ciclo: function ciclo() {
       var combo = document.getElementById("ciclos");
       var selected = combo.options[combo.selectedIndex].text;
       this.CicloRecogido = selected;
+      document.getElementById("integrantes").style.display = "block";
     },
     curso: function curso() {
       var combo = document.getElementById("cursos");
       var selected = combo.options[combo.selectedIndex].text;
       this.CursoRecogido = selected;
+      document.getElementById("integrantes").style.display = "block";
     }
   },
   watch: {
-    CursoSeleccionado: function CursoSeleccionado() {
-      var _this2 = this;
-
-      if (this.CursoSeleccionado != "") {
-        console.log("curso id: " + this.CursoSeleccionado);
-        this.mostrarOrla = this.arrayIntegrantes.filter(function (integrante) {
-          return integrante.curso.id === _this2.CursoSeleccionado;
-        });
-      } else {
-        console.log("No hay curso seleccionado");
-      }
-    },
     CicloSeleccionado: function CicloSeleccionado() {
-      var _this3 = this;
+      var _this = this;
 
       if (this.CicloSeleccionado != "") {
         console.log("ciclo id: " + this.CicloSeleccionado);
         this.mostrarOrla = this.arrayIntegrantes.filter(function (integrante) {
-          return integrante.ciclo.id === _this3.CicloSeleccionado;
+          return integrante.ciclo.id === _this.CicloSeleccionado && integrante.curso.id === _this.CursoSeleccionado;
         });
       } else {
         console.log("No hay ciclo seleccionado");
+      }
+    },
+    CursoSeleccionado: function CursoSeleccionado() {
+      var _this2 = this;
+
+      if (this.CicloSeleccionado != "") {
+        console.log("curso id: " + this.CursoSeleccionado);
+        this.mostrarOrla = this.arrayIntegrantes.filter(function (integrante) {
+          return integrante.ciclo.id === _this2.CicloSeleccionado && integrante.curso.id === _this2.CursoSeleccionado;
+        });
+      } else {
+        console.log("No hay curso seleccionado");
       }
     }
   },
@@ -6590,7 +6575,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.cabecera {\r\n  background-color: rgba(15, 15, 15, 0.596);\n}\nselect {\r\n  background-color: rgb(36, 143, 250);\n}\n.select-selected {\r\n  background-color: DodgerBlue;\n}\n.col-xs-1-10 {\r\n  /* position: relative; */\r\n  min-height: 1px;\n}\n.col-xs-1-10 {\r\n  width: 10%;\r\n  float: left;\n}\n@media print{\n@page {\r\n    size: landscape\n}\nbody * {\r\n      visibility: hidden;\r\n      margin:0; padding:0;\n}\n.LaOrla * { \r\n      visibility: visible;\n}\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.cabecera {\r\n  background-color: rgba(15, 15, 15, 0.596);\n}\nselect {\r\n  background-color: white;\n}\n.select-selected {\r\n  background-color: DodgerBlue;\n}\n.col-xs-1-10 {\r\n  /* position: relative; */\r\n  min-height: 1px;\n}\n.col-xs-1-10 {\r\n  width: 10%;\r\n  float: left;\n}\n@media print{\n@page {\r\n    size: landscape\n}\nbody * {\r\n      visibility: hidden;\r\n      margin:0; padding:0;\n}\n.LaOrla * { \r\n      visibility: visible;\n}\n.LaOrla { \r\n      background-color: white;\n}\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -38177,22 +38162,24 @@ var render = function() {
                   ]
                 }
               },
-              _vm._l(_vm.arrayCiclos, function(ciclo) {
-                return _c(
-                  "option",
-                  {
-                    key: ciclo.id,
-                    attrs: { selected: "" },
-                    domProps: { value: ciclo.id }
-                  },
-                  [
-                    _vm._v(
-                      "\n            " + _vm._s(ciclo.nombre) + "\n          "
-                    )
-                  ]
-                )
-              }),
-              0
+              [
+                _c("option", { attrs: { value: "", disabled: "" } }, [
+                  _vm._v("Selecciona un ciclo")
+                ]),
+                _vm._v(" "),
+                _vm._l(_vm.arrayCiclos, function(ciclo) {
+                  return _c(
+                    "option",
+                    { key: ciclo.id, domProps: { value: ciclo.id } },
+                    [
+                      _vm._v(
+                        "\n            " + _vm._s(ciclo.nombre) + "\n          "
+                      )
+                    ]
+                  )
+                })
+              ],
+              2
             ),
             _vm._v(" "),
             _c(
@@ -38227,18 +38214,24 @@ var render = function() {
                   ]
                 }
               },
-              _vm._l(_vm.arrayCursos, function(curso) {
-                return _c(
-                  "option",
-                  { key: curso.id, domProps: { value: curso.id } },
-                  [
-                    _vm._v(
-                      "\n            " + _vm._s(curso.anio) + "\n          "
-                    )
-                  ]
-                )
-              }),
-              0
+              [
+                _c("option", { attrs: { value: "", disabled: "" } }, [
+                  _vm._v("Selecciona un curso")
+                ]),
+                _vm._v(" "),
+                _vm._l(_vm.arrayCursos, function(curso) {
+                  return _c(
+                    "option",
+                    { key: curso.id, domProps: { value: curso.id } },
+                    [
+                      _vm._v(
+                        "\n            " + _vm._s(curso.anio) + "\n          "
+                      )
+                    ]
+                  )
+                })
+              ],
+              2
             )
           ]),
           _vm._v(" "),
@@ -38259,95 +38252,104 @@ var render = function() {
             _c("h3", {}, [_vm._v(_vm._s(_vm.CursoRecogido))])
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "container" }, [
-            _c(
-              "div",
-              { staticClass: "row" },
-              _vm._l(_vm.mostrarOrla, function(integrante) {
-                return _c(
-                  "div",
-                  { key: integrante.id, staticClass: "col-xs-1-10" },
-                  [
-                    integrante.tipo === "profesor"
-                      ? _c("div", { staticClass: "text-center" }, [
-                          _c("img", {
-                            staticStyle: {
-                              width: "100%",
-                              "border-radius": "50%"
-                            },
-                            attrs: {
-                              alt: "foto",
-                              src:
-                                integrante.foto != null &&
-                                integrante.foto !== ""
-                                  ? "assets/Fotos_integrantes/" +
-                                    integrante.foto
-                                  : "assets/Fotos_integrantes/placeholder.png"
-                            }
-                          }),
-                          _vm._v(" "),
-                          _c("div", {}, [
-                            _c("p", {}, [
-                              _vm._v(
-                                _vm._s(integrante.nombre) +
-                                  " " +
-                                  _vm._s(integrante.apellidos)
-                              )
+          _c(
+            "div",
+            { staticClass: "container", attrs: { id: "integrantes" } },
+            [
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col-12" }, [
+                  _c(
+                    "div",
+                    { staticClass: "row" },
+                    _vm._l(_vm.mostrarOrla, function(integrante) {
+                      return _c("div", { key: integrante.id }, [
+                        integrante.tipo === "profesor"
+                          ? _c("div", { staticClass: "text-center p-2" }, [
+                              _c("img", {
+                                staticStyle: {
+                                  height: "5rem",
+                                  "border-radius": "50%"
+                                },
+                                attrs: {
+                                  alt: "foto",
+                                  src:
+                                    integrante.foto != null &&
+                                    integrante.foto !== ""
+                                      ? "assets/Fotos_integrantes/" +
+                                        integrante.foto
+                                      : "assets/Fotos_integrantes/placeholder.png"
+                                }
+                              }),
+                              _vm._v(" "),
+                              _c("div", {}, [
+                                _c("p", {}, [
+                                  _vm._v(
+                                    _vm._s(integrante.nombre) +
+                                      " " +
+                                      _vm._s(integrante.apellidos)
+                                  )
+                                ])
+                              ])
                             ])
-                          ])
-                        ])
-                      : _vm._e()
-                  ]
-                )
-              }),
-              0
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "row" },
-              _vm._l(_vm.mostrarOrla, function(integrante) {
-                return _c(
-                  "div",
-                  { key: integrante.id, staticClass: "col-xs-1-10 p-2" },
-                  [
-                    integrante.tipo === "alumno"
-                      ? _c("div", { staticClass: "text-center" }, [
-                          _c("img", {
-                            staticStyle: {
-                              width: "100%",
-                              "border-radius": "50%"
-                            },
-                            attrs: {
-                              alt: "foto",
-                              src:
-                                integrante.foto != null &&
-                                integrante.foto !== ""
-                                  ? "assets/Fotos_integrantes/" +
-                                    integrante.foto
-                                  : "assets/Fotos_integrantes/placeholder.png"
-                            }
-                          }),
-                          _vm._v(" "),
-                          _c("div", {}, [
-                            _c("p", {}, [
-                              _vm._v(
-                                _vm._s(integrante.nombre) +
-                                  " " +
-                                  _vm._s(integrante.apellidos)
-                              )
+                          : _vm._e()
+                      ])
+                    }),
+                    0
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-12" }, [
+                  _c(
+                    "div",
+                    { staticClass: "row" },
+                    _vm._l(_vm.mostrarOrla, function(integrante) {
+                      return _c("div", { key: integrante.id }, [
+                        integrante.tipo === "alumno"
+                          ? _c("div", { staticClass: "text-center p-2" }, [
+                              _c("img", {
+                                staticStyle: {
+                                  height: "5rem",
+                                  "border-radius": "50%"
+                                },
+                                attrs: {
+                                  alt: "foto",
+                                  src:
+                                    integrante.foto != null &&
+                                    integrante.foto !== ""
+                                      ? "assets/Fotos_integrantes/" +
+                                        integrante.foto
+                                      : "assets/Fotos_integrantes/placeholder.png"
+                                }
+                              }),
+                              _vm._v(" "),
+                              _c("div", {}, [
+                                _c("p", {}, [
+                                  _vm._v(
+                                    _vm._s(integrante.nombre) +
+                                      " " +
+                                      _vm._s(integrante.apellidos)
+                                  )
+                                ])
+                              ])
                             ])
-                          ])
-                        ])
-                      : _vm._e()
-                  ]
-                )
-              }),
-              0
-            )
-          ]),
+                          : _vm._e()
+                      ])
+                    }),
+                    0
+                  )
+                ])
+              ])
+            ]
+          ),
           _vm._v(" "),
-          _c("a", { attrs: { href: "#" } }, [_vm._v("CIFP Txurdinaga")])
+          _c(
+            "a",
+            {
+              staticStyle: { position: "absolute", bottom: "0" },
+              attrs: { href: "#" }
+            },
+            [_vm._v("CIFP Txurdinaga")]
+          )
         ]
       )
     ])
