@@ -23,8 +23,7 @@ class ClavesController extends Controller
             $claves = Clave::with("cursos","ciclos")->where("tutor",$tutor)->get();
             return view('orla.tutores.claves.index',compact('claves',$claves));
         }
-        
-        
+         
     }
 
     /**
@@ -48,9 +47,25 @@ class ClavesController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-        Clave::create($data);
-        return redirect()->route('home')
-            ->with('success',$data['clave'].' Creada exitoxamente :)');
+
+        $palabra = $request->input('clave');
+        $clave = Clave::all()->where('clave',$palabra);
+
+        foreach($clave as $c){
+            $clave = $c['clave'];
+        }
+
+        if($palabra==$clave){
+            return redirect()->route('home')
+            ->with('error',' Fallo :( la clave debe ser única');
+        }
+
+        if($palabra!=$clave){
+            Clave::create($data);
+            return redirect()->route('home')
+                ->with('success',' ÉXITO :), clave creada :)');
+        }
+          
     }
 
     /**
@@ -106,6 +121,6 @@ class ClavesController extends Controller
         $clave = Clave::all()->find($clave_id);
         Clave::all()->find($clave_id)->delete();
         return redirect()->route('home')
-            ->with('success','La clave: '.$clave['clave'].', ha sido eliminado exitosamente');
+            ->with('success','La clave: '.$clave['clave'].', ha sido eliminado exitosamente :)');
     }
 }

@@ -10,6 +10,11 @@
                 <p>{{$message}}</p>
             </div>
             @endif
+            @if($message = Session::get('error'))
+            <div class="alert alert-danger msj_error">
+                <p>{{$message}}</p>
+            </div>
+            @endif
         </div>
     </div>
 </div>

@@ -1,14 +1,15 @@
 @extends('layouts.page')
 @section('content')
-<h1 style="margin:0 auto; text-align:center; color:white;">CLAVES DE REGISTRO</h1>
+<h1>CLAVES DE REGISTRO</h1>
     @if($message = Session::get('success'))
         <div class="alert alert-success mensaje w-50" style="margin:0 auto;">
             <p style="text-align:center; margin:0 auto;">{{$message}}</p>
         </div>
     @endif 
-    <div class="container">
-        <div class="row mt-5">
+    <div class="container mt-5">
+        <div class="row ">
             <div class="col-12">
+                <a href="{{route('claves_registro.create')}}" class="btn btn-success rounded-circle"><i class="fa fa-plus-circle btn_iconos" aria-hidden="true"></i></a>
                 <table class="table mt-5 table-bordered">
                     <thead class="thead-dark">
                         <tr>
@@ -28,7 +29,6 @@
                                 <form action="{{route('claves_registro.destroy',$clave->id)}}" method="post">
                                     @csrf
                                     @METHOD('DELETE')
-                                    <a href="{{route('claves_registro.edit',$clave->id)}}" class="btn btn-warning"><span class="icon-edit"></span></a>
                                     <button type="submit" class="btn btn-danger"><span class="icon-trash"></span></button>
                                 </form>
                             </td>
@@ -36,7 +36,7 @@
                     @endforeach
                     </tbody>
                 </table>
-                <a href="{{route('claves_registro.create')}}" class="btn btn-success">Crear clave</a>
+               
             </div>
         </div>
     </div>

@@ -1,8 +1,8 @@
 @extends('layouts.page')
 @section('content')
 <h1>MIS CLAVES</h1>
-    <div class="container">
-        <div class="row mt-5">
+    <div class="container mt-5">
+        <div class="row">
             <div class="col-12">
                 <a href="{{route('claves.create')}}" class="btn btn-success rounded-circle"><i class="fa fa-plus-circle btn_iconos" aria-hidden="true"></i></a>
                 <table class="table mt-5 table-bordered">

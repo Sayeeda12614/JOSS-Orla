@@ -62,10 +62,10 @@ class ClaveRegistroControler extends Controller
      * @param  \App\Models\ClaveRegistro  $claveRegistro
      * @return \Illuminate\Http\Response
      */
-    public function edit($clave_id)
+    public function edit()
     {
-        $clave = ClaveRegistro::with("cursos")->where("id",$clave_id)->get()->first();
-        return view('orla.admin.claves_registro.edit',compact("clave",$clave))->with(["clave"=>$clave,"cursos"=>Curso::all()]);
+        
+        return view();
     }
 
     /**
@@ -77,13 +77,10 @@ class ClaveRegistroControler extends Controller
      */
     public function update(Request $request, $clave_id)
     {
-        $clave = ClaveRegistro::all()->find($clave_id);
-        if($clave != null){
-            $data = $request->all();
-            $clave->update($data);
-        }
-        return redirect()->route('claves_registro.index')
-            ->with('success',$data['clave'].' Modificado exitoxamente');
+        
+        
+        return redirect()->route();
+           
     }
 
     /**

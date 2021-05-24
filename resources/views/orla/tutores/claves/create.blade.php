@@ -11,14 +11,14 @@
                     <div class="col-12">
                         <div class="form-group">
                             <label for="">Clave</label>
-                            <input type="text" name="clave" class="form-control">
+                            <input type="text" name="clave" class="form-control" required>
                         </div>
                     </div>
                     <div class="col-12">
                         <div class="form-group">
                         <label for="">Ciclo Formativo</label>
-                        <select name="ciclo" id="" class="form-control">
-                                <option value="#"disabled selected>Seleccione ciclo</option>
+                        <select name="ciclo" id="" class="form-control" required>
+                                <option value=""disabled selected>Seleccione ciclo</option>
                                 @foreach($ciclos as $ciclo)
                                     <option value="{{$ciclo->id}}">{{$ciclo->nombre}}</option>
                                 @endforeach
@@ -28,8 +28,8 @@
                     <div class="col-12">
                         <div class="form-group">
                         <label for="">Curso Escolar</label>
-                        <select name="curso" id="" class="form-control">
-                                <option value="#" disabled selected>Seleccione año</option>
+                        <select name="curso" id="" class="form-control" required>
+                                <option value="" disabled selected>Seleccione año</option>
                                 @foreach($cursos as $curso)
                                     <option value="{{$curso->id}}">{{$curso->anio}}</option>
                                 @endforeach
@@ -39,7 +39,7 @@
                     </div>
                     <div class="col-12">
                         <div class="form-group" style="display:flex; justify-content:center;">
-                            <button type="submit" class="btn btn-success rounded-circle"><i class="fa fa-plus-circle btn_iconos" aria-hidden="true"></i></button>
+                        <button type="submit" class="btn btn-success m-1 rounded-circle"><i class="fa fa-floppy-o btn_iconos" aria-hidden="true"></i></button>
                         </div>
                     </div>
                 </div>

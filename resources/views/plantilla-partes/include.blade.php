@@ -7,8 +7,8 @@
 <!--Plantilla css general-->
 <link href="{{ asset('css/general.css') }}" rel="stylesheet">
 
-<link rel="icon" type="image/vnd.microsoft.icon" href="imagenes/logos/logo_favicon.png">
-<link rel="stylesheet" href="..\css\iconos\style.css">
+<link rel="icon" type="image/vnd.microsoft.icon" href="{{asset('imagenes/logos/logo_favicon.png')}}">
+<link rel="stylesheet" href="{{ asset('css/iconos/style.css') }}">
 
 
 

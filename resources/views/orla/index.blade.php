@@ -9,7 +9,8 @@
                 <form action="{{route('control.store')}}" method="post">
                     @csrf
                     <div class="form-group">
-                        <label for="">Introduzca la clave de tu tutor/a</label><br>
+                        <img src="../imagenes/logos/stop.jpg" style="height:7rem; display:flex; justify-content:center; margin:0 auto;" alt="">
+                        <label for="" style="text-align:center; margin:0 auto; width:100%">Introduzca la clave de tu tutor/a</label><br>
                         <input type="password" name="codigo" class="form-control" placeholder="Clave"><br>
                         
                     </div>

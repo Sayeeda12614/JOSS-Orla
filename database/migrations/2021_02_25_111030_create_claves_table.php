@@ -15,7 +15,7 @@ class CreateClavesTable extends Migration
     {
         Schema::create('claves', function (Blueprint $table) {
             $table->id()->autoIncrement();
-            $table->string('clave');
+            $table->string('clave')->unique();
             $table->unsignedBigInteger('ciclo');
             $table->unsignedBigInteger('curso');
             $table->unsignedBigInteger('tutor');

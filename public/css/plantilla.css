@@ -35,10 +35,11 @@ article{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: auto;
+    height: 100%;
     background: white;
     padding: 2%;
     border-radius: 1rem;
+    
 }
 .fila h2{
     color: rgb(41, 41, 46);
@@ -50,6 +51,7 @@ article{
     display: flex;
     flex-direction: column;
     justify-content: center;
+    height: 100%;
     
 }
 .columna div{

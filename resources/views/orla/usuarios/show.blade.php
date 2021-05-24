@@ -3,6 +3,11 @@
 
 <div class="container mt-5">
     <div class="row fila">
+        @if($message = Session::get('success'))
+            <div class="alert alert-success msj_exito" style="margin:0 auto;">
+                <p>{{$message}}</p>
+            </div>
+        @endif
         <h2>PERFIL DE {{$usuario->name}} {{$usuario->apellidos}}</h2>
         <div class="col-12 columna">
             <div class="form-group imagen">
@@ -29,12 +34,6 @@
                 <a href="{{route('usuarios.edit',Auth::user()->id)}}" class="btn btn-info m-5 rounded-circle"><i class="fa fa-pencil-square-o btn_iconos" aria-hidden="true"></i></a>
             </div>
         </div>
-        
-        @if($message = Session::get('success'))
-                <div class="alert alert-success mensaje w-50" style="margin:0 auto;">
-                    <p style="text-align:center; margin:0 auto;">{{$message}}</p>
-                </div>
-        @endif
     </div>
 </div>
 @endsection
