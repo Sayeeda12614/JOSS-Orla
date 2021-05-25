@@ -10,9 +10,9 @@ class UserController extends Controller
 {
     public function index(){
         //Coger datos de usuarios desde el modelo  user
-        $users = User::all();
+        $users = User::latest()->paginate(7);
         //preparar la vista 
-        return view('orla.admin.usuarios.index',compact('users',$users));
+        return view('orla.admin.usuarios.index')->with('users',$users);
     }
 
     public function edit($id){

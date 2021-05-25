@@ -1,11 +1,11 @@
 @extends('layouts.page')
 @section('content')
-<h1>MIS CLAVES</h1>
     <div class="container mt-5">
+    <h1>MIS CLAVES</h1>
         <div class="row">
             <div class="col-12">
                 <a href="{{route('claves.create')}}" class="btn btn-success rounded-circle"><i class="fa fa-plus-circle btn_iconos" aria-hidden="true"></i></a>
-                <table class="table mt-5 table-bordered">
+                <table class="table mt-5 table-bordered table-hover">
                     <thead class="thead-dark">
                         <tr>
                             <th>CLAVE</th>
@@ -16,7 +16,7 @@
                     </thead>
                     <tbody>
                     @foreach($claves as $clave)
-                        <tr style="background:rgba(0, 0, 0, 0.28);">
+                        <tr>
                             <td>{{$clave->clave}}</td>
                             <td>{{$clave->ciclos->nombre}}</td>
                             <td>{{$clave->cursos->anio}}</td>
@@ -32,12 +32,8 @@
                     @endforeach
                     </tbody>
                 </table>
-                
             </div>
         </div>
     </div>
-  <style>
-   td{color:white; font-size:1.2rem;text-align:center;}
-    th{text-align:center;}
-  </style>
+  
 @endsection

@@ -4,17 +4,16 @@
 <div class="container">
     <div class="row m-4">
         <div class="col">
-            <a class="btn btn-success" data-toggle="modal" data-target="#nuevoCurso">Nuevo Curso</a>
-            {{-- <a class="btn btn-success" href="{{route('ciclos.create')}}">Nuevo ciclo</a> --}}
+            <a class="btn btn-success rounded-circle" data-toggle="modal" data-target="#nuevoCurso"><i class="fa fa-plus-circle btn_iconos" aria-hidden="true"></i></a>
         </div>
     </div>
 
     <div class="row">
         <div class="col-12">
-            <table class="table mt-5 table-bordered">
+            <table class="table mt-5 table-bordered table-hover">
                 <thead class="thead-dark">
                 <tr>
-                    <th>No.</th>
+                    <th>Nº</th>
                     <th>Año</th>
                     <th>Última modificación</th>
                     <th>Acciones</th>
@@ -38,6 +37,13 @@
                     @endforeach  
                 </tbody>  
             </table>
+            <div class="row">
+                <div class="col">
+                    @if($cursos->count())
+                        {{$cursos->links('pagination::bootstrap-4')}}
+                    @endif
+                </div>
+            </div>
         </div>
     </div>
 </div>

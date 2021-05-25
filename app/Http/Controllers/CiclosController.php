@@ -14,8 +14,8 @@ class CiclosController extends Controller
      */
     public function index()
     {
-        $ciclos = Ciclo::all();
-        return view('orla.admin.ciclos.index',compact('ciclos',$ciclos));
+        $ciclos = Ciclo::latest()->paginate(7);
+        return view('orla.admin.ciclos.index')->with('ciclos',$ciclos);
     }
 
     /**

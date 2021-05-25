@@ -1,7 +1,5 @@
 @extends('layouts.page')
 @section('content')
-
-    <h1 style="margin:0 auto; text-align:center; color:white;">MIEMBROS DE MI GRUPO</h1>
     <!-- Mensaje de exito -->
     @if($message = Session::get('success'))
     <div class="alert alert-success msj_exito">
@@ -10,9 +8,10 @@
     @endif 
 
   <div class="container">
+      <h1>MIEMBROS DE MI GRUPO</h1>
         <div class="row mt-5">
             <div class="col-12">
-                <table class="table mt-5 table-bordered">
+                <table class="table mt-5 table-bordered table-hover">
                     <thead class="thead-dark">
                         <tr>
                             <th>FOTO</th>

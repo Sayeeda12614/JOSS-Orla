@@ -63,7 +63,7 @@ class ClavesController extends Controller
         if($palabra!=$clave){
             Clave::create($data);
             return redirect()->route('home')
-                ->with('success',' ÉXITO :), clave creada :)');
+                ->with('success',' ÉXITO :) clave creada ');
         }
           
     }

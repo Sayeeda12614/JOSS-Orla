@@ -15,8 +15,8 @@ class ClaveRegistroControler extends Controller
      */
     public function index()
     {
-        $claves_registro = ClaveRegistro::all();
-        return view('orla.admin.claves_registro.index',compact('claves_registro',$claves_registro));
+        $claves_registro = ClaveRegistro::latest()->paginate(7);
+        return view('orla.admin.claves_registro.index')->with('claves_registro',$claves_registro);
     }
 
     /**
@@ -40,9 +40,23 @@ class ClaveRegistroControler extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-        ClaveRegistro::create($data);
-        return redirect()->route('claves_registro.index')
-        ->with('success',$data['clave'].' Creada exitoxamente');
+        $palabra = $request->input('clave');
+
+        $clave = ClaveRegistro::all()->where('clave',$palabra);
+        foreach($clave as $c){
+            $clave = $c['clave'];
+        }
+
+        if($palabra==$clave){
+            return redirect()->route('claves_registro.index')
+                ->with('error','FALLO :( la clave debe ser única');
+        }
+        if($palabra!=$clave){
+            ClaveRegistro::create($data);
+            return redirect()->route('claves_registro.index')
+            ->with('success',' ÉXITO :) clave creada');
+        }
+       
     }
 
     /**
@@ -79,7 +93,7 @@ class ClaveRegistroControler extends Controller
     {
         
         
-        return redirect()->route();
+        return redirect();
            
     }
 
@@ -94,6 +108,6 @@ class ClaveRegistroControler extends Controller
         $clave = ClaveRegistro::all()->find($clave_id);
         ClaveRegistro::all()->find($clave_id)->delete();
         return redirect()->route('claves_registro.index')
-            ->with('success','La clave: '.$clave['clave'].', ha sido eliminado exitosamente');
+            ->with('success','ÉXITO :) La clave: '.$clave['clave'].', ha sido eliminada');
     }
 }

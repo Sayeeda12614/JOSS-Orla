@@ -15,8 +15,8 @@ class CursosController extends Controller
      */
     public function index()
     {
-        $cursos = Curso::all();
-        return view('orla.admin.cursos.index',compact('cursos',$cursos));
+        $cursos = Curso::latest()->paginate(7);
+        return view('orla.admin.cursos.index')->with('cursos',$cursos);
     }
     /**
      * Show the form for creating a new resource.

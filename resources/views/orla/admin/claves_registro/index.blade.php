@@ -2,15 +2,20 @@
 @section('content')
 <h1>CLAVES DE REGISTRO</h1>
     @if($message = Session::get('success'))
-        <div class="alert alert-success mensaje w-50" style="margin:0 auto;">
-            <p style="text-align:center; margin:0 auto;">{{$message}}</p>
+        <div class="alert alert-success msj_exito">
+            <p>{{$message}}</p>
+        </div>
+    @endif 
+    @if($message = Session::get('error'))
+        <div class="alert alert-danger msj_error">
+            <p>{{$message}}</p>
         </div>
     @endif 
     <div class="container mt-5">
         <div class="row ">
             <div class="col-12">
                 <a href="{{route('claves_registro.create')}}" class="btn btn-success rounded-circle"><i class="fa fa-plus-circle btn_iconos" aria-hidden="true"></i></a>
-                <table class="table mt-5 table-bordered">
+                <table class="table mt-5 table-bordered table-hover">
                     <thead class="thead-dark">
                         <tr>
                             <th>ID</th>
@@ -36,7 +41,13 @@
                     @endforeach
                     </tbody>
                 </table>
-               
+               <div class="row">
+                   <div class="col">
+                       @if($claves_registro->count())
+                            {{$claves_registro->links('pagination::bootstrap-4')}}
+                       @endif
+                   </div>
+               </div>
             </div>
         </div>
     </div>

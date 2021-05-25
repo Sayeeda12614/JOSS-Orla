@@ -18,14 +18,13 @@
         {{-- crear un nuevo curso --}}
         <div class="row m-4">
             <div class="col">
-                <a class="btn btn-success" data-toggle="modal" data-target="#nuevoCiclo">Nuevo ciclo</a>
-                {{-- <a class="btn btn-success" href="{{route('ciclos.create')}}">Nuevo ciclo</a> --}}
+                <a class="btn btn-success rounded-circle" data-toggle="modal" data-target="#nuevoCiclo"><i class="fa fa-plus-circle btn_iconos" aria-hidden="true"></i></a>
             </div>
         </div>
         {{-- Tabla que muestra los ciclos --}}
         <div class="row">
             <div class="col">
-                <table class="table mt-5 table-bordered">
+                <table class="table mt-5 table-bordered table-hover">
                     <thead class="thead-dark">
                     <tr>
                         <th>Id</th>
@@ -52,6 +51,13 @@
                         @endforeach  
                     </tbody>  
                 </table>
+                <div class="row">
+                    <div class="col-12">
+                        @if($ciclos->count())
+                            {{$ciclos->links('pagination::bootstrap-4')}}
+                        @endif
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -81,7 +87,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-          <input class="btn btn-success" type="submit" value="AGREGAR">
+          <button type="submit" class="btn btn-success rounded-circle"><i class="fa fa-floppy-o btn_iconos" aria-hidden="true"></i></button>
         </div>
     </form>
       </div>
