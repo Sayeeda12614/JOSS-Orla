@@ -23,16 +23,18 @@
       </div>
 
       <div class="LaOrla mt-2 text-center" style="background-color:#d65409c9ed;">
-        <div class="border-bottom border-dark rounded">
-          <h2 class="">{{ CicloRecogido }}</h2>
-          <h3 class="">{{ CursoRecogido }}</h3>
+        <div class="">
+          <h1 class="tituloTxurdi">CIFP Txurdinaga LHII</h1>
+          <h2 class="subtituloOrla">{{ CicloRecogido }}</h2>
+          <h3 class="subtituloOrla">{{ CursoRecogido }}</h3>
         </div>
+        <marquee behavior="" direction=""><h1 id="ningunintegrante" class="m-5">ZORIONAK FINALISTAK.</h1></marquee>
           <div class="container" id="integrantes">
             <div class="row">
-              <div class="col-12">
+              <div class="col-12" style="border-bottom: 5px outset #d65409;">
                 <div class="row">
                   <div class="" v-for="integrante in mostrarOrla" :key="integrante.id">
-                      <div v-if="integrante.tipo === 'profesor'" class="text-center p-2">
+                      <div v-if="integrante.tipo === 'profesor'" class="p-2" style="width:6rem;">
                         <img class="" alt="foto" style="height:5rem; border-radius:50%;" v-bind:src=" integrante.foto != null && integrante.foto !== ''? 'assets/Fotos_integrantes/' + integrante.foto: 'assets/Fotos_integrantes/placeholder.png'"/>
                         <div class="">
                           <p class="">{{ integrante.nombre }} {{ integrante.apellidos }}</p>
@@ -44,7 +46,7 @@
               <div class="col-12">
                 <div class="row">
                   <div class="" v-for="integrante in mostrarOrla" :key="integrante.id">
-                      <div v-if="integrante.tipo === 'alumno'" class="text-center p-2">
+                      <div v-if="integrante.tipo === 'alumno'" class="p-2" style="width:6rem;">
                         <img class="" alt="foto" style="height:5rem; border-radius:50%;" v-bind:src=" integrante.foto != null && integrante.foto !== ''? 'assets/Fotos_integrantes/' + integrante.foto: 'assets/Fotos_integrantes/placeholder.png'"/>
                         <div class="">
                           <p class="">{{ integrante.nombre }} {{ integrante.apellidos }}</p>
@@ -55,7 +57,7 @@
               </div>
             </div>
           </div>
-        <a href="#" class="" style="position:absolute; bottom:0;">CIFP Txurdinaga</a>
+          <p style="position:absolute; bottom:0;">@J.O.S.S Tech 2021</p>
       </div>
     </div>
   </div>
@@ -102,6 +104,7 @@ export default {
     orla() {
       if (this.CicloSeleccionado == "" && this.CursoSeleccionado == ""){
         document.getElementById("integrantes").style.display = "none";
+        document.getElementById("ningunintegrante").style.display = "block";
         console.log("nada");
       }
     },
@@ -110,12 +113,14 @@ export default {
       var selected = combo.options[combo.selectedIndex].text;
       this.CicloRecogido = selected;
       document.getElementById("integrantes").style.display = "block";
+      document.getElementById("ningunintegrante").style.display = "none";
     },
     curso() {
       var combo = document.getElementById("cursos");
       var selected = combo.options[combo.selectedIndex].text;
       this.CursoRecogido = selected;
       document.getElementById("integrantes").style.display = "block";
+      document.getElementById("ningunintegrante").style.display = "none";
     },
   },
   watch: {
@@ -163,15 +168,6 @@ select {
 }
 .select-selected {
   background-color: DodgerBlue;
-}
-.col-xs-1-10 {
-  /* position: relative; */
-  min-height: 1px;
-}
-
-.col-xs-1-10 {
-  width: 10%;
-  float: left;
 }
 @media print{
   @page {
