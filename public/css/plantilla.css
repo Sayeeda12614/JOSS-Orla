@@ -1,6 +1,11 @@
+@font-face{
+    font-family: logo;
+    src: url('Fuentes/Bricktown.ttf');
+}
 body{
-    background-image: url("../imagenes/logos/fondo2.jpg");
+    background-image: url("../imagenes/fondo.jpg");
     background-repeat: no-repeat;
+    background-size: cover;
 }
 /* boton de inicio de sesion */
 button{
@@ -11,6 +16,14 @@ h1{
     text-align:center; 
     color: white;
     font-size: 3rem;
+}
+
+.tituloTxurdi {
+    color: #d65409;
+    font-family: logo;
+}
+.subtituloOrla {
+    font-family: logo;
 }
 /* contenido de prueba */
 .card-group{
