@@ -28,7 +28,7 @@
           <h2 class="subtituloOrla">{{ CicloRecogido }}</h2>
           <h3 class="subtituloOrla">{{ CursoRecogido }}</h3>
         </div>
-        <marquee behavior="" direction=""><h1 id="ningunintegrante" class="m-5">ZORIONAK FINALISTAK.</h1></marquee>
+        <marquee behavior="" direction=""><h1 id="ningunintegrante" class="m-5">ZORIONAK FINALISTAK / FELICIDADES FINALISTAS.</h1></marquee>
           <div class="container" id="integrantes">
             <div class="row">
               <div class="col-12" style="border-bottom: 5px outset #d65409;">

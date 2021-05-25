@@ -38269,7 +38269,7 @@ var render = function() {
             _c(
               "h1",
               { staticClass: "m-5", attrs: { id: "ningunintegrante" } },
-              [_vm._v("ZORIONAK FINALISTAK.")]
+              [_vm._v("ZORIONAK FINALISTAK / FELICIDADES FINALISTAS.")]
             )
           ]),
           _vm._v(" "),
