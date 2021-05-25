@@ -38246,7 +38246,7 @@ var render = function() {
           staticStyle: { "background-color": "#d65409c9ed" }
         },
         [
-          _c("div", {}, [
+          _c("div", { staticClass: "border-bottom border-dark rounded" }, [
             _c("h2", {}, [_vm._v(_vm._s(_vm.CicloRecogido))]),
             _vm._v(" "),
             _c("h3", {}, [_vm._v(_vm._s(_vm.CursoRecogido))])

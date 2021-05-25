@@ -23,7 +23,7 @@
       </div>
 
       <div class="LaOrla mt-2 text-center" style="background-color:#d65409c9ed;">
-        <div class="">
+        <div class="border-bottom border-dark rounded">
           <h2 class="">{{ CicloRecogido }}</h2>
           <h3 class="">{{ CursoRecogido }}</h3>
         </div>

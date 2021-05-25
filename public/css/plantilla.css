@@ -1,6 +1,7 @@
 body{
-    background-image: url("../imagenes/logos/fondo2.jpg");
+    background-image: url("../imagenes/fondo.jpg");
     background-repeat: no-repeat;
+    background-size: cover;
 }
 /* boton de inicio de sesion */
 button{
