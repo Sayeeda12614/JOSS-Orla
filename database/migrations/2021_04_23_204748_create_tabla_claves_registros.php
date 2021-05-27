@@ -15,7 +15,7 @@ class CreateTablaClavesRegistros extends Migration
     {
         Schema::create('claves_registro', function (Blueprint $table) {
             $table->id()->autoIncrement();
-            $table->string('clave');
+            $table->string('clave')->unique();
             $table->unsignedBigInteger('curso');
             $table->foreign('curso')->references('id')->on('cursos')->onUpdate("cascade");
             $table->timestamps();
