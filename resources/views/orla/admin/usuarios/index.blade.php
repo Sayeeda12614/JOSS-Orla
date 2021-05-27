@@ -8,7 +8,10 @@
             <table class="table mt-5 table-bordered table-hover">
                 <thead class="thead-dark">
                 <tr>
-                    <th>Usuario</th>
+                    <th>Nombre</th>
+                    <th>Apellidos</th>
+                    <th>Tipo</th>
+                    <th>Email</th>
                     <th>Acción</th>
                 </tr>
                 </thead>
@@ -16,11 +19,14 @@
                     @foreach ($users as $usuario) 
                         <tr>
                             <td>{{$usuario['name']}}</td>
+                            <td>{{$usuario->apellidos}}</td>
+                            <td>{{$usuario->tipo}}</td>
+                            <td>{{$usuario->email}}</td>
                             <td>
                                 <form action="{{route('usuarios.destroy', $usuario->id)}}" method="POST">
                                     @csrf
                                     @method('DELETE')
-                                    <input class="btn bg-danger" type="submit" value="Borrar">
+                                    <button type="submit" class="btn btn-danger"><span class="icon-trash"></span></button>
                                 </form>
                             </td>
                         </tr>

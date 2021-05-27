@@ -32,9 +32,9 @@
                         <input type="text" name="email" class="form-control" value="{{$usuario->email}}" disabled>
                     </div>
 
-                    <div class="form-group boton">
-                        <a href="{{route('usuarios.show',$usuario->id)}}" class="btn btn-warning m-2 rounded-circle"><i class="fa fa-chevron-left btn_iconos" aria-hidden="true"></i></a>
-                        <button type="submit" class="btn btn-success m-2 rounded-circle"><i class="fa fa-floppy-o btn_iconos" aria-hidden="true"></i></button>
+                    <div class="form-group" style="display: flex; justify-content:space-around">
+                        <a href="{{route('usuarios.show',$usuario->id)}}" class="btn btn-secondary"><span class="icon-arrow-with-circle-left btn_iconos"></span></a>
+                        <button type="submit" class="btn btn-success"><i class="fa fa-floppy-o btn_iconos" aria-hidden="true"></i></button>
                     </div> 
                 </div>
             </div>

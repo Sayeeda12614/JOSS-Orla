@@ -52,7 +52,7 @@
 <div class="modal-dialog" role="document">
     <div class="modal-content">
     <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Crear curso</h5>
+        <h3 class="modal-title" id="exampleModalLabel">Crear curso</h3>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
         <span aria-hidden="true">&times;</span>
         </button>
@@ -60,12 +60,14 @@
     <form action="{{route('cursos.store')}}" method="post">
     <div class="modal-body">
             @csrf
-            <label for="">Año</label>
-            <input type="text" name="anio" required><br>
+           <div class="form-group">
+                <label for="">Año</label>
+                <input type="number" name="anio" class="form-control" required><br>
+           </div>
     </div>
     <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-        <input class="btn btn-success" type="submit" value="AGREGAR">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fa fa-window-close btn_iconos" aria-hidden="true"></i></button>
+        <button type="submit" class="btn btn-success"><span class="icon-save btn_iconos"></span></button>
     </div>
 </form>
     </div>

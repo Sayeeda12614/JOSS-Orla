@@ -26,7 +26,7 @@
                     </div>
                     <div class="col-12">
                         <div class="form-group" style="display:flex; justify-content:center;">
-                            <button type="submit" class="btn btn-success rounded-circle"><i class="fa fa-plus-circle btn_iconos" aria-hidden="true"></i></button>
+                            <button type="submit" class="btn btn-success"><span class="icon-save btn_iconos"></span></button>
                         </div>
                     </div>
                 </div>
@@ -34,7 +34,7 @@
         </div>
         <div class="col-12 columna">
             <a href="{{ route('claves_registro.index')}}">
-            <button type="submit" class="btn btn-warning m-1 rounded-circle"><i class="fa fa-chevron-left btn_iconos" aria-hidden="true"></i></button> 
+            <button type="submit" class="btn btn-secondary m-1"><span class="icon-arrow-with-circle-left btn_iconos"></span></button> 
             </a>
         </div> 
     </div>  

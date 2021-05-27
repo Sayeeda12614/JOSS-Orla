@@ -30,6 +30,10 @@ Route::get('/', function () {
     return view('orla');
 })->name('inicio');
 
+Route::get('/desarrolladores', function () {
+    return view('desarrolladores');
+})->name('desarrolladores');
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

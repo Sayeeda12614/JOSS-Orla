@@ -16,7 +16,7 @@
                     <div class="row">
                         <div class="col-6">
                             <div class="form-group" style="display:flex; justify-content:center;">
-                                <a href="{{route('inicio')}}" class="btn btn-warning"><span class="icon-arrow-with-circle-left btn_iconos"></span></a>
+                                <a href="{{route('inicio')}}" class="btn btn-secondary"><span class="icon-arrow-with-circle-left btn_iconos"></span></a>
                             </div>
                         </div>
                         <div class="col-6">

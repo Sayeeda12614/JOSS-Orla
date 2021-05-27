@@ -162,5 +162,29 @@ label{font-size: 1.5rem;}
 .saludo_user h2:hover{
     color: white;
 }
-
+.desarrolladores{
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    height: 25rem;
+     width: 100%; 
+}
+.desarrolladores_col{
+    margin: 0 auto;
+}
+.desar{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.desar p{
+    text-align: center;
+    font-size: 2rem;
+}
+.desar img{
+    height:12.5rem ;
+}
 

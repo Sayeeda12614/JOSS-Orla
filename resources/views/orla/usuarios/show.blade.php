@@ -31,7 +31,7 @@
                 <p class="form-control">{{$usuario->email}}</p>
             </div>
             <div class="form-group boton">
-                <a href="{{route('usuarios.edit',Auth::user()->id)}}" class="btn btn-info m-5 rounded-circle"><i class="fa fa-pencil-square-o btn_iconos" aria-hidden="true"></i></a>
+                <a href="{{route('usuarios.edit',Auth::user()->id)}}" class="btn btn-info m-5"><i class="fa fa-pencil-square-o btn_iconos" aria-hidden="true"></i></a>
             </div>
         </div>
     </div>

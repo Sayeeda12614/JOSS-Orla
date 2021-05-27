@@ -68,9 +68,7 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Crear ciclo</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
+          <h3 class="modal-title" id="exampleModalLabel">Crear ciclo</h3>
           </button>
         </div>
         <form action="{{route('ciclos.store')}}" method="post">
@@ -82,12 +80,14 @@
 
         <div class="modal-body">
                 @csrf
-                <label for="">Nombre</label>
-                <input type="text" name="nombre" required><br>
+                <div class="form-group">
+                    <label for="">Nombre</label>
+                    <input type="text" name="nombre" class="form-control" required><br>
+                </div>     
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-          <button type="submit" class="btn btn-success rounded-circle"><i class="fa fa-floppy-o btn_iconos" aria-hidden="true"></i></button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fa fa-window-close btn_iconos" aria-hidden="true"></i></button>
+          <button type="submit" class="btn btn-success"><span class="icon-save btn_iconos"></span></button>
         </div>
     </form>
       </div>
