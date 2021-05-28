@@ -5,7 +5,9 @@
 body{
     background-image: url("../imagenes/fondo.jpg");
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: 100%;
+    background-position: center;
+    
 }
 /* boton de inicio de sesion */
 button{
@@ -100,6 +102,7 @@ tr{
 td{
     text-align: center;
     color: white;
+    height: 1rem;
 }
 th{
     text-align: center;

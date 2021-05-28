@@ -31,15 +31,15 @@
                 <a href="{{ route('integrantes.index')}}">
                     <form action="{{ route('integrantes.index') }}" method="GET">
                         @csrf
-                        <input type="hidden" name="tutor" value="{{Auth::user()->id}}">
-                        <button type="submit"class="btn btn-default" >Mi grupo</button>
+                        <input type="hidden" name="tutor" id="tutor" value="{{Auth::user()->id}}">
+                        <button type="submit"class="btn btn-default" onclick="capturarTutor()" >Mi grupo</button>
                     </form>  
                 </a>
                 <a href="{{ route('claves.index')}}">
                     <form action="{{ route('claves.index') }}" method="GET">
                         @csrf
-                        <input type="hidden" name="tutor" value="{{Auth::user()->id}}">
-                        <button type="submit" class="btn btn-default" >Mis Claves</button>
+                        <input type="hidden" id="tutor" name="tutor" value="{{Auth::user()->id}}">
+                        <button type="submit" onclick="capturarTutor()" class="btn btn-default" >Mis Claves</button>
                     </form>  
                 </a>
             </div>
@@ -58,6 +58,25 @@
     </div>
 </div>
 
+<script>
+
+function capturarTutor(){
+    var tutor = document.getElementById("tutor").value;
+    localStorage.setItem("tutor",tutor);    
+}
+
+function cargarTutor(){
+
+    var tutor =  JSON.parse(localStorage.getItem("tutor"));
+    var tutorD = []
+    tutorD.push(tutor)
+    alert("hola" , tutorD);
+  
+}
+
+
+cargarTutor();
+</script>
 
  
 @endsection

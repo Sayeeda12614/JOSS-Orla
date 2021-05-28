@@ -5,10 +5,10 @@
             @guest
 
                 @if(Route::has('login') || Route::has('register'))
-                    <div class="col">
+                    <div class="col-8">
                         <a class="navbar-brand" href="{{route('inicio')}}"><img src="{{asset('imagenes/logos/logo_small.png')}}" alt="No disponibles" style="height:3.125rem;"></a>
                     </div>
-                    <div class="col">
+                    <div class="col-4">
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
                         </button>
