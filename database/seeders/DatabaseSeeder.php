@@ -9,7 +9,7 @@ use App\Models\User;
 use App\Models\Ciclo;
 use App\Models\Curso;
 use App\Models\ClaveRegistro;
-//use App\Models\Profesor;
+use App\Models\Clave;
 use App\Models\Integrante;
 use Illuminate\Support\Facades\Hash;
 
@@ -27,7 +27,8 @@ class DatabaseSeeder extends Seeder
         $this->ciclos();
         $this->cursos();
         $this->claves_registro();
-        // $this->profesores();
+        $this->claves();
+        $this->integrantes();
 
     }
     private function usuarios(){
@@ -37,6 +38,13 @@ class DatabaseSeeder extends Seeder
         $admin->password=Hash::make("admin123456");
         $admin->email="admin@gmail.com";
         $admin->save();
+
+        $jon = new User();
+        $jon->name="Jon";
+        $jon->tipo="tutor";
+        $jon->password=Hash::make("jon123456");
+        $jon->email="jon@gmail.com";
+        $jon->save();
     }
     private function ciclos(){
         $ciclo = new Ciclo();
@@ -108,90 +116,47 @@ class DatabaseSeeder extends Seeder
         $clave_reg->clave = "claveadmin";
         $clave_reg->curso = 1;
         $clave_reg->save();
-
     }
-    // private function ciclos(){
-    //     $file = fopen('public/assets/csv/Ciclos.csv', "r");
-    //     $data = array();
-    //     $i = 0;
-    //     while (($filedata = fgetcsv($file, 1000, ";")) !== FALSE) {
-    //         $num = count($filedata );
-    //         // Skip first row (Remove below comment if you want to skip the first row)
-    //         if($i == 0){
-    //             $i++;
-    //             continue;
-    //         }
-    //         for ($c=0; $c < $num; $c++) {
-    //            $data[$i][] = $filedata [$c];
-    //         }
-    //         $i++;
-    //      }
-    //      fclose($file);
-
-    //     // Insert to MySQL database
-    //     foreach($data as $importData){
-    //         $Ciclo = new Ciclo();
-    //         $Ciclo->id=$importData[0];
-    //         $Ciclo->nombre=$importData[1];
-    //         $Ciclo->save();
-    //     }
-    // }
-    // private function cursos(){
-    //     $file = fopen('public/assets/csv/Cursos.csv', "r");
-    //     $data = array();
-    //     $i = 0;
-    //     while (($filedata = fgetcsv($file, 1000, ";")) !== FALSE) {
-    //         $num = count($filedata );
-    //         // Skip first row (Remove below comment if you want to skip the first row)
-    //         if($i == 0){
-    //             $i++;
-    //             continue;
-    //         }
-    //         for ($c=0; $c < $num; $c++) {
-    //            $data[$i][] = $filedata [$c];
-    //         }
-    //         $i++;
-    //      }
-    //      fclose($file);
-
-    //     // Insert to MySQL database
-    //     foreach($data as $importData){
-    //         $Curso = new Curso();
-    //         $Curso->id=$importData[0];
-    //         $Curso->ano=$importData[1];
-    //         $Curso->save();
-    //     }
-    // }
-    // private function profesores(){
-    //     $file = fopen('public/assets/csv/Profesores.csv', "r");
-    //     $data = array();
-    //     $i = 0;
-    //     while (($filedata = fgetcsv($file, 1000, ";")) !== FALSE) {
-    //         $num = count($filedata );
-    //         // Skip first row (Remove below comment if you want to skip the first row)
-    //         if($i == 0){
-    //             $i++;
-    //             continue;
-    //         }
-    //         for ($c=0; $c < $num; $c++) {
-    //            $data[$i][] = $filedata [$c];
-    //         }
-    //         $i++;
-    //      }
-    //      fclose($file);
-
-    //     // Insert to MySQL database
-    //     foreach($data as $importData){
-    //         $Profesor = new Profesor();
-    //         $Profesor->id=$importData[0];
-    //         $Profesor->nombre=$importData[1];
-    //         $Profesor->apellidos=$importData[2];
-    //         $Profesor->foto=$importData[3];
-    //         $Profesor->id_user=$importData[4];
-    //         $Profesor->ciclo=$importData[5];
-    //         $Profesor->curso=$importData[6];
-    //         $Profesor->save();
-    //     }
-    // }
+    function claves() {
+        $clave = new Clave();
+        $clave->clave = "123456";
+        $clave->ciclo = 1;
+        $clave->curso = 1;
+        $clave->tutor = 2;
+        $clave->save();
+    }
+    function integrantes() {
+        $file = fopen('public/assets/csv/integrantes.csv', "r");
+            $data = array();
+            $i = 0;
+            while (($filedata = fgetcsv($file, 1000, ";")) !== FALSE) {
+                $num = count($filedata );
+                // Skip first row (Remove below comment if you want to skip the first row)
+                if($i == 0){
+                    $i++;
+                    continue;
+                }
+                for ($c=0; $c < $num; $c++) {
+                   $data[$i][] = $filedata [$c];
+                }
+                $i++;
+             }
+             fclose($file);
+    
+            // Insert to MySQL database
+            foreach($data as $importData){
+                $integrante = new Integrante();
+                $integrante->id=$importData[0];
+                $integrante->nombre=$importData[1];
+                $integrante->apellidos=$importData[2];
+                $integrante->foto=$importData[3];
+                $integrante->tipo=$importData[4];
+                $integrante->tutor=$importData[5];
+                $integrante->ciclo=$importData[6];
+                $integrante->curso=$importData[7];
+                $integrante->save();
+            }
+    }
+    
 
 }

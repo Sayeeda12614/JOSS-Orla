@@ -57,7 +57,7 @@
               </div>
             </div>
           </div>
-          <p style="position:absolute; bottom:0;">@J.O.S.S Tech 2021</p>
+          <p style="position:relative;"><i class="fa fa-copyright"></i> J.O.S.S Tech 2021</p>
       </div>
     </div>
   </div>
@@ -162,7 +162,9 @@ export default {
 .cabecera {
   background-color: rgba(15, 15, 15, 0.596);
 }
-
+.row{
+  justify-content: center;
+}
 select {
   background-color: white;
 }

@@ -1,0 +1,21 @@
+id;nombre;apellidos;foto;tipo;tutor;ciclo;curso
+1;Jose;Insausti;;profesor;2;1;1
+2;Jon;Salcedo;;profesor;2;1;1
+3;Leire;Urresti;;profesor;2;1;1
+4;Julia;;;profesor;2;1;1
+5;Asier;Oñate;;profesor;2;1;1
+6;Pablo;;;profesor;2;1;1
+7;Jessica;Marroquin;;alumno;2;1;1
+8;Sendoa;Rios;;alumno;2;1;1
+9;Sayeeda Azad;Shirin;;alumno;2;1;1
+10;Ordoño;Ndong;;alumno;2;1;1
+11;David;Chacon;;alumno;2;1;1
+12;Jon Ander;De Castro;;alumno;2;1;1
+13;Erik;Eguskizaga;;alumno;2;1;1
+14;Jon Ander;Aristimuño;;alumno;2;1;1
+15;Unai;Martin;;alumno;2;1;1
+16;Oihane;Arranz;;alumno;2;1;1
+17;Kaiet;Pipo;;alumno;2;1;1
+18;Markel;Miranda;;alumno;2;1;1
+19;Goizane;;;alumno;2;1;1
+20;Steven;;;alumno;2;1;1
