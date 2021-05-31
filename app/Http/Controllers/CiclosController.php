@@ -26,22 +26,11 @@ class CiclosController extends Controller
      */
     public function store(Request $request)
     {
-       /*  $request->validate([
-            'nombre' => 'required'
-        ]); */
-        
-        // $data = $request->all();
-        // if($data['nombre']==""){
-        //     return redirect()->route('ciclos.index')
-        //         ->with('error','Campo requerido');
 
-        // }else{
-        //     Ciclo::create($data);
-        // return redirect()->route('ciclos.index');
-        // }
         $data = $request->all();
         Ciclo::create($data);
-        return redirect()->route('ciclos.index')->with('mensaje','Creado correctamente');
+        return redirect()->route('ciclos.index')
+            ->with('success','ÉXITO :) Ciclo creado');
 
     }
 
@@ -76,7 +65,8 @@ class CiclosController extends Controller
         if($ciclo != null){
             $data = $request->all();
             $ciclo->update($data);
-            return redirect()->route('ciclos.index')->with('mensaje', 'Actualizado correctamente');
+            return redirect()->route('ciclos.index')
+                ->with('success', 'ÉXITO :) '.$ciclo['nombre'].' Modificado');
         }
 
     }
@@ -91,6 +81,7 @@ class CiclosController extends Controller
     {
         $ciclo = Ciclo::all()->find($id);
         Ciclo::all()->find($id)->delete();
-        return redirect()->route('ciclos.index');
+        return redirect()->route('ciclos.index')
+            ->with('success', 'ÉXITO :) '.$ciclo['nombre'].' Eliminado');
     }
 }

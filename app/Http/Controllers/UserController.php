@@ -44,14 +44,15 @@ class UserController extends Controller
         }
 
         return redirect()->route('usuarios.show',$id)
-            ->with('success','Perfil actualizado exitosamente');
+            ->with('success','ÉXITO :) Perfil actualizado');
 
     }
     public function destroy($id)
     {
-        $curso = User::all()->find($id);
+        $user = User::all()->find($id);
         User::all()->find($id)->delete();
-        return redirect()->route('usuarios.index');
+        return redirect()->route('usuarios.index')
+            ->with('success','ÉXITO :) '.$user['name'].' Eliminado');
     }
 }
 

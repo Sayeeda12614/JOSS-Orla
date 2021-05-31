@@ -2,22 +2,20 @@
 @section('content')
 
     <div class="container">
-        {{-- Si se visualiza index después de hacer una modificiación 
-        muestra un mensaje --}}
-        @if (session('mensaje'))
-        <div class="alert alert-success fade show">
-            {{ session('mensaje') }}
-        </div>
-        @endif
-
-        @if($message = Session::get('error'))
-        <div class="alert alert-danger msj_error">
-            <p>{{$message}}</p>
-        </div>
-        @endif 
-        {{-- crear un nuevo curso --}}
         <div class="row m-4">
-            <div class="col">
+            <div class="col-12">
+                @if($message = Session::get('success'))
+                    <div class="alert alert-success msj_exito">
+                        <p>{{$message}}</p>
+                    </div>
+                @endif
+                @if($message = Session::get('error'))
+                    <div class="alert alert-danger msj_error">
+                        <p>{{$message}}</p>
+                    </div>
+                @endif
+            </div>
+            <div class="col-12">
                 <a class="btn btn-success rounded-circle" data-toggle="modal" data-target="#nuevoCiclo"><i class="fa fa-plus-circle btn_iconos" aria-hidden="true"></i></a>
             </div>
         </div>
