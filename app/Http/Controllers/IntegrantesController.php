@@ -16,9 +16,11 @@ class IntegrantesController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {    
+    { 
+           
         if (isset($_GET['tutor'])) 
         {
+            
             $tutor = $_GET['tutor'];
             $integrantes = Integrante::with("cursos","ciclos")->where("tutor", $tutor)->get();
             return view('orla.integrantes.index')->with(['tutor'=> $tutor,'integrantes'=>$integrantes]);

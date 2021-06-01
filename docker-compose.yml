@@ -1,0 +1,47 @@
+version:'3.7'
+services:
+    orla-db:
+        image: mysql:7.4.1
+        enviorement:
+            MYSQL_ROOT_PASSWORD: ""
+            MYSQL_DATABASE: orla
+            MYSQL_USER: root
+            MYSQL_PASSWORD: ""
+        ports:
+           -33069:3306
+        volumes:
+            - ./database/schemas/:/var/lib/mysql
+        networks:
+           orla_prod_net:
+                ipv4_address: 173.16.100.9
+    orla-app:
+        build:
+            context: ./
+            dockerfile: Dockerfile
+        ports:
+            - 8200:80
+        volumes:
+            - ./JOSS-ORLA:/var/www/
+            - ./JOSS-ORLA/public:/var/www/html
+        networks:
+            orla_prod_net:
+                ipv4_address: 173.16.100.10
+        depends_on:
+            - orla-db
+volumes:
+    JOSS-ORLA:
+    database:
+networks:
+    orla_prod_net:
+        driver: bridge
+        ipam:
+            driver: default
+            config:
+                - 
+                    subnet: 173.16.100.0/24
+
+
+
+
+
+
