@@ -54,7 +54,7 @@ class ClaveRegistroControler extends Controller
         if($palabra!=$clave){
             ClaveRegistro::create($data);
             return redirect()->route('claves_registro.index')
-            ->with('success',' ÉXITO :) clave creada');
+            ->with('success',' ÉXITO :) Clave creada');
         }
        
     }
