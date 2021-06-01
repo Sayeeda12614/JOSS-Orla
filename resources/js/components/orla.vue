@@ -137,12 +137,12 @@ export default {
       }
     },
     CursoSeleccionado: function () {
-      if (this.CicloSeleccionado != "") {
+      if (this.CicloSeleccionado) {
         console.log("curso id: " + this.CursoSeleccionado);
         this.mostrarOrla = this.arrayIntegrantes.filter(
           (integrante) =>
-            integrante.ciclo.id === this.CicloSeleccionado &&
-            integrante.curso.id === this.CursoSeleccionado
+           integrante.curso.id === this.CursoSeleccionado &&
+            integrante.ciclo.id === this.CicloSeleccionado 
         );
       } else {
         console.log("No hay curso seleccionado");

@@ -2020,10 +2020,10 @@ Vue.config.productionTip = false;
     CursoSeleccionado: function CursoSeleccionado() {
       var _this2 = this;
 
-      if (this.CicloSeleccionado != "") {
+      if (this.CicloSeleccionado) {
         console.log("curso id: " + this.CursoSeleccionado);
         this.mostrarOrla = this.arrayIntegrantes.filter(function (integrante) {
-          return integrante.ciclo.id === _this2.CicloSeleccionado && integrante.curso.id === _this2.CursoSeleccionado;
+          return integrante.curso.id === _this2.CursoSeleccionado && integrante.ciclo.id === _this2.CicloSeleccionado;
         });
       } else {
         console.log("No hay curso seleccionado");
