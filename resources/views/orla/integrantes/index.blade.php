@@ -13,7 +13,7 @@
         <div class="row mt-5">
             <div class="col-12 scrollable">
                 <table class="table  mt-5 table-bordered table-hover">
-                    <thead class="thead-dark" >
+                    <thead class="thead-dark">
                         <tr>
                             <th>FOTO</th>
                             <th>NOMBRE</th>
