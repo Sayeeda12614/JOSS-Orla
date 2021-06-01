@@ -8,9 +8,9 @@
     </div>
     @endif 
 
-  <div class="container">
-      <h1>MIEMBROS DE MI GRUPO</h1>
-        <div class="row mt-5">
+  <div class="container mt-5">
+      <h1 class="">MIEMBROS DE MI GRUPO</h1>
+        <div class="row mt-2">
             <div class="col-12 scrollable">
                 <table class="table  mt-5 table-bordered table-hover">
                     <thead class="thead-dark">
