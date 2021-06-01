@@ -1,5 +1,6 @@
 @extends('layouts.page')
 @section('content')
+
     <!-- Mensaje de exito -->
     @if($message = Session::get('success'))
     <div class="alert alert-success msj_exito">
@@ -7,11 +8,11 @@
     </div>
     @endif 
 
-  <div class="container">
-      <h1>MIEMBROS DE MI GRUPO</h1>
-        <div class="row mt-5">
-            <div class="col-12">
-                <table class="table mt-5 table-bordered table-hover">
+  <div class="container mt-5">
+      <h1 class="">MIEMBROS DE MI GRUPO</h1>
+        <div class="row mt-2">
+            <div class="col-12 scrollable">
+                <table class="table  mt-5 table-bordered table-hover">
                     <thead class="thead-dark">
                         <tr>
                             <th>FOTO</th>
@@ -48,4 +49,5 @@
             </div>
         </div>
   </div>
+
 @endsection

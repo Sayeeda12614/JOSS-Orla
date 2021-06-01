@@ -23,23 +23,21 @@
         </div>
     </div>
 
-
-
-    <div class="row opciones">
+    <div class="row opciones m-5">
         @if(Auth::user()->tipo=='tutor')
             <div class="col-12  btn_opciones">
                 <a href="{{ route('integrantes.index')}}">
                     <form action="{{ route('integrantes.index') }}" method="GET">
                         @csrf
-                        <input type="hidden" name="tutor" value="{{Auth::user()->id}}">
-                        <button type="submit"class="btn btn-default" >Mi grupo</button>
+                        <input type="hidden" name="tutor" id="tutor" value="{{Auth::user()->id}}">
+                        <button type="submit"class="btn btn-default p-5">Mi grupo</button>
                     </form>  
                 </a>
                 <a href="{{ route('claves.index')}}">
                     <form action="{{ route('claves.index') }}" method="GET">
                         @csrf
-                        <input type="hidden" name="tutor" value="{{Auth::user()->id}}">
-                        <button type="submit" class="btn btn-default" >Mis Claves</button>
+                        <input type="hidden" id="tutor" name="tutor" value="{{Auth::user()->id}}">
+                        <button type="submit" class="btn btn-default p-5" >Mis Claves</button>
                     </form>  
                 </a>
             </div>
@@ -58,6 +56,4 @@
     </div>
 </div>
 
-
- 
 @endsection

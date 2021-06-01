@@ -3,7 +3,14 @@
 
 <div class="container">
     <div class="row m-4">
-        <div class="col">
+        <div class="col-12">
+            @if($message = Session::get('success'))
+                <div class="alert alert-success msj_exito">
+                    <p>{{$message}}</p>
+                </div>
+            @endif
+        </div>
+        <div class="col-12">
             <a class="btn btn-success rounded-circle" data-toggle="modal" data-target="#nuevoCurso"><i class="fa fa-plus-circle btn_iconos" aria-hidden="true"></i></a>
         </div>
     </div>

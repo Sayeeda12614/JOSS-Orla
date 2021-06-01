@@ -9,6 +9,3 @@
 
 <link rel="icon" type="image/vnd.microsoft.icon" href="{{asset('imagenes/logos/logo_favicon.png')}}">
 <link rel="stylesheet" href="{{ asset('css/iconos/style.css') }}">
-
-
-
