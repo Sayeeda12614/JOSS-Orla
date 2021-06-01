@@ -17,17 +17,14 @@
 </head>
 <body>
     <header>
-
-    </header>
-    <nav>
         @include("plantilla-partes.menu")
-    </nav>
-    <main style="width:100%; height: 100%;">
+    </header>
+    <main>
         @yield("content")
     </main>
-    <!-- <footer>
+    <footer>
         @include("plantilla-partes.footer")
-    </footer> -->
+    </footer>
 
     <script src="{{asset('js/app.js')}}"></script>
 </body>

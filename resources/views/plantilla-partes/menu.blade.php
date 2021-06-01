@@ -1,35 +1,29 @@
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="row w-100">
-        <div class="col-9">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark d-flex justify-content-between">
+        <div class="">
             <a class="navbar-brand" href="{{route('inicio')}}"><img src="{{asset('imagenes/logos/logo_small.png')}}" alt="No disponibles" style="width:200px; height: 50px;"></a>
         </div>
-        <div class="col-3">
+        <div class="">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
                     <ul class="navbar-nav ml-auto nav-pills">
-                                
                     <!-- Authentication Links -->
                     @guest
-                    
                         @if (Route::has('login'))
-                            <li class="nav-item">
+                            <li class="nav-item btn">
+                                <a class="nav-link"  href="{{route('control.index')}}">Enviar mis datos</a>
+                            </li>
+                            <li class="nav-item btn">
                                 <a class="nav-link" href="{{ route('login') }}">Iniciar sesión</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link"  href="{{route('control.index')}}">Ir a enviar mis datos</a>
-                            </li>
-                        @endif
-                    
-                        @if (Route::has('register'))
-                            <li class="nav-item">
+                            <li class="nav-item btn">
                                 <a class="nav-link"  href="{{ route('registro.index') }}">Registrarse</a>
                             </li>
                         @endif
-                    @else
+                        @else
                             <li class="nav-item">
                                 <a href="{{route('home')}}" class="nav-link">Administración</a>
                             </li>
@@ -63,5 +57,4 @@
                 </div>
             </div>
         </div>
-    </div>
 </nav>

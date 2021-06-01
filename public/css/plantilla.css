@@ -6,7 +6,12 @@ body{
     background-image: url("../imagenes/fondo.jpg");
     background-repeat: no-repeat;
     background-size: cover;
+    height: 100%;
 }
+footer {
+    padding-top: 10rem;
+ } 
+
 /* boton de inicio de sesion */
 button{
     background-color: #d65409;
@@ -187,4 +192,3 @@ label{font-size: 1.5rem;}
 .desar img{
     height:12.5rem ;
 }
-
