@@ -21,13 +21,14 @@ class Integrante extends Model
         'ciclo',
         'curso'   
     ];
+    
     public function ciclos(){
         return $this->belongsTo(Ciclo::class, "ciclo", "id");
     }
     public function cursos(){
-        return $this->belongsTo(Curso::class, "curso", "id");
+        return $this->belongsTo(Curso::class, "curso","id");
     }
-    public function usuarios(){
+    public function users(){
         return $this->belongsTo(User::class, "tutor", "id");
     }
 }

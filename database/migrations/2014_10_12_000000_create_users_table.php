@@ -17,6 +17,7 @@ class CreateUsersTable extends Migration
             $table->id()->autoIncrement();
             $table->string('name');
             $table->string('apellidos')->nullable();
+            $table->string('foto')->nullable();
             $table->enum('tipo', ['tutor','administrador'])->default('tutor');
             $table->string('password');
             $table->string('email');

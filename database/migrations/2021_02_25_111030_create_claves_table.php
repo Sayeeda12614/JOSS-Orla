@@ -15,13 +15,13 @@ class CreateClavesTable extends Migration
     {
         Schema::create('claves', function (Blueprint $table) {
             $table->id()->autoIncrement();
-            $table->string('clave');
+            $table->string('clave')->unique();
             $table->unsignedBigInteger('ciclo');
             $table->unsignedBigInteger('curso');
             $table->unsignedBigInteger('tutor');
             $table->foreign('ciclo')->references('id')->on('ciclos')->onUpdate("cascade");
             $table->foreign('curso')->references('id')->on('cursos')->onUpdate("cascade");
-            $table->foreign('tutor')->references('id')->on('users')->onUpdate("cascade");
+            $table->foreign('tutor')->references('id')->on('users')->onUpdate("cascade")->onDelete("cascade");
             $table->timestamps();
         });
     }
