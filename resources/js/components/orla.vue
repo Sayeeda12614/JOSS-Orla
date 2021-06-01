@@ -180,10 +180,8 @@ select {
       margin:0; padding:0;
    }
    .LaOrla * { 
+      top: 0;
       visibility: visible;
-   }
-   .LaOrla { 
-      background-color: white;
    }
 }
 </style>
