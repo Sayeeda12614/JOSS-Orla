@@ -1,7 +1,7 @@
 <template>
   <div class="container-fluid">
 
-    <div class="m-2">
+    <div class="mt-2">
 
       <div class="d-flex justify-content-between cabecera rounded">
         <section class="m-2">
@@ -22,7 +22,7 @@
         <button class="btn rounded-circle m-2 btn-warning" onclick="window.print()"><i class="fa fa-print" aria-hidden="true"></i></button>
       </div>
 
-      <div class="LaOrla mt-2 text-center" style="background-color:#d65409c9ed;">
+      <div class="LaOrla text-center" style="background-color:#d65409c9ed;">
         <div class="">
           <h1 class="tituloTxurdi">CIFP Txurdinaga LHII</h1>
           <h2 class="subtituloOrla">{{ CicloRecogido }}</h2>
@@ -177,12 +177,16 @@ select {
   }
   body * {
       visibility: hidden;
-      margin:0; padding:0;
+      margin-top: 0 !important;
+      padding-top: 0 !important;
    }
    .LaOrla * { 
       margin-top: 0 !important;
       padding-top: 0 !important;
       visibility: visible;
+   }
+   header, .cabecera {
+     display: none;
    }
 }
 </style>
