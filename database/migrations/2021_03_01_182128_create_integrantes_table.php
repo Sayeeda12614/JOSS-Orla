@@ -22,7 +22,7 @@ class CreateIntegrantesTable extends Migration
             $table->unsignedBigInteger('tutor')->nullable();
             $table->unsignedBigInteger('ciclo');
             $table->unsignedBigInteger('curso');
-            $table->foreign('tutor')->references('id')->on('users')->onUpdate("cascade")->onDelete("cascade");
+            $table->foreign('tutor')->references('id')->on('users')->onUpdate("cascade");
             $table->foreign('ciclo')->references('id')->on('ciclos')->onUpdate("cascade");
             $table->foreign('curso')->references('id')->on('cursos')->onUpdate("cascade");
             $table->timestamps();

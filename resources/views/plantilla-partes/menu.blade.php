@@ -24,19 +24,18 @@
                             </li>
                         @endif
                         @else
-                            <li class="nav-item">
+                            <li class="nav-item btn">
                                 <a href="{{route('home')}}" class="nav-link">Administración</a>
                             </li>
-                            <li class="nav-item dropdown">
+                            <li class="nav-item dropdown btn">
                                
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             @if(Auth::user()->foto)
-                                <img src="/assets/Fotos_usuarios/{{Auth::user()->foto}}" alt="Foto usuario" style="border-radius:50%; height:4rem;">
+                                <img src="/assets/Fotos_usuarios/{{Auth::user()->foto}}" alt="Foto usuario" style="border-radius:50%; height:3rem; width:3rem">
                             @endif
                             @if(Auth::user()->foto==null || Auth::user()->foto=='')
                                 {{ Auth::user()->name }}
                             @endif
-                            
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
