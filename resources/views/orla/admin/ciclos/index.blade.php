@@ -2,8 +2,9 @@
 @section('content')
 
     <div class="container">
+        <h1>CICLOS FORMATIVOS</h1>
         <div class="row m-4">
-            <div class="col-12">
+            <div class="col-12 ">
                 @if($message = Session::get('success'))
                     <div class="alert alert-success msj_exito">
                         <p>{{$message}}</p>

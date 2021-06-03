@@ -10,7 +10,7 @@ class UserController extends Controller
 {
     public function index(){
         //Coger datos de usuarios desde el modelo  user
-        $users = User::latest()->paginate(7);
+        $users = User::latest()->where('tipo','tutor')->paginate(7);
         //preparar la vista 
         return view('orla.admin.usuarios.index')->with('users',$users);
     }
@@ -49,10 +49,18 @@ class UserController extends Controller
     }
     public function destroy($id)
     {
-        $user = User::all()->find($id);
-        User::all()->find($id)->delete();
-        return redirect()->route('usuarios.index')
-            ->with('success','ÉXITO :) '.$user['name'].' Eliminado');
+        
+        try {
+
+            $user = User::all()->find($id);
+            User::all()->find($id)->delete();
+            return redirect()->route('usuarios.index')
+                ->with('success','ÉXITO :) '.$user['name'].' Eliminado');
+        
+        }catch (\Illuminate\Database\QueryException $e){
+            return redirect()->route('usuarios.index')
+            ->with('error','FALLO :(  No se puede eliminar este usuario');
+        }
     }
 }
 
