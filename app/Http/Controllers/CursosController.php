@@ -15,7 +15,7 @@ class CursosController extends Controller
      */
     public function index()
     {
-        $cursos = Curso::latest()->paginate(7);
+        $cursos = Curso::latest()->orderBy('anio','desc')->paginate(7);
         return view('orla.admin.cursos.index')->with('cursos',$cursos);
     }
     /**

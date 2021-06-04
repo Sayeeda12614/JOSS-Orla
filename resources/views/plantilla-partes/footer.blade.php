@@ -19,7 +19,7 @@
         </div>
 
         <div class="p-2 pt-5 col text-right">
-            <h2 class="tituloTxurdi pb-2">En cooperacion de</h2>
+            <h2 class="tituloTxurdi pb-2">En cooperacion con</h2>
             <a class="" href="https://fptxurdinaga.hezkuntza.net/es/inicio2"><img src="{{asset('imagenes/logos/TxurdinagaLogo.png')}}" alt="No disponibles" style="width:200px; height: 50px;"></a>
             <div class="pt-2">
                 <a href="" class="btn btn-outline-light"><i class="fa fa-facebook" aria-hidden="true"></i></a>
@@ -27,7 +27,7 @@
                 <a href="" class="btn btn-outline-light"><i class="fa fa-instagram" aria-hidden="true"></i></a>
                 <a href="" class="btn btn-outline-light"><i class="fa fa-youtube" aria-hidden="true"></i></a>
             </div>
-            <p class="pt-2">Envia tus datos si eres finalista de CIFP Txurdinaga LHII, para se pueda mostrar en la orla.</p>
+            <p class="pt-2">Envia tus datos si eres finalista de CIFP Txurdinaga LHII, para que se muestren en la orla.</p>
             <a class="btn btn-primary"  href="{{route('control.index')}}">Enviar mis datos</a>
         </div>
     </div>

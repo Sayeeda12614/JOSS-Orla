@@ -10,7 +10,7 @@ class UserController extends Controller
 {
     public function index(){
         //Coger datos de usuarios desde el modelo  user
-        $users = User::latest()->where('tipo','tutor')->paginate(7);
+        $users = User::latest()->where('tipo','tutor')->orderBy('name','asc')->paginate(7);
         //preparar la vista 
         return view('orla.admin.usuarios.index')->with('users',$users);
     }
