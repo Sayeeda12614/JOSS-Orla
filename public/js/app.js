@@ -6580,7 +6580,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.cabecera {\r\n  background-color: rgba(15, 15, 15, 0.596);\n}\n.row{\r\n  justify-content: center;\n}\nselect {\r\n  background-color: white;\n}\n.select-selected {\r\n  background-color: DodgerBlue;\n}\n@media print{\n@page {\r\n    size: landscape\n}\nbody * {\r\n      visibility: hidden;\r\n      margin:0; padding:0;\n}\n.LaOrla * { \r\n      margin-top: 0 !important;\r\n      padding-top: 0 !important;\r\n      visibility: visible;\n}\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.cabecera {\r\n  background-color: rgba(15, 15, 15, 0.596);\n}\n.row{\r\n  justify-content: center;\n}\nselect {\r\n  background-color: white;\n}\n.select-selected {\r\n  background-color: DodgerBlue;\n}\n@media print{\n@page {\r\n    size: landscape\n}\nbody * {\r\n      visibility: hidden;\r\n      margin-top: 0 !important;\r\n      padding-top: 0 !important;\n}\n.LaOrla * { \r\n      margin-top: 0 !important;\r\n      padding-top: 0 !important;\r\n      visibility: visible;\n}\nheader, .cabecera {\r\n     display: none;\n}\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -38129,7 +38129,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container-fluid" }, [
-    _c("div", { staticClass: "m-2" }, [
+    _c("div", { staticClass: "mt-2" }, [
       _c(
         "div",
         { staticClass: "d-flex justify-content-between cabecera rounded" },
@@ -38247,7 +38247,7 @@ var render = function() {
       _c(
         "div",
         {
-          staticClass: "LaOrla mt-2 text-center",
+          staticClass: "LaOrla text-center",
           staticStyle: { "background-color": "#d65409c9ed" }
         },
         [
