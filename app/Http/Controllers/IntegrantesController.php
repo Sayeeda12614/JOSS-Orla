@@ -22,7 +22,7 @@ class IntegrantesController extends Controller
         {
             
             $tutor = $_GET['tutor'];
-            $integrantes = Integrante::with("cursos","ciclos")->where("tutor", $tutor)->get();
+            $integrantes = Integrante::with("cursos","ciclos")->where("tutor", $tutor)->orderBy('nombre','asc')->get();
             return view('orla.integrantes.index')->with(['tutor'=> $tutor,'integrantes'=>$integrantes]);
         }
           

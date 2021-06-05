@@ -14,7 +14,7 @@ class CiclosController extends Controller
      */
     public function index()
     {
-        $ciclos = Ciclo::latest()->paginate(7);
+        $ciclos = Ciclo::latest()->orderBy('nombre','asc')->paginate(7);
         return view('orla.admin.ciclos.index')->with('ciclos',$ciclos);
     }
 

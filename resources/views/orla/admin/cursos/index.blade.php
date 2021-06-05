@@ -2,10 +2,16 @@
 @section('content')
 
 <div class="container">
+    <h1>LISTADO DE CURSOS ESCOLARES</h1>
     <div class="row m-4">
         <div class="col-12">
             @if($message = Session::get('success'))
                 <div class="alert alert-success msj_exito">
+                    <p>{{$message}}</p>
+                </div>
+            @endif
+            @if($message = Session::get('error'))
+                <div class="alert alert-danger msj_error">
                     <p>{{$message}}</p>
                 </div>
             @endif

@@ -2,8 +2,9 @@
 @section('content')
 
     <div class="container">
+        <h1>CICLOS FORMATIVOS</h1>
         <div class="row m-4">
-            <div class="col-12">
+            <div class="col-12 ">
                 @if($message = Session::get('success'))
                     <div class="alert alert-success msj_exito">
                         <p>{{$message}}</p>
@@ -25,7 +26,6 @@
                 <table class="table mt-5 table-bordered table-hover">
                     <thead class="thead-dark">
                     <tr>
-                        <th>Id</th>
                         <th>Nombre Ciclo</th>
                         <th>Última modificación</th>
                         <th>Acciones</th>
@@ -34,7 +34,6 @@
                     <tbody>
                         @foreach ($ciclos as $ciclo)  
                             <tr>
-                                <td>{{$ciclo->id}}</td>
                                 <td>{{$ciclo['nombre']}}</td>
                                 <td>{{$ciclo->updated_at}}</td>
                                 <td>

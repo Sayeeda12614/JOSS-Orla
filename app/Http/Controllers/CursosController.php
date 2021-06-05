@@ -15,7 +15,7 @@ class CursosController extends Controller
      */
     public function index()
     {
-        $cursos = Curso::latest()->paginate(7);
+        $cursos = Curso::latest()->orderBy('anio','desc')->paginate(7);
         return view('orla.admin.cursos.index')->with('cursos',$cursos);
     }
     /**
@@ -41,9 +41,17 @@ class CursosController extends Controller
         ]);
 
         $data = $request->all();
-        Curso::create($data);
-        return redirect()->route('cursos.index')
-            ->with('success','ÉXITO :) Curso creado');
+        
+        if($data['anio']<2000){
+            return redirect()->route('cursos.index')
+            ->with('error','FALLO :( El año debe ser igual o superior a 2000');
+        }
+
+        if($data['anio']>=2000){
+            Curso::create($data);
+            return redirect()->route('cursos.index')
+                ->with('success','ÉXITO :) Curso creado');
+        }
        
     }
 
