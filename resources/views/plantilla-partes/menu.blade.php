@@ -10,7 +10,6 @@
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
                     <ul class="navbar-nav ml-auto nav-pills">
-                    <!-- Authentication Links -->
                     @guest
                         @if (Route::has('login'))
                             <li class="nav-item btn">

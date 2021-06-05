@@ -180,12 +180,18 @@ select {
       margin-top: 0 !important;
       padding-top: 0 !important;
    }
+   body {
+     background-repeat: no-repeat;
+    height: auto;
+    background-position: center;
+    background-size: cover;
+   }
    .LaOrla * { 
       margin-top: 0 !important;
       padding-top: 0 !important;
       visibility: visible;
    }
-   header, .cabecera {
+   header, .cabecera, footer {
      display: none;
    }
 }
