@@ -1,7 +1,7 @@
 <template>
   <div class="container-fluid">
 
-    <div class="m-2">
+    <div class="mt-2">
 
       <div class="d-flex justify-content-between cabecera rounded">
         <section class="m-2">
@@ -22,7 +22,7 @@
         <button class="btn rounded-circle m-2 btn-warning" onclick="window.print()"><i class="fa fa-print" aria-hidden="true"></i></button>
       </div>
 
-      <div class="LaOrla mt-2 text-center" style="background-color:#d65409c9ed;">
+      <div class="LaOrla text-center" style="background-color:#d65409c9ed;">
         <div class="">
           <h1 class="tituloTxurdi">CIFP Txurdinaga LHII</h1>
           <h2 class="subtituloOrla">{{ CicloRecogido }}</h2>
@@ -137,12 +137,12 @@ export default {
       }
     },
     CursoSeleccionado: function () {
-      if (this.CicloSeleccionado != "") {
+      if (this.CicloSeleccionado) {
         console.log("curso id: " + this.CursoSeleccionado);
         this.mostrarOrla = this.arrayIntegrantes.filter(
           (integrante) =>
-            integrante.ciclo.id === this.CicloSeleccionado &&
-            integrante.curso.id === this.CursoSeleccionado
+           integrante.curso.id === this.CursoSeleccionado &&
+            integrante.ciclo.id === this.CicloSeleccionado 
         );
       } else {
         console.log("No hay curso seleccionado");
@@ -177,13 +177,22 @@ select {
   }
   body * {
       visibility: hidden;
-      margin:0; padding:0;
+      margin-top: 0 !important;
+      padding-top: 0 !important;
+   }
+   body {
+     background-repeat: no-repeat;
+    height: auto;
+    background-position: center;
+    background-size: cover;
    }
    .LaOrla * { 
+      margin-top: 0 !important;
+      padding-top: 0 !important;
       visibility: visible;
    }
-   .LaOrla { 
-      background-color: white;
+   header, .cabecera, footer {
+     display: none;
    }
 }
 </style>
