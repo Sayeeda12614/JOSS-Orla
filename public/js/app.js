@@ -38294,13 +38294,14 @@ var render = function() {
                             ? _c(
                                 "div",
                                 {
-                                  staticClass: "p-2",
+                                  staticClass: "p-2 text-center",
                                   staticStyle: { width: "6rem" }
                                 },
                                 [
                                   _c("img", {
                                     staticStyle: {
                                       height: "5rem",
+                                      witdh: "5rem",
                                       "border-radius": "50%"
                                     },
                                     attrs: {
@@ -38343,13 +38344,14 @@ var render = function() {
                           ? _c(
                               "div",
                               {
-                                staticClass: "p-2",
+                                staticClass: "p-2 text-center",
                                 staticStyle: { width: "6rem" }
                               },
                               [
                                 _c("img", {
                                   staticStyle: {
                                     height: "5rem",
+                                    witdh: "5rem",
                                     "border-radius": "50%"
                                   },
                                   attrs: {

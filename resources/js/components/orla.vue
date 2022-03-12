@@ -34,8 +34,8 @@
               <div class="col-12" style="border-bottom: 5px outset #d65409;">
                 <div class="row">
                   <div class="" v-for="integrante in mostrarOrla" :key="integrante.id">
-                      <div v-if="integrante.tipo === 'profesor'" class="p-2" style="width:6rem;">
-                        <img class="" alt="foto" style="height:5rem; border-radius:50%;" v-bind:src=" integrante.foto != null && integrante.foto !== ''? 'assets/Fotos_integrantes/' + integrante.foto: 'assets/Fotos_integrantes/placeholder.png'"/>
+                      <div v-if="integrante.tipo === 'profesor'" class="p-2 text-center" style="width:6rem;">
+                        <img class="" alt="foto" style="height:5rem; witdh:5rem; border-radius:50%;" v-bind:src=" integrante.foto != null && integrante.foto !== ''? 'assets/Fotos_integrantes/' + integrante.foto: 'assets/Fotos_integrantes/placeholder.png'"/>
                         <div class="">
                           <p class="">{{ integrante.nombre }} {{ integrante.apellidos }}</p>
                         </div>
@@ -46,8 +46,8 @@
               <div class="col-12">
                 <div class="row">
                   <div class="" v-for="integrante in mostrarOrla" :key="integrante.id">
-                      <div v-if="integrante.tipo === 'alumno'" class="p-2" style="width:6rem;">
-                        <img class="" alt="foto" style="height:5rem; border-radius:50%;" v-bind:src=" integrante.foto != null && integrante.foto !== ''? 'assets/Fotos_integrantes/' + integrante.foto: 'assets/Fotos_integrantes/placeholder.png'"/>
+                      <div v-if="integrante.tipo === 'alumno'" class="p-2 text-center" style="width:6rem;">
+                        <img class="" alt="foto" style="height:5rem; witdh:5rem; border-radius:50%;" v-bind:src=" integrante.foto != null && integrante.foto !== ''? 'assets/Fotos_integrantes/' + integrante.foto: 'assets/Fotos_integrantes/placeholder.png'"/>
                         <div class="">
                           <p class="">{{ integrante.nombre }} {{ integrante.apellidos }}</p>
                         </div>
